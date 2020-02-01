@@ -2,7 +2,7 @@ import React from "react";
 
 export default function JopProfile() {
   return (
-    <div className="navbar">
+    <div>
       {/* <JobListings />
       <JobOverview />
       <Tools /> */}

@@ -1,0 +1,45 @@
+/* NavBar Section */
+.navbar ul {
+    position: sticky;
+    margin-top: 0;
+    background-color: rgb(205, 205, 241);
+    list-style-type: none;
+    padding: 10px;
+    font-family: "Acme", sans-serif;
+  }
+  .navbar li {
+    display: inline-block;
+    font-weight: bold;
+    margin-right:10px;
+  }
+  .profile-icon svg:hover {
+    cursor: pointer;
+  }
+  
+  .navright{
+      float:right;
+  }
+  .navleft{
+      float:left;
+  }
+  .navleft label:hover{
+    cursor: pointer;
+  }
+
+  .navsearch{
+      margin-left: 20%;
+  }
+  .navsearch input{
+    width: 400px;
+    font-size: x-small;
+    padding: 5px;
+    margin-left: 5px;
+  }
+  .navsearch a{
+    font-size: x-small;
+    text-decoration: underline;
+    padding-left: 10px;
+  }
+  .navsearch a:hover{
+      cursor: pointer;
+  }
