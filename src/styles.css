@@ -1,0 +1,31 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+/* NavBar Section */
+.navbar ul {
+  background-color: rgb(205, 205, 241);
+  list-style-type: none;
+  padding: 10px;
+  font-family: "Acme", sans-serif;
+  display: grid;
+  grid-template-columns: 70px auto auto 80px;
+}
+.navbar li {
+  display: inline-block;
+  margin-right: 10px;
+  font-weight: bold;
+}
+.navbar a {
+  text-decoration: none;
+}
+.navbrand {
+  grid-column: 0/2;
+}
+.profile-icon {
+  grid-column: 4/4;
+}
+.profile-icon svg:hover {
+  cursor: pointer;
+}

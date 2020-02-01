@@ -1,2 +1,0 @@
-# DayInTheLife
-Created with CodeSandbox
