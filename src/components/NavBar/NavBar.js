@@ -2,16 +2,14 @@ import React from "react"
 import NavLeft from './NavLeft'
 import NavRight from './NavRight'
 import NavSearch from './NavSearch'
-import '../../css/Navbar.css'
+import '../../css/NavBar/NavBar.css'
 
 export default function NavBar() {
   return (
     <div className="navbar">
-      <ul>
         <NavLeft />
         <NavSearch />
         <NavRight />
-      </ul>
     </div>
   );
 }

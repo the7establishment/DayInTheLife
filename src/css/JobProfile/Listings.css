@@ -1,0 +1,7 @@
+
+
+.listings {
+    border : 1px solid black;
+    grid-column: 3;
+    grid-row: 1/span 2;
+}

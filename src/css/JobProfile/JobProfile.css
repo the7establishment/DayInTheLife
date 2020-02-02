@@ -1,0 +1,9 @@
+
+
+.jobprofile {
+    grid-row: 2;
+    border : 1px solid black;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 50% 50%;
+}
