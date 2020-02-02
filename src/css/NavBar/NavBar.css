@@ -1,34 +1,47 @@
 /* NavBar Section */
-.navbar ul {
-    position: sticky;
-    margin-top: 0;
-    background-color: rgb(205, 205, 241);
-    list-style-type: none;
-    padding: 10px;
-    font-family: "Acme", sans-serif;
-  }
+.navbar{
+  grid-row: 1;
+  position: sticky;
+  margin: 0; 
+  background-color: #B0C38D;
+  list-style-type: none;
+  font-family: "Acme", sans-serif;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 15% 75% 10%;
+  align-items: center;
+}
+
   .navbar li {
     display: inline-block;
     font-weight: bold;
-    margin-right:10px;
+    margin-right:10px
   }
   .profile-icon svg:hover {
     cursor: pointer;
   }
-  
-  .navright{
-      float:right;
-  }
+
   .navleft{
-      float:left;
+    grid-column: 1;
+    place-self: center;
+}
+  
+.navsearch{
+  grid-column: 2;
+  place-self: center;
+  padding-right: 10%;
+}
+
+  .navright{
+      grid-column: 3;
+      place-self: center;
   }
+
   .navleft label:hover{
     cursor: pointer;
   }
 
-  .navsearch{
-      margin-left: 20%;
-  }
+
   .navsearch input{
     width: 400px;
     font-size: x-small;
