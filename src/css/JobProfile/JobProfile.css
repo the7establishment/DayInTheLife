@@ -1,9 +1,53 @@
-
-
 .jobprofile {
     grid-row: 2;
+    /* border : 1px solid black; */
+    display: grid;
+    margin-top: 30px;
+    grid-template-columns: 15% 65% 15%;
+    grid-column-gap: 10px;
+}
+
+.profile{
+    display: grid;
+    grid-column: 2;
+    grid-template-columns: 80% 20% ;
+    grid-column-gap: 10px;
+}
+
+.profile-left{
+    grid-column: 1;
+    display: grid;
+    grid-template-rows: 80% 20%;
+    grid-row-gap: 10px;
+}
+
+.profile-right{
+    grid-column: 2;
+    display: grid;
+    grid-row-gap: 10px;
+}
+
+.overview {
     border : 1px solid black;
     display: grid;
-    grid-template-columns: 25% 50% 25%;
-    grid-template-rows: 50% 50%;
+    grid-template-columns: 50% 50%;
+    border-radius: 3px;
+}
+
+.dailylifesummaries {
+    border : 1px solid black;
+}
+
+.listings {
+    border : 1px solid black;
+    
+}
+
+.tools {
+    border : 1px solid black;
+    border-radius: 1%;
+}
+
+.qualifications {
+    border : 1px solid black;
 }
