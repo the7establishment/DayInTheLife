@@ -7,47 +7,63 @@
     grid-column-gap: 10px;
 }
 
+.jobprofile div{
+    background-color: #FFFFFF;
+}
+
 .profile{
     display: grid;
     grid-column: 2;
-    grid-template-columns: 80% 20% ;
-    grid-column-gap: 10px;
+    grid-template-columns: 68% 32% ;
+    grid-column-gap: 20px;
 }
 
 .profile-left{
     grid-column: 1;
-    display: grid;
-    grid-template-rows: 80% 20%;
-    grid-row-gap: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .profile-right{
     grid-column: 2;
-    display: grid;
-    grid-row-gap: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .overview {
-    border : 1px solid black;
     display: grid;
     grid-template-columns: 50% 50%;
     border-radius: 3px;
+    height: 400px;
+    box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);
+    border-radius: 5px;
 }
 
 .dailylifesummaries {
-    border : 1px solid black;
-}
-
-.listings {
-    border : 1px solid black;
-    
-}
-
-.tools {
-    border : 1px solid black;
-    border-radius: 1%;
+    margin-top: 20px;
+    box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);
+    border-radius: 5px;
+    height: 1700px;
 }
 
 .qualifications {
-    border : 1px solid black;
+    box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.tools {
+    box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.listings {
+    box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);
+    border-radius: 5px;
+}
+
+.box-shadow {
+    box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);
+    z-index: -1;
 }
