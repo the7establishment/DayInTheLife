@@ -3,7 +3,13 @@ import React from "react";
 export default function Tool() {
   return (
     <div>
-      Tool
+      <ul>
+        <li>Item</li>
+        <li>Item</li>
+        <li>Item</li>
+        <li>Item</li>
+        <li>Item</li>
+      </ul>
     </div>
   );
 }
