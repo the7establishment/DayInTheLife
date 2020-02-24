@@ -5,10 +5,17 @@
     margin-top: 30px;
     grid-template-columns: 15% 65% 15%;
     grid-column-gap: 10px;
+    font-family: 'Lucida Sans';
 }
 
-.jobprofile div{
-    background-color: #FFFFFF;
+.ditl-button{
+    background-color: #23629F;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+    width: 130px;
 }
 
 .profile{
@@ -16,6 +23,15 @@
     grid-column: 2;
     grid-template-columns: 68% 32% ;
     grid-column-gap: 20px;
+}
+
+.profile div div{
+    background-color: #FFFFFF;
+}
+
+.profile h2 {
+    margin: 0;
+    font-weight: 500;
 }
 
 .profile-left{
@@ -30,37 +46,102 @@
     flex-direction: column;
 }
 
+/* JobOverview Section */
 .overview {
-    display: grid;
-    grid-template-columns: 50% 50%;
+    display: block;
     border-radius: 3px;
-    height: 400px;
+    height: fit-content;
     box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);
     border-radius: 5px;
+    padding-left: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
+.overview span {
+    margin-top:18.72px; 
+    padding-left: 10px;
+    padding-right: 80px;
+    word-wrap: break-word;
+}
+
+.jobdescription{
+    display: flex;
+    flex-direction: row;
+}
+
+.statscomponent{
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto;
+    align-items: end;
+}
+.statscomponent span {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.statscomponent img {
+    margin-right: 20px;
+}
+
+.icon{
+    height: 30px;
+}
+
+/* Daily Life Summaries Section */
 .dailylifesummaries {
     margin-top: 20px;
     box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);
     border-radius: 5px;
-    height: 1700px;
+    height: fit-content;
+    padding: 30px;
+    padding-left: 20px;
 }
 
+.summary-header{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.summary-header button{
+    position: relative;
+    top: -5px;
+    left: 250px;
+}
+
+.summary {
+    border-top: 1px solid black;
+    padding: 20px;
+}
+
+/* Qualifications */
 .qualifications {
     box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);
     margin-bottom: 15px;
     border-radius: 5px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 20px;
 }
 
 .tools {
     box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);
     margin-bottom: 15px;
     border-radius: 5px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 20px;
 }
 
+/* Listings Styles */
 .listings {
     box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);
     border-radius: 5px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 20px;
 }
 
 .box-shadow {

@@ -1,15 +1,13 @@
 import React from "react";
 
-export default function Listing() {
+export default function Listing(props) {
+
+
+
   return (
-    <div>
-      <ul>
-        <li>Item</li>
-        <li>Item</li>
-        <li>Item</li>
-        <li>Item</li>
-        <li>Item</li>
-      </ul>
-    </div>
+    <li>
+      {props.listing}
+    </li>
   );
 }
+
