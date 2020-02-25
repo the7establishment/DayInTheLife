@@ -1,12 +1,14 @@
-import React from "react";
-import OverviewLeft from "./OverviewLeft"
-import OverviewRight from "./OverviewRight"
+import React from "react"
+import StatsComponent from './StatsComponent'
+import JobDescription from './JobDescription'
 
 export default function Overview() {
   return (
     <div className="overview">
-      <OverviewLeft/><OverviewRight/>
-
+        <h2>Software Engineer</h2>
+        <hr style={{width:'20px', position: 'absolute', top: '160px'}}/>
+        <StatsComponent />
+        <JobDescription />
     </div>
   );
 }

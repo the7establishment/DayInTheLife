@@ -1,15 +1,10 @@
 import React from "react";
 
-export default function Tool() {
+export default function Tool(props) {
+
   return (
-    <div>
-      <ul>
-        <li>Item</li>
-        <li>Item</li>
-        <li>Item</li>
-        <li>Item</li>
-        <li>Item</li>
-      </ul>
-    </div>
+    <li>
+      {props.tool}
+    </li>
   );
 }
