@@ -5,7 +5,7 @@
     margin-top: 30px;
     grid-template-columns: 15% 65% 15%;
     grid-column-gap: 10px;
-    font-family: 'Lucida Sans';
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .ditl-button{
@@ -46,17 +46,29 @@
     flex-direction: column;
 }
 
-/* JobOverview Section */
+/* Overview Section */
 .overview {
-    display: block;
+    display: grid;
     border-radius: 3px;
     height: fit-content;
     box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);
     border-radius: 5px;
     padding-left: 30px;
-    padding-top: 30px;
+    padding-top: 40px;
     padding-bottom: 30px;
 }
+
+.overview hr{
+    width: 20px;
+    margin-left: 0;
+}
+
+.overview h2 {
+    font-weight: 500;
+    color:#606060;
+    padding-bottom: 10px;
+}
+
 
 .overview span {
     margin-top:18.72px; 
@@ -65,17 +77,26 @@
     word-wrap: break-word;
 }
 
+/* Job Description */
 .jobdescription{
     display: flex;
     flex-direction: row;
 }
+.job-label{
+    color:#7D7D7D;
+}
 
+.job-description{
+    color:#7D7D7D;
+}
+
+/* Stats -Component */
 .statscomponent{
-    padding-top: 20px;
     display: grid;
     grid-template-columns: auto auto auto auto;
     grid-template-rows: auto auto auto;
     align-items: end;
+    padding-bottom: 20px;
 }
 .statscomponent span {
     font-size: 1.5em;
@@ -99,23 +120,89 @@
     padding-left: 20px;
 }
 
-.summary-header{
-    display: flex;
-    align-items: center;
+.dailylife-header{
+    display: grid;
     margin-bottom: 20px;
+    grid-template-columns: auto auto;
 }
 
-.summary-header button{
-    position: relative;
-    top: -5px;
-    left: 250px;
+.dailylife-header button{
+    place-self: end;
 }
 
+/* Summary */
 .summary {
     border-top: 1px solid black;
     padding: 20px;
+    display: grid;
+    grid-template-columns: 100px auto;
+    grid-template-rows: auto auto auto;
+    grid-row-gap: 20px;
 }
 
+.summary-pic{
+    border-radius: 50%;
+    height: 75px;
+    float: left;
+    grid-column: 1;
+}
+
+.summary-name{
+    font-weight: 500;
+    font-size: 15px;
+    color:#7D7D7D;
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    margin-bottom: 10px;
+}
+
+.summary-age{
+    color:#7D7D7D;
+    font-size: 12px;
+    grid-column: 2;
+    grid-row: 1;
+    padding-top: 30px;
+    align-self: center;
+}
+
+.summary-summary{
+    color:#7D7D7D;
+    grid-column: 1 / span 2;
+}
+
+.likes{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    border: 1px solid #23629F;
+    border-radius: 40px;
+}
+
+.likes hr {
+    margin: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.summary-thumbs-up{
+    height: 20px;
+    padding-left: 10px;
+}
+
+.summary-thumbs-down{
+    height: 20px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+
+}
+.report{
+    color: #23629F;
+    font-size: 15px;
+    grid-row: 3;
+    grid-column: 2;
+    place-self: end;
+}
 /* Qualifications */
 .qualifications {
     box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);

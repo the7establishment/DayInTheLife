@@ -6,7 +6,7 @@ export default function Overview() {
   return (
     <div className="overview">
         <h2>Software Engineer</h2>
-        <hr style={{width:'20px', position: 'absolute', top: '160px'}}/>
+        <hr/>
         <StatsComponent />
         <JobDescription />
     </div>
