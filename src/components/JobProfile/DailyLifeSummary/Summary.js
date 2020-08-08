@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function Summary() {
+export default function Summary(props) {
+
   return (
     <div className="summary">
-      <p>Hello everyone! My name is Trang, I'm 27 years old and I'm from Vietnam! I was born in Phu Quoc island, whose beauty should be compared with a paradise I believe, I'm proud to get to say that it is my original hometown, I have been living in Ho Chi Minh city (Saigon city) for almost 9 years now, and with no doubt, I love this city like my second home, it never stops making me feel amazed! I once decided to spend a month to travel around Vietnam when I was 22 since I love traveling! Beside it, I also love making new friends, because when we get to meet and talk to people, the world is naturally brought to us then, through other stories and experiences, I do believe so!</p>
-
-      I am changingchanging
+      {/* Will have to find a good way to store images so we can do this part though props */}
+      <img className="summary-pic" alt="" src={require('../../../resource/profile/profilePicMatthew.jpg')}></img>
+      <label className="summary-name">{props.dailyLife.name}</label>
+      <label className="summary-age">{props.dailyLife.age}</label>
+      <p className="summary-summary">{props.dailyLife.summary}</p>
+      <div className="likes">
+        <img className="summary-thumbs-up" src={require('../../../resource/icons/thumb-up.png')}></img>
+        <hr></hr>
+        <img className="summary-thumbs-down" src={require('../../../resource/icons/thumb-down.png')}></img>
+      </div>
+      <a className="report">Report</a>
     </div>
   );
 }
