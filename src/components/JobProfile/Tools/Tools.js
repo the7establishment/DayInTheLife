@@ -9,7 +9,7 @@ export default function Tools() {
 
   return (
     <div className="tools">
-      <h2>Tool</h2>
+      <h2>Tools</h2>
       <ul>
         {toolList}
       </ul>
