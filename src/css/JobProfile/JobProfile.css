@@ -113,7 +113,6 @@
 /* Daily Life Summaries Section */
 .dailylifesummaries {
     margin-top: 20px;
-    box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);
     border-radius: 5px;
     height: fit-content;
     padding: 30px;
@@ -205,7 +204,6 @@
 }
 /* Qualifications */
 .qualifications {
-    box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);
     margin-bottom: 15px;
     border-radius: 5px;
     padding-top: 30px;
@@ -214,7 +212,6 @@
 }
 
 .tools {
-    box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);
     margin-bottom: 15px;
     border-radius: 5px;
     padding-top: 30px;
@@ -224,14 +221,13 @@
 
 /* Listings Styles */
 .listings {
-    box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);
     border-radius: 5px;
     padding-top: 30px;
     padding-bottom: 30px;
     padding-left: 20px;
 }
 
+/* Common Styles */
 .box-shadow {
     box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);
-    z-index: -1;
 }

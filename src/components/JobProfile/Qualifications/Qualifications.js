@@ -9,7 +9,7 @@ export default function Qualifications() {
       <li>{item}</li>)
 
   return (
-    <div className="qualifications">
+    <div className="qualifications box-shadow">
         <h2>Qualifications</h2>
         <ul>
             {qualItems}
