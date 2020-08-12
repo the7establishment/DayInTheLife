@@ -12,18 +12,18 @@
   align-items: center;
 }
 
-  .navbar li {
-    display: inline-block;
-    font-weight: bold;
-    margin-right:10px
-  }
-  .profile-icon svg:hover {
-    cursor: pointer;
-  }
+.navbar li {
+  display: inline-block;
+  font-weight: bold;
+  margin-right:10px
+}
+.profile-icon svg:hover {
+  cursor: pointer;
+}
 
-  .navleft{
-    grid-column: 1;
-    place-self: center;
+.navleft{
+  grid-column: 1;
+  place-self: center;
 }
   
 .navsearch{
@@ -32,27 +32,32 @@
   padding-right: 10%;
 }
 
-  .navright{
-      grid-column: 3;
-      place-self: center;
-  }
+.navinput{
+  border: none;
+  outline: none;
+}
 
-  .navleft label:hover{
+.navright{
+    grid-column: 3;
+    place-self: center;
+}
+
+.navleft label:hover{
+  cursor: pointer;
+}
+
+
+.navsearch input{
+  width: 400px;
+  font-size: x-small;
+  padding: 5px;
+  margin-left: 5px;
+}
+.navsearch a{
+  font-size: x-small;
+  text-decoration: underline;
+  padding-left: 10px;
+}
+.navsearch a:hover{
     cursor: pointer;
-  }
-
-
-  .navsearch input{
-    width: 400px;
-    font-size: x-small;
-    padding: 5px;
-    margin-left: 5px;
-  }
-  .navsearch a{
-    font-size: x-small;
-    text-decoration: underline;
-    padding-left: 10px;
-  }
-  .navsearch a:hover{
-      cursor: pointer;
-  }
+}
