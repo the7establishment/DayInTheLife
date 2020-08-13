@@ -17,24 +17,26 @@
 
 .navleft{
   grid-column: 1;
-  place-self: center;
   font-size: x-large;
   font-weight: 500;
 }
   
 .navsearch{
   grid-column: 2;
-  place-self: center;
 }
 
 .navinput{
   border: none;
+  border-radius: 5px;
   outline: none;
+  width: 400px;
+  font-size: normal;
+  padding: 5px;
+  margin-left: 5px;
 }
 
 .navright{
   grid-column: 3;
-  place-self: center;
   display: grid;
   grid-template-columns: auto auto auto;
 }
@@ -43,23 +45,24 @@
   padding-right: 30px;
   font-weight: lighter;
 }
-
+.navitem:hover{
+  cursor: pointer;
+}
+.center{
+  place-self: center;
+}
 .navprofile{
   border-radius: 50%;
   height: 40px;
+}
+.navprofile:hover{
+  cursor: pointer;
 }
 
 .navleft label:hover{
   cursor: pointer;
 }
 
-
-.navsearch input{
-  width: 400px;
-  font-size: x-small;
-  padding: 5px;
-  margin-left: 5px;
-}
 .navsearch a{
   font-size: x-small;
   text-decoration: underline;

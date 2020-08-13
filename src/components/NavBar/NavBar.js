@@ -13,12 +13,3 @@ export default function NavBar() {
     </div>
   );
 }
-{/* <li className="navbrand">
-<a href="#">My Test App</a>
-</li>
-{/* <li>
-<a href="#">Item 1</a>
-</li>
-<li>
-<a href="#">Item 2</a>
-</li> */}

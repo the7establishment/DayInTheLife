@@ -2,7 +2,7 @@ import React from "react";
 
 export default function NavLeft() {
   return (
-    <div className="navleft">
+    <div className="navleft center">
       DayInTheLife
     </div>
   );

@@ -2,9 +2,9 @@ import React from "react";
 
 export default function NavSearch() {
   return (
-    <li className="navsearch">
+    <div className="navsearch center">
         <input className="navinput" placeholder="Search Jobs" maxLength="50"/>
         <a>Advance Search</a>
-    </li>
+    </div>
   );
 }
