@@ -1,21 +1,26 @@
 import React from "react";
+import walk from '../../../resource/icons/walk.png'
+import money from '../../../resource/icons/money.png'
+import plane from '../../../resource/icons/plane.png'
+import home from '../../../resource/icons/home.png'
+import balance from '../../../resource/icons/balance.png'
 
 export default function StatsComponent() {
   return (
     <div className='statscomponent'>
-        <img className='icon' src={require('../../../resource/icons/dollar-sign-inside-black-circle.png')} alt="Dollar"></img>
+        <img className='icon' src={money} alt="Dollar"></img>
         <span>55,000$ - 65,000$</span>
 
-        <img className='icon' src={require('../../../resource/icons/walk.png')} alt="Walk"></img>
+        <img className='icon' src={walk} alt="Walk"></img>
         <span>Low</span>
 
-        <img className='icon' src={require('../../../resource/icons/plane.png')} alt="Plane"></img>
+        <img className='icon' src={plane} alt="Plane"></img>
         <span>50%</span>
 
-        <img className='icon' src={require('../../../resource/icons/home.png')} alt="Home"></img>
+        <img className='icon' src={home} alt="Home"></img>
         <span>Office</span>
 
-        <img className='icon' src={require('../../../resource/icons/balance.png')} alt="Balance"></img>
+        <img className='icon' src={balance} alt="Balance"></img>
         <div style={{display:'inline-flex'}}>
           <span>Work</span>
           <span>Life</span>

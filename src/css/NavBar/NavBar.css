@@ -8,14 +8,8 @@
   font-family: "Acme", sans-serif;
   height: 100%;
   display: grid;
-  grid-template-columns: 15% 75% 10%;
+  grid-template-columns: 15% 70% 15%;
   align-items: center;
-}
-
-.navbar li {
-  display: inline-block;
-  font-weight: bold;
-  margin-right:10px
 }
 .profile-icon svg:hover {
   cursor: pointer;
@@ -24,12 +18,13 @@
 .navleft{
   grid-column: 1;
   place-self: center;
+  font-size: x-large;
+  font-weight: 500;
 }
   
 .navsearch{
   grid-column: 2;
   place-self: center;
-  padding-right: 10%;
 }
 
 .navinput{
@@ -38,8 +33,20 @@
 }
 
 .navright{
-    grid-column: 3;
-    place-self: center;
+  grid-column: 3;
+  place-self: center;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.navitem{
+  place-self: center;
+  padding-right: 30px;
+  font-weight: lighter;
+}
+
+.navprofile{
+  border-radius: 50%;
+  height: 40px;
 }
 
 .navleft label:hover{

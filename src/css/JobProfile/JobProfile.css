@@ -65,10 +65,12 @@
 
 .overview h2 {
     font-weight: 500;
-    color:#606060;
     padding-bottom: 10px;
 }
 
+.gray{
+    color:#606060;
+}
 
 .overview span {
     margin-top:18.72px; 
@@ -107,7 +109,7 @@
 }
 
 .icon{
-    height: 30px;
+    height: 40px;
 }
 
 /* Daily Life Summaries Section */
