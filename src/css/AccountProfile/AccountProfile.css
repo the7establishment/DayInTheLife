@@ -1,0 +1,227 @@
+.accountprofile {
+    grid-row: 2;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 17% 66% 17%;
+    grid-column-gap: 0px;
+}
+
+.profile1 {
+    grid-column : 2;
+    display: grid;
+    grid-template-columns: 34% 66%;
+    box-sizing: border-box;
+}
+
+
+.profile-left1 {
+    margin-right: 22px;
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-right1 {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile1 h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.viewbox {
+    box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/*  ------------------------------------  Overview Section  ------------------------------------  */
+.overview1 {
+    height: fit-content;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.overview1 h2 {
+    color:#606060;
+    padding-bottom: 10px;
+}
+
+.overview1-pic{
+    border-radius: 50%;
+    height: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.addfriend {
+    display: block;
+    border-radius: 5px;
+    background-color: #23629F;
+    border-width: 1px;
+    width: 100%;
+    color: #FFFFFF;
+    font-weight: 600;
+
+    margin-bottom: 15px;
+    min-width: 80px;
+    height: 42px;
+    cursor: pointer;
+}
+
+.sendmessage {
+    display: block;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    border-color: #707070;
+    border-width: 1px;
+    width: 100%;
+    color: #707070;
+    font-weight: 600;
+    
+    margin-bottom: 15px;
+    height: 42px;
+    cursor: pointer;
+}
+
+.overview1 hr {
+    width: 15px;
+    margin-left: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-color: #23629F;
+}
+
+.shorthr {
+    width: 15px;
+    margin-left: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-color: #23629F;
+}
+
+
+.stage {
+    min-height: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.day {
+    min-height: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.accountexperience {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.accounttools {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.optionheader {
+    box-shadow: none !important;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 12px;
+}
+
+.displaymenu {
+    display: flex;
+}
+
+.displaymenubottom{
+    display: flex;
+}
+
+.selectionindicator {
+    border-color: #23629F;
+}
+
+.displaymenuitem {
+    margin-left: 15px;
+    font-size: small;
+}
+
+.menuoption {
+    cursor: pointer;
+}
+
+.verticallist {
+    display: flex;
+    flex-direction: column;
+}
+
+.keyvaluepair {
+    display: flex;
+}
+
+.profile1 div div {
+    background-color: #ffffff;
+}
+
+.largetext {
+    font-size: large;
+    font-weight: bold;
+}
+
+.largertext {
+    font-size: larger;
+}
+
+.mediumtext {
+    font-size: medium;
+}
+
+.smalltext {
+    font-size: small;
+}
+
+.xsmalltext {
+    font-size: x-small;
+}
+
+.sel-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidenav-item {
+    border-radius: 5px;
+    display: block;
+    font-weight: 300;
+    margin-bottom: 2px;
+    padding: 10px;
+    color: #747575;
+    cursor: pointer
+}
+
+.sidenav-item-current {
+    background-color: #eeeeee;
+    color: #333333;
+    border-radius: 5px;
+    display: block;
+    font-weight: 300;
+    margin-bottom: 2px;
+    padding: 10px;
+}

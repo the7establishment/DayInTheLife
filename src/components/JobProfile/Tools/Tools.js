@@ -8,8 +8,8 @@ export default function Tools() {
   const toolList = tools.map((tool) => <Tool tool={tool}/>);
 
   return (
-    <div className="tools box-shadow">
-      <h2>Tool</h2>
+    <div className="tools">
+      <h2>Tools</h2>
       <ul>
         {toolList}
       </ul>
