@@ -36,54 +36,6 @@ export default class Tools extends Component {
     getToolList = () => this.state.products.categories.find(cat => cat.name === this.state.currentTab).products.map(product =>
          <li key={product.label}>{product.label}</li>
         )
-/*
-    const[softwareSelected, setSoftwareSelected] = useState(true)
-    const[hardwareSelected, setHardwareSelected] = useState(false)
-    const[softTools, setSoftTools] = useState(
-        ["YouTube","Adobe After Effects","Adobe Photoshop","SquareSpace","Patreon"]
-    )
-    const[hardTools, setHardTools] = useState(
-        ["Laptop", "Headphones", "Microphone", "Dance Shoes", "Camera"]
-    )
-
-    const[toolList, setToolList] = useState(
-        getToolList(softTools)
-    )
-
-    function getToolList(list) {
-       return <ul>
-            {list.map(function(item) {
-                return <li key={item}>{item}</li>
-            })}
-        </ul>
-}
-    
-
-    function onClickSoftware(softwareSelected) {
-        if (!softwareSelected){
-            setSoftwareSelected(true)
-            setHardwareSelected(false)
-            setToolList(getToolList(softTools))
-        }
-    }
-    function onClickHardware(hardwareSelected) {
-        if (!hardwareSelected){
-            setHardwareSelected(true)
-            setSoftwareSelected(false)
-            setToolList(getToolList(hardTools))
-        }
-    }
-
-    function SelectionIndicator(props) {
-        const isSelected = props.isSelected
-        let indicator = null
-        if (isSelected) {
-            indicator = <hr className="selectionindicator"/>
-        }
-        return indicator
-    }
-
-    */
 
     render = () =>
         <div className="accounttools viewbox">
