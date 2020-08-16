@@ -8,7 +8,7 @@ export default function App() {
   return (
     <div className="App">
       <NavBar />
-      <JobProfile />
+      <AccountProfile />
     </div>
   );
 }
