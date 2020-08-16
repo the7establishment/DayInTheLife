@@ -8,51 +8,66 @@
   font-family: "Acme", sans-serif;
   height: 100%;
   display: grid;
-  grid-template-columns: 15% 75% 10%;
+  grid-template-columns: 15% 70% 15%;
   align-items: center;
 }
+.profile-icon svg:hover {
+  cursor: pointer;
+}
 
-  .navbar li {
-    display: inline-block;
-    font-weight: bold;
-    margin-right:10px
-  }
-  .profile-icon svg:hover {
-    cursor: pointer;
-  }
-
-  .navleft{
-    grid-column: 1;
-    place-self: center;
+.navleft{
+  grid-column: 1;
+  font-size: x-large;
+  font-weight: 500;
 }
   
 .navsearch{
   grid-column: 2;
-  place-self: center;
-  padding-right: 10%;
 }
 
-  .navright{
-      grid-column: 3;
-      place-self: center;
-  }
+.navinput{
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  width: 400px;
+  font-size: normal;
+  padding: 5px;
+  margin-left: 5px;
+}
 
-  .navleft label:hover{
+.navright{
+  grid-column: 3;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.navitem{
+  place-self: center;
+  padding-right: 30px;
+  font-weight: lighter;
+}
+.navitem:hover{
+  cursor: pointer;
+}
+.center{
+  place-self: center;
+}
+.navprofile{
+  border-radius: 50%;
+  height: 40px;
+}
+.navprofile:hover{
+  cursor: pointer;
+}
+
+.navleft label:hover{
+  cursor: pointer;
+}
+
+.navsearch a{
+  font-size: x-small;
+  text-decoration: underline;
+  padding-left: 10px;
+}
+.navsearch a:hover{
     cursor: pointer;
-  }
-
-
-  .navsearch input{
-    width: 400px;
-    font-size: x-small;
-    padding: 5px;
-    margin-left: 5px;
-  }
-  .navsearch a{
-    font-size: x-small;
-    text-decoration: underline;
-    padding-left: 10px;
-  }
-  .navsearch a:hover{
-      cursor: pointer;
-  }
+}

@@ -11,8 +11,10 @@ export default function Summary(props) {
       <p className="summary-summary">{props.dailyLife.summary}</p>
       <div className="likes">
         <img className="summary-thumbs-up" src={require('../../../resource/icons/thumb-up.png')}></img>
+        <label>{props.dailyLife.likes}</label>
         <hr></hr>
         <img className="summary-thumbs-down" src={require('../../../resource/icons/thumb-down.png')}></img>
+        <label>{props.dailyLife.dislikes}</label>
       </div>
       <a className="report">Report</a>
     </div>

@@ -25,7 +25,7 @@ export default function DailyLifeSummaries() {
     const dailyLifeList = dailyLife.map((dailyLife) => <Summary dailyLife={dailyLife}/>)
   
   return (
-    <div className="dailylifesummaries">
+    <div className="dailylifesummaries box-shadow">
       <div className='dailylife-header'>
         <h2>A Day In The Life</h2>
         <button className="ditl-button">ADD A DAY</button>

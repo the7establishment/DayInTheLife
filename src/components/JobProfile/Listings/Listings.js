@@ -9,7 +9,7 @@ export default function Listings() {
   <Listing listing={item}/>);
   
   return (
-    <div className="listings">
+    <div className="listings box-shadow">
       <h2>Listings</h2>
       <ul>
         {listItems}
