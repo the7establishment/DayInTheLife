@@ -3,7 +3,7 @@
     margin-top: 30px;
     display: grid;
     grid-template-columns: 17% 66% 17%;
-    grid-column-gap: 20px;
+    grid-column-gap: 0px;
 }
 
 .profile1 {
@@ -27,22 +27,20 @@
     flex-direction: column;
 }
 
-.profile-left1 div {
-    box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);
-}
-
-.profile-right1 div {
-    box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);
-}
-
 .profile1 h2 {
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 15px;
     font-weight: 500;
+}
+
+.viewbox {
+    box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 /*  ------------------------------------  Overview Section  ------------------------------------  */
 .overview1 {
-    grid-column: 1;
     height: fit-content;
     padding-left: 30px;
     padding-right: 30px;
@@ -96,16 +94,94 @@
 .overview1 hr {
     width: 15px;
     margin-left: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-color: #23629F;
+}
+
+.shorthr {
+    width: 15px;
+    margin-left: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
     border-color: #23629F;
 }
 
 
 .stage {
-    grid-column: 2;
+    min-height: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.day {
+    min-height: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.accountexperience {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.accounttools {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.optionheader {
+    box-shadow: none !important;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 12px;
+}
+
+.displaymenu {
+    display: flex;
+}
+
+.displaymenubottom{
+    display: flex;
+}
+
+.selectionindicator {
+    border-color: #23629F;
+}
+
+.displaymenuitem {
+    margin-left: 15px;
+    font-size: small;
+}
+
+.menuoption {
+    cursor: pointer;
+}
+
+.verticallist {
+    display: flex;
+    flex-direction: column;
+}
+
+.keyvaluepair {
+    display: flex;
 }
 
 .profile1 div div {
     background-color: #ffffff;
+}
+
+.largetext {
+    font-size: large;
+    font-weight: bold;
 }
 
 .largertext {
@@ -122,4 +198,30 @@
 
 .xsmalltext {
     font-size: x-small;
+}
+
+.sel-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidenav-item {
+    border-radius: 5px;
+    display: block;
+    font-weight: 300;
+    margin-bottom: 2px;
+    padding: 10px;
+    color: #747575;
+    cursor: pointer
+}
+
+.sidenav-item-current {
+    background-color: #eeeeee;
+    color: #333333;
+    border-radius: 5px;
+    display: block;
+    font-weight: 300;
+    margin-bottom: 2px;
+    padding: 10px;
 }
