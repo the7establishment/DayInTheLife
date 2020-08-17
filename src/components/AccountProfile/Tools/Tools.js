@@ -38,11 +38,12 @@ export default class Tools extends Component {
         )
 
     render = () =>
-        <div className="accounttools viewbox">
+        <div className="viewbox">
             <HeaderMenu header={this.state.products.productType} 
                 items={ this.state.products.categories.map(cat => cat.name)}
                     currentTab={ this.state.currentTab }
                         callback={(newTab) => this.setState({currentTab: newTab})} />
+            <hr/>
             {this.getToolList()}
                 
         </div>

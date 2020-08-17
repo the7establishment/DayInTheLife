@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Overview from "./AccountOverview/Overview"
-import Stage from "./Stage/Stage"
+import Visual from "./Visual/Visual"
 import DayDisplay from "./DayDisplay/DayDisplay"
 import Experience from "./Experience/Experience"
 import Tools from "./Tools/Tools"
@@ -133,16 +133,16 @@ export default class AccountProfile extends Component {
 
     render() {
         return(
-            <div className="accountprofile">
-                <div className="profile1">
-                    <div className="profile-left1">
+            <div className="page">
+                <div className="stage-type-2">
+                    <div className="stage-left">
                         <Overview/>
                         <Experience days={ this.state.days }
                             currentDay={ this.state.currentDay }
                                 callback={ this.updateDay }/>
                     </div>
-                    <div className="profile-right1">
-                        <Stage/> 
+                    <div className="stage-right">
+                        <Visual/> 
                         <DayDisplay day={ this.state.currentDay } user={ this.state.user }/>
                         <Tools />
                     </div>
