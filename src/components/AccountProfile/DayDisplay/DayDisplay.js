@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import { isConstructorDeclaration, isThrowStatement } from "typescript";
-import { render } from "react-dom";
 import HeaderMenu from "../HeaderMenu"
-
-
-
 
 export default class DayDisplay extends Component {
 
