@@ -16,7 +16,7 @@
 .result-card{
     display: grid;
     grid-column: 2;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto 40%;
     background-color: white;
     height: 284px;
 }
@@ -26,6 +26,28 @@
     border-bottom-right-radius: 5px;
     box-shadow: 0 7px 25px 0 rgba(0,0,0,.1);
     z-index: 1;
+    display: grid;
+    grid-template-columns: 30% auto;
+    position: relative;
+}
+.result-detail-right{
+    display: flex;
+    flex-flow: column;
+    padding: 20px;
+}
+.result-title{
+    font-size: 24px;
+    font-weight: 300;
+}
+.result-list{
+    font-size: 12px;
+}
+.resulticon{
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 .result-right{
     background-color: #FEFEFE;
@@ -45,8 +67,13 @@
     margin-right: 20px;
     width: fit-content;
 }
-.tab-active{
+.tab:hover{
+    cursor: pointer;
+}
+#tab-active{
     background-color: black;
     height: 2px;
     grid-column: 1;
+
+    width: 33px;
 }
