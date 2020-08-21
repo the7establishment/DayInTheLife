@@ -37,11 +37,11 @@ export default class Result extends React.Component {
             <button className="result-button">View</button>
           </div>
           <div className="result-detail-right">
-            <span className="result-title">Software Developer</span>
-            <span className="result-name">Matthew Chuong</span>
+            <span className="result-title">Matthew Chuong</span>
+            <span className="result-name">Software Developer</span>
             <span>United Healthgroup Miami, FL</span>
             <li className="result-list gray">Software Development: 3 Years</li>
-            <li className="result-list gray">Interface with our existing developers to help support issues and bugs.</li>
+            <li className="result-list gray">Interface with developers to help support issues and bugs.</li>
             <li className="result-list gray">Build and maintain MVC and REST applications.</li>
             <img src={heart} alt="" className="resulticon"></img>
             <img src={empty_heart} alt="" className="resulticon"></img>

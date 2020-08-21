@@ -89,7 +89,8 @@
 }
 .result-title{
     font-size: 24px;
-    font-weight: 300;
+    font-weight: 500;
+    color: black;
 }
 .result-list{
     font-size: 12px;
