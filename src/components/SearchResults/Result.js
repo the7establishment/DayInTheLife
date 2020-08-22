@@ -3,19 +3,20 @@ import heart from '../../resource/icons/heart.png'
 import empty_heart from '../../resource/icons/empty_heart.png'
 import star from '../../resource/icons/star.png'
 import profilePicMatthew from '../../resource/profile/profilePicMatthew.jpg'
+import techlead from '../../resource/video/techlead.mp4'
 
 export default class Result extends React.Component {
 
   setCurrentTab = (event) => {
     var active = document.getElementById("tab-active")
-    if(event.target.innerText == "Tool"){
-      active.setAttribute("style", "grid-column:1; width: 33px")
+    if(event.target.innerText == "Video"){
+      active.setAttribute("style", "grid-column:1; width: 40px")
     }
-    if(event.target.innerText == "Qualifications"){
-      active.setAttribute("style", "grid-column:2; width: 95px")
+    if(event.target.innerText == "Popular Day"){
+      active.setAttribute("style", "grid-column:2; width: 82px")
     }
-    if(event.target.innerText == "Listings"){
-      active.setAttribute("style", "grid-column:3; width: 54px")
+    if(event.target.innerText == "Activity"){
+      active.setAttribute("style", "grid-column:3; width: 50px")
     }
   }
 
@@ -49,13 +50,25 @@ export default class Result extends React.Component {
         </div>
         <div className="result-right">
           <div className="result-tabmenu">
-            <span className="tab" onClick={this.setCurrentTab}>Tool</span>
-            <span className="tab" onClick={this.setCurrentTab}>Qualifications</span>
-            <span className="tab" onClick={this.setCurrentTab}>Listings</span>
+            <span className="tab" onClick={this.setCurrentTab}>Video</span>
+            <span className="tab" onClick={this.setCurrentTab}>Popular Day</span>
+            <span className="tab" onClick={this.setCurrentTab}>Activity</span>
             <div id="tab-active"></div>
           </div>
           <div className="result-tabbody">
-            Body
+            <div className="result-video">
+              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/xqgH9j3x2OE" allowfullscreen></iframe>
+            </div>
+            <div className="result-popular">
+              <span>
+              Hi. My name is Thao Pham. I was born and raised in Vung Tau, Vietnam. The city is in the south of Vietnam. I am currently living in Vancouver, Canada. I am a native Vietnamese speaker. I love languages in general, so I decided to get into linguistics major to learn more about the connection between languages and human history. I also like
+              </span>
+              <span>...</span>
+              <a>Read More</a>
+            </div>
+            <div className="result-activity">
+              
+            </div>
           </div>
         </div>
       </div>
