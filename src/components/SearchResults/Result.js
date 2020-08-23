@@ -3,7 +3,6 @@ import heart from '../../resource/icons/heart.png'
 import empty_heart from '../../resource/icons/empty_heart.png'
 import star from '../../resource/icons/star.png'
 import profilePicMatthew from '../../resource/profile/profilePicMatthew.jpg'
-import techlead from '../../resource/video/techlead.mp4'
 
 export default class Result extends React.Component {
 
