@@ -16,14 +16,14 @@
     grid-column: 2;
 }
 
-.result-card{
+.worker-card{
     display: grid;
     grid-column: 2;
     grid-template-columns: auto 40%;
     background-color: white;
     height: 284px;
 }
-.result-left{
+.worker-left{
     background-color: #FFFFFF;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -33,11 +33,11 @@
     grid-template-columns: 25% auto;
     position: relative;
 }
-.result-detail-left{
+.worker-detail-left{
     display: grid;
     padding: 30px;
 }
-.resultprofile{
+.workerprofile{
     height: 80px;
     border-radius: 50%;
     place-self: center;
@@ -57,7 +57,7 @@
     font-weight: 500;
     color: #FCAF17;
 }
-.result-new{
+.worker-new{
     font-size: 12px;
     background-color: #9277D9;
     color: white;
@@ -67,10 +67,10 @@
     padding-right: 20px;
     border-radius: 10px;
 }
-.result-name{
+.worker-name{
     font-size: 20px;
 }
-.result-button{
+.worker-button{
     background-color: #659AEB;
     color: white;
     border-radius: 5px;
@@ -79,30 +79,30 @@
     font-size: 15px;
     height: 40px;
 }
-.result-button:hover{
+.worker-button:hover{
     cursor: pointer;
 }
-.result-detail-right{
+.worker-detail-right{
     display: flex;
     flex-flow: column;
     padding: 20px;
 }
-.result-title{
+.worker-title{
     font-size: 24px;
     font-weight: 500;
     color: black;
 }
-.result-list{
+.worker-list{
     font-size: 12px;
 }
-.resulticon{
+.workericon{
     height: 24px;
     width: 24px;
     position: absolute;
     top: 10px;
     right: 10px;
 }
-.result-right{
+.worker-right{
     background-color: #FEFEFE;
     box-shadow: 5px 7px 25px 0 rgba(0,0,0,.1);
     display: grid;
@@ -110,7 +110,7 @@
     padding: 20px;
 
 }
-.result-tabmenu{
+.worker-tabmenu{
     place-self: center;
     display: grid;
     grid-template-columns: auto auto auto;
@@ -123,28 +123,32 @@
 .tab:hover{
     cursor: pointer;
 }
-#tab-active{
-    background-color: black;
-    height: 2px;
-    grid-column: 1;
-    width: 40px;
+.active{
+    border-bottom: 2px solid black;
 }
-.result-tabbody{
+
+.worker-tabbody{
     padding: 10px;
 }
-.result-video{
+#worker-video{
     width: 100%;
     height: 100%;
-    display: none;
 }
-.result-popular{
+#video{
+    border: none;
+    border-radius: 5px;
+}
+#worker-intro{
     font-size: 14px;
     display: none;
 }
-.result-popular a{
+#worker-intro a{
     text-decoration-line: underline;
     color: #337ab7;
 }
-.result-popular a:hover{
+#worker-intro a:hover{
     cursor: pointer;
+}
+#worker-heatmap{
+    display: none;
 }
