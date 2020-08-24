@@ -9,21 +9,20 @@
     background-color: #FAFAFA;
 }
 .resultsnotfound{
-    grid-column: 2;
     display: none;
 }
-.results-count{
-    grid-column: 2;
-}
-
-.worker-card{
+.results-column{
     display: grid;
     grid-column: 2;
+    grid-row-gap: 30px;
+}
+.card{
+    display: grid;
     grid-template-columns: auto 40%;
     background-color: white;
     height: 284px;
 }
-.worker-left{
+.card-left{
     background-color: #FFFFFF;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -33,11 +32,11 @@
     grid-template-columns: 25% auto;
     position: relative;
 }
-.worker-detail-left{
+.card-detail-left{
     display: grid;
     padding: 30px;
 }
-.workerprofile{
+.cardprofile{
     height: 80px;
     border-radius: 50%;
     place-self: center;
@@ -57,7 +56,7 @@
     font-weight: 500;
     color: #FCAF17;
 }
-.worker-new{
+.card-new{
     font-size: 12px;
     background-color: #9277D9;
     color: white;
@@ -67,10 +66,10 @@
     padding-right: 20px;
     border-radius: 10px;
 }
-.worker-name{
+.card-name{
     font-size: 20px;
 }
-.worker-button{
+.card-button{
     background-color: #659AEB;
     color: white;
     border-radius: 5px;
@@ -79,30 +78,30 @@
     font-size: 15px;
     height: 40px;
 }
-.worker-button:hover{
+.card-button:hover{
     cursor: pointer;
 }
-.worker-detail-right{
+.card-detail-right{
     display: flex;
     flex-flow: column;
     padding: 20px;
 }
-.worker-title{
+.card-title{
     font-size: 24px;
     font-weight: 500;
     color: black;
 }
-.worker-list{
+.card-list{
     font-size: 12px;
 }
-.workericon{
+.cardicon{
     height: 24px;
     width: 24px;
     position: absolute;
     top: 10px;
     right: 10px;
 }
-.worker-right{
+.card-right{
     background-color: #FEFEFE;
     box-shadow: 5px 7px 25px 0 rgba(0,0,0,.1);
     display: grid;
@@ -110,7 +109,7 @@
     padding: 20px;
 
 }
-.worker-tabmenu{
+.card-tabmenu{
     place-self: center;
     display: grid;
     grid-template-columns: auto auto auto;
@@ -127,10 +126,10 @@
     border-bottom: 2px solid black;
 }
 
-.worker-tabbody{
+.card-tabbody{
     padding: 10px;
 }
-#worker-video{
+#card-video{
     width: 100%;
     height: 100%;
 }
@@ -138,17 +137,17 @@
     border: none;
     border-radius: 5px;
 }
-#worker-intro{
+#card-intro{
     font-size: 14px;
     display: none;
 }
-#worker-intro a{
+#card-intro a{
     text-decoration-line: underline;
     color: #337ab7;
 }
-#worker-intro a:hover{
+#card-intro a:hover{
     cursor: pointer;
 }
-#worker-heatmap{
+#card-heatmap{
     display: none;
 }

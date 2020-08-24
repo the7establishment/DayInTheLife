@@ -10,11 +10,11 @@ export default class WorkerCard extends React.Component {
   setCurrentTab = (event, name) => {
     var i, tab, tabcontent
     tab = document.getElementsByClassName('tab')
-    tabcontent = document.getElementsByClassName('worker-tabcontent')
-    for(i = 0; i < tab.length; i++){
+    tabcontent = document.getElementsByClassName('card-tabcontent')
+    for (i = 0; i < tab.length; i++) {
       tab[i].className = tab[i].className.replace(" active", "")
     }
-    for(i = 0; i < tabcontent.length; i++){
+    for (i = 0; i < tabcontent.length; i++) {
       tabcontent[i].style.display = "none"
     }
     document.getElementById(name).style.display = "block"
@@ -23,10 +23,10 @@ export default class WorkerCard extends React.Component {
 
   render() {
     return (
-      <div className="worker-card">
-        <div className="worker-left">
-          <div className="worker-detail-left">
-            <img src={profilePicMatthew} alt="" className="workerprofile"></img>
+      <div className="card">
+        <div className="card-left">
+          <div className="card-detail-left">
+            <img src={profilePicMatthew} alt="" className="cardprofile"></img>
             <span className="stars-box">
               <img src={star} alt="" className="star"></img>
               <img src={star} alt="" className="star"></img>
@@ -35,44 +35,44 @@ export default class WorkerCard extends React.Component {
               <img src={star} alt="" className="star"></img>
               <span className="star-number">5.0</span>
             </span>
-            <span className="worker-new">new</span>
-            <button className="worker-button">View</button>
+            <span className="card-new">new</span>
+            <button className="card-button">View</button>
           </div>
-          <div className="worker-detail-right">
-            <span className="worker-title">Matthew Chuong</span>
-            <span className="worker-name">Software Developer</span>
+          <div className="card-detail-right">
+            <span className="card-title">Matthew Chuong</span>
+            <span className="card-name">Software Developer</span>
             <span>United Healthgroup Miami, FL</span>
-            <li className="worker-list gray">Software Development: 3 Years</li>
-            <li className="worker-list gray">Interface with developers to help support issues and bugs.</li>
-            <li className="worker-list gray">Build and maintain MVC and REST applications.</li>
-            <img src={heart} alt="" className="workericon"></img>
-            <img src={empty_heart} alt="" className="workericon"></img>
+            <li className="card-list gray">Software Development: 3 Years</li>
+            <li className="card-list gray">Interface with developers to help support issues and bugs.</li>
+            <li className="card-list gray">Build and maintain MVC and REST applications.</li>
+            <img src={heart} alt="" className="cardicon"></img>
+            <img src={empty_heart} alt="" className="cardicon"></img>
           </div>
         </div>
-        <div className="worker-right">
-          <div className="worker-tabmenu">
+        <div className="card-right">
+          <div className="card-tabmenu">
             <span className="tab active" onClick={(e) => {
-              this.setCurrentTab(e, 'worker-video')
+              this.setCurrentTab(e, 'card-video')
             }}>Video</span>
-            <span className="tab" onClick={(e)=> {
-              this.setCurrentTab(e, 'worker-intro')
+            <span className="tab" onClick={(e) => {
+              this.setCurrentTab(e, 'card-intro')
             }}>Popular Day</span>
             <span className="tab" onClick={(e) => {
-              this.setCurrentTab(e, 'worker-heatmap')
+              this.setCurrentTab(e, 'card-heatmap')
             }}>Activity</span>
           </div>
-          <div className="worker-tabbody">
-            <div id="worker-video" className="worker-tabcontent">
+          <div className="card-tabbody">
+            <div id="card-video" className="card-tabcontent">
               <iframe id="video" width="100%" height="100%" src="https://www.youtube.com/embed/xqgH9j3x2OE" allowFullScreen></iframe>
             </div>
-            <div id="worker-intro" className="worker-tabcontent">
+            <div id="card-intro" className="card-tabcontent">
               <span>
                 Hi. My name is Thao Pham. I was born and raised in Vung Tau, Vietnam. The city is in the south of Vietnam. I am currently living in Vancouver, Canada. I am a native Vietnamese speaker. I love languages in general, so I decided to get into linguistics major to learn more about the connection between languages and human history. I also like
               </span>
               <span>...</span>
               <a>Read More</a>
             </div>
-            <div id="worker-heatmap" className="worker-tabcontent">
+            <div id="card-heatmap" className="card-tabcontent">
               <Heatmap />
             </div>
           </div>
