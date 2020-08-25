@@ -6,11 +6,11 @@ export default class Tools extends Component {
     constructor(props) {
         super(props) 
         this.state = {
-            currentTab: "Software"            
+            currentTab: 0            
         }
     }
 
-    getToolList = () => this.props.tools.categories.find(cat => cat.name === this.state.currentTab).products.map(product =>
+    getToolList = () => this.props.tools.categories[this.state.currentTab].products.map(product =>
          <li key={product.label}>{product.label}</li>
         )
 
@@ -24,5 +24,4 @@ export default class Tools extends Component {
             {this.getToolList()}
                 
         </div>
-    
 }
