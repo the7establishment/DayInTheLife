@@ -5,7 +5,7 @@ export default class Experience extends Component {
     constructor(props) {
         super(props)
         this.state = {
-           // days: this.props.days
+            days: this.props.days
         }
     }
 
