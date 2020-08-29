@@ -108,7 +108,7 @@ export const MockProducts = {
             { label: "Software Tool 5", company: "Comany 5"},
         ]
         },{
-            name: "Hardware",
+        name: "Hardware",
         products:[
             { label: "Hardware Tool 1", company: "Comany 1"},
             { label: "Hardware Tool 2", company: "Comany 2"},
@@ -116,11 +116,11 @@ export const MockProducts = {
             { label: "Hardware Tool 4", company: "Comany 4"},
             { label: "Hardware Tool 5", company: "Comany 5"},
         ]
-    }
-]
+    }]
 }
 
 export const MockCard = {
+    type: 'Worker',
     image: mattProfilePic,
     title: 'Matthew Chuong',
     name: 'Software Developer',
@@ -132,16 +132,30 @@ export const MockCard = {
         'Interface with developers to help support issues and bugs.',
         'Build and maintain MVC and REST applications.'
     ],
-    video: 'https://www.youtube.com/embed/xqgH9j3x2OE',
-    intro: 'Hi. My name is Thao Pham. I was born and raised in Vung Tau, Vietnam. The city is in the south of Vietnam. I am currently living in Vancouver, Canada. I am a native Vietnamese speaker. I love languages in general, so I decided to get into linguistics major to learn more about the connection between languages and human history. I also like',
-    heatmap: {
-        startDate: new Date('2020-01-01'),
-        endDate: new Date('2020-04-31'),
-        values: [
-            { date: '2020-01-01', count: 1 },
-            { date: '2020-01-02', count: 3 },
-            { date: '2020-01-03', count: 6 },
-            { date: '2020-01-04', count: 9 }
+    cardRight:{
+        header: "",
+        tabs:[
+            {
+                name:'Video',
+                content: 'https://www.youtube.com/embed/xqgH9j3x2OE'
+            },
+            {
+                name:'Popular Day',
+                content: 'Hi. My name is Thao Pham. I was born and raised in Vung Tau, Vietnam. The city is in the south of Vietnam. I am currently living in Vancouver, Canada. I am a native Vietnamese speaker. I love languages in general, so I decided to get into linguistics major to learn more about the connection between languages and human history. I also like'
+            },
+            {
+                name:'Activity',
+                content: {
+                    startDate: new Date('2020-01-01'),
+                    endDate: new Date('2020-04-31'),
+                    values: [
+                        { date: '2020-01-01', count: 1 },
+                        { date: '2020-01-02', count: 3 },
+                        { date: '2020-01-03', count: 6 },
+                        { date: '2020-01-04', count: 9 }
+                    ]
+                }
+            }
         ]
     }
 }

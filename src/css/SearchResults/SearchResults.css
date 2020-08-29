@@ -132,6 +132,9 @@
 .card-tabbody{
     padding: 10px;
 }
+.none{
+    display: none;
+}
 #card-video{
     width: 100%;
     height: 100%;
@@ -142,7 +145,6 @@
 }
 #card-intro{
     font-size: 14px;
-    display: none;
 }
 #card-intro a{
     text-decoration-line: underline;
@@ -150,7 +152,4 @@
 }
 #card-intro a:hover{
     cursor: pointer;
-}
-#card-heatmap{
-    display: none;
 }
