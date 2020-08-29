@@ -8,9 +8,6 @@
     grid-column-gap: 10px;
     background-color: #FAFAFA;
 }
-.resultsnotfound{
-    display: none;
-}
 .results-column{
     display: grid;
     grid-column: 2;

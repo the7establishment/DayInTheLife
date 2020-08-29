@@ -2,25 +2,32 @@ import React, { useState } from "react";
 import '../../css/SearchResults/SearchResults.css'
 import WorkerCard from "./WorkerCard";
 import JobCard from "./JobCard";
-import { MockCard, MockJobCard } from '../../mock/MockData'
+import { MockCards } from '../../mock/MockData'
 
 export default class SearchResults extends React.Component {
   constructor(){
     super()
     this.state = {
-      card: MockCard,
-      jobcard: MockJobCard
+      cards: MockCards
     } 
   }
+
+  getCardList = () => 
+    this.state.cards.map(card => {
+      if(card.type == 'Worker')
+        return <WorkerCard card={card} />
+      else
+        return <JobCard card={card} />
+    })
+  
 
   render(){
     return (
       <div className="searchresults gray">
       <div className="results-column">
-        <label className="results-count">Results Found</label>
-        <h2 className="resultsnotfound">No Results</h2>  
-        <WorkerCard card={this.state.card}/>
-        <JobCard card={this.state.jobcard}/>
+        <label className={this.state.cards.length > 0 ? "results-count" : "none"}>{this.state.cards.length} Results Found</label>
+        <h2 className={this.state.cards.length <= 0 ? "" : "none" }>No Results</h2>  
+        {this.getCardList()}
       </div>
     </div>
   )}
