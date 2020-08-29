@@ -4,6 +4,7 @@ import empty_heart from '../../resource/icons/empty_heart.png'
 import star from '../../resource/icons/star.png'
 import profilePicMatthew from '../../resource/profile/profilePicMatthew.jpg'
 import Heatmap from "./HeatMap";
+import { MockCard } from '../../mock/MockData'
 
 export default class WorkerCard extends React.Component {
 
@@ -22,26 +23,27 @@ export default class WorkerCard extends React.Component {
   }
 
   render() {
+    var { card } = this.props
     return (
       <div className="card">
         <div className="card-left">
           <div className="card-detail-left">
-            <img src={profilePicMatthew} alt="" className="cardprofile"></img>
+            <img src={card.image} alt="" className="cardprofile"></img>
             <span className="stars-box">
               <img src={star} alt="" className="star"></img>
               <img src={star} alt="" className="star"></img>
               <img src={star} alt="" className="star"></img>
               <img src={star} alt="" className="star"></img>
               <img src={star} alt="" className="star"></img>
-              <span className="star-number">5.0</span>
+              <span className="star-number">{card.starNumber}</span>
             </span>
             <span className="card-new">new</span>
             <button className="card-button">View</button>
           </div>
           <div className="card-detail-right">
-            <span className="card-title">Matthew Chuong</span>
-            <span className="card-name">Software Developer</span>
-            <span>United Healthgroup Miami, FL</span>
+            <span className="card-title">{card.title}</span>
+            <span className="card-name">{card.name}</span>
+            <span className="card-location">{card.location}</span>
             <li className="card-list gray">Software Development: 3 Years</li>
             <li className="card-list gray">Interface with developers to help support issues and bugs.</li>
             <li className="card-list gray">Build and maintain MVC and REST applications.</li>
@@ -66,14 +68,12 @@ export default class WorkerCard extends React.Component {
               <iframe id="video" width="100%" height="100%" src="https://www.youtube.com/embed/xqgH9j3x2OE" allowFullScreen></iframe>
             </div>
             <div id="card-intro" className="card-tabcontent">
-              <span>
-                Hi. My name is Thao Pham. I was born and raised in Vung Tau, Vietnam. The city is in the south of Vietnam. I am currently living in Vancouver, Canada. I am a native Vietnamese speaker. I love languages in general, so I decided to get into linguistics major to learn more about the connection between languages and human history. I also like
-              </span>
+              <span>{card.intro}</span>
               <span>...</span>
               <a>Read More</a>
             </div>
             <div id="card-heatmap" className="card-tabcontent">
-              <Heatmap />
+              <Heatmap heatmap={card.heatmap}/>
             </div>
           </div>
         </div>

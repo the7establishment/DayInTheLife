@@ -5,7 +5,6 @@ import 'react-calendar-heatmap/dist/styles.css';
 export default class Heatmap extends React.Component {
 
   render() {
-    var date = new Date()
     var startDate = new Date('2020-01-01')
     var endDate = new Date('2020-4-31')
     var values = [

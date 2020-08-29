@@ -1,5 +1,6 @@
 import React, { Component } from "react";
- 
+import mattProfilePic from '../resource/profile/profilePicMatthew.jpg'
+
 export const MockUser = {
     userId: "32454",
     fullName: "Matthew Chuong",
@@ -117,4 +118,30 @@ export const MockProducts = {
         ]
     }
 ]
+}
+
+export const MockCard = {
+    image: mattProfilePic,
+    title: 'Matthew Chuong',
+    name: 'Software Developer',
+    location: 'Miami, FL',
+    starNumber: '5.0',
+    new: true,
+    details:[
+        'Software Development: 3 Years',
+        'Interface with developers to help support issues and bugs.',
+        'Build and maintain MVC and REST applications.'
+    ],
+    video: 'https://www.youtube.com/embed/xqgH9j3x2OE',
+    intro: 'Hi. My name is Thao Pham. I was born and raised in Vung Tau, Vietnam. The city is in the south of Vietnam. I am currently living in Vancouver, Canada. I am a native Vietnamese speaker. I love languages in general, so I decided to get into linguistics major to learn more about the connection between languages and human history. I also like',
+    heatmap: {
+        startDate: new Date('2020-01-01'),
+        endDate: new Date('2020-04-31'),
+        values: [
+            { date: '2020-01-01', count: 1 },
+            { date: '2020-01-02', count: 3 },
+            { date: '2020-01-03', count: 6 },
+            { date: '2020-01-04', count: 9 }
+        ]
+    }
 }

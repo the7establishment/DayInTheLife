@@ -40,7 +40,7 @@ export default class JobCard extends React.Component {
                     <div className="card-detail-right">
                         <span className="card-title">United Healthgroup</span>
                         <span className="card-name">Software Developer</span>
-                        <span>Miami, FL</span>
+                        <span className="card-location">Miami, FL</span>
                         <li className="card-list gray">Software Development: 3 Years (Preferred)</li>
                         <li className="card-list gray">Interface with developers to help support issues and bugs.</li>
                         <li className="card-list gray">Build and maintain MVC and REST applications.</li>

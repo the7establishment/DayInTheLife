@@ -101,6 +101,9 @@
     top: 10px;
     right: 10px;
 }
+.cardicon:hover{
+    cursor: pointer;
+}
 .card-right{
     background-color: #FEFEFE;
     box-shadow: 5px 7px 25px 0 rgba(0,0,0,.1);
