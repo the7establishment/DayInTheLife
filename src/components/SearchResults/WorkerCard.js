@@ -10,11 +10,17 @@ export default class WorkerCard extends React.Component {
     super(props) 
     this.state = {
         currentTab: 0,
-        tabContent: ''
+        favorite: this.props.card.favorite
     }
   }
 
-  
+  setFavorite = () => {
+    console.log('works')
+    if(this.state.favorite)
+      this.setState({favorite: false})
+    else
+      this.setState({favorite: true})
+  }
 
   render() {
     var { card } = this.props
@@ -40,7 +46,7 @@ export default class WorkerCard extends React.Component {
             <span className="card-name">{card.name}</span>
             <span className="card-location">{card.location}</span>
             {details}
-            <img src={card.favorite ? heart : empty_heart} alt="" className="cardicon"></img>
+            <img src={this.state.favorite ? heart : empty_heart} alt="" className="cardicon" onClick={this.setFavorite}></img>
           </div>
         </div>
         <div className="card-right">
