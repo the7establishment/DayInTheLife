@@ -1,5 +1,5 @@
-import React, { Component } from "react";
 import mattProfilePic from '../resource/profile/profilePicMatthew.jpg'
+import work from '../resource/icons/work.png'
 
 export const MockUser = {
     userId: "32454",
@@ -124,7 +124,7 @@ export const MockCard = {
     image: mattProfilePic,
     title: 'Matthew Chuong',
     name: 'Software Developer',
-    location: 'Miami, FL',
+    location: 'United Healthgroup, Miami, FL',
     starNumber: '5.0',
     new: true,
     details:[
@@ -142,6 +142,47 @@ export const MockCard = {
             {
                 name:'Popular Day',
                 content: 'Hi. My name is Thao Pham. I was born and raised in Vung Tau, Vietnam. The city is in the south of Vietnam. I am currently living in Vancouver, Canada. I am a native Vietnamese speaker. I love languages in general, so I decided to get into linguistics major to learn more about the connection between languages and human history. I also like'
+            },
+            {
+                name:'Activity',
+                content: {
+                    startDate: new Date('2020-01-01'),
+                    endDate: new Date('2020-04-31'),
+                    values: [
+                        { date: '2020-01-01', count: 1 },
+                        { date: '2020-01-02', count: 3 },
+                        { date: '2020-01-03', count: 6 },
+                        { date: '2020-01-04', count: 9 }
+                    ]
+                }
+            }
+        ]
+    }
+}
+
+export const MockJobCard = {
+    type: 'Job',
+    image: work,
+    title: 'Software Developer',
+    name: 'United Healthgroup',
+    location: 'Miami, FL',
+    starNumber: '5.0',
+    new: false,
+    details:[
+        'Software Development: 3 Years (Preferred)',
+        'Interface with developers to help support issues and bugs.',
+        'Build and maintain MVC and REST applications.'
+    ],
+    cardRight:{
+        header: "",
+        tabs:[
+            {
+                name:'Video',
+                content: 'https://www.youtube.com/embed/3cpA_nQb09w'
+            },
+            {
+                name:'Popular Day',
+                content: 'Our businesses are committed to transforming health care worldwide. No matter where you start, you\'ll be leaving the world a better place than you found it. Discover a path to your life’s best work.'
             },
             {
                 name:'Activity',
