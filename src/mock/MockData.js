@@ -128,6 +128,7 @@ export const MockCards = [
         location: 'United Healthgroup, Miami, FL',
         starNumber: '5.0',
         new: true,
+        favorite: true,
         details:[
             'Software Development: 3 Years',
             'Interface with developers to help support issues and bugs.',
@@ -168,6 +169,7 @@ export const MockCards = [
         location: 'Miami, FL',
         starNumber: '5.0',
         new: false,
+        favorite: false,
         details:[
             'Software Development: 3 Years (Preferred)',
             'Interface with developers to help support issues and bugs.',

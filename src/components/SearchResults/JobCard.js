@@ -38,8 +38,7 @@ export default class JobCard extends React.Component {
             <span className="card-name">{card.name}</span>
             <span className="card-location">{card.location}</span>
             {details}
-            <img src={heart} alt="" className="cardicon"></img>
-            <img src={empty_heart} alt="" className="cardicon"></img>
+            <img src={card.favorite ? heart : empty_heart} alt="" className="cardicon"></img>
           </div>
         </div>
         <div className="card-right">
