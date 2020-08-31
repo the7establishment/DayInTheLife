@@ -5,7 +5,7 @@ import star from '../../resource/icons/star.png'
 import Heatmap from "./HeatMap";
 import HeaderMenu from "../AccountProfile/HeaderMenu";
 
-export default class JobCard extends React.Component {
+export default class Card extends React.Component {
   constructor(props) {
     super(props) 
     this.state = {
@@ -46,7 +46,7 @@ export default class JobCard extends React.Component {
             <span className="card-name">{card.name}</span>
             <span className="card-location">{card.location}</span>
             {details}
-            <img src={this.state.favorite ? heart : empty_heart} alt="" className="cardicon"></img>
+            <img src={this.state.favorite ? heart : empty_heart} alt="" className="cardicon" onClick={this.setFavorite}></img>
           </div>
         </div>
         <div className="card-right">

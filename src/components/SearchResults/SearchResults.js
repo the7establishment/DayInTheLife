@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import '../../css/SearchResults/SearchResults.css'
-import WorkerCard from "./WorkerCard";
-import JobCard from "./JobCard";
+import Card from "./Card";
 import { MockCards } from '../../mock/MockData'
 
 export default class SearchResults extends React.Component {
@@ -14,10 +13,8 @@ export default class SearchResults extends React.Component {
 
   getCardList = () => 
     this.state.cards.map(card => {
-      if(card.type == 'Worker')
-        return <WorkerCard card={card} />
-      else
-        return <JobCard card={card} />
+      // if(card.type == 'Worker')
+        return <Card card={card} />
     })
   
 
