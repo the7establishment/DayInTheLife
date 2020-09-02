@@ -1,7 +1,7 @@
 .App {
   display: grid;
   grid-template-rows: 7% 93%;
-  font-family: 'Lucida Sans';
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   height: 100vh;
   
 }
@@ -10,6 +10,6 @@ body{
   margin: 0;
   /* height: 100vh; */
   background-color: #FAFAFA;
-  font-family: 'Lucida Sans';
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 

@@ -3,7 +3,7 @@
   grid-row: 1;
   position: sticky;
   margin: 0; 
-  background-color: #B0C38D;
+  background-color: hsl(81, 31%, 66%);
   list-style-type: none;
   font-family: "Acme", sans-serif;
   height: 100%;

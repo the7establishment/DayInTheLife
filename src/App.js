@@ -4,6 +4,7 @@ import JobProfile from "./components/JobProfile/JobProfile";
 import "./styles.css";
 import AccountProfile from "./components/AccountProfile/AccountProfile";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import SearchResults from "./components/SearchResults/SearchResults";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Switch>
           <Route path="/JobProfile" component={JobProfile} />
           <Route path="/AccountProfile" component={AccountProfile} />
+          <Route path="/Results" component={SearchResults} />
         </Switch>
       </div>
     </Router>
