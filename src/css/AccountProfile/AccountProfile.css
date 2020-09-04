@@ -68,6 +68,19 @@
     color: #707070;
 }
 
+/* ---------- splash ----------*/
+
+.splashgif {
+    opacity: 50%;
+    grid-column: 2;
+    margin: auto;
+    font-size: 100px;
+    font-weight: bolder;
+    color: #23629F;
+    background-color: #707070;
+    width: 5%;
+}
+
 /* ---------- spacers ---------- */
 
 .spacer-shrt {
