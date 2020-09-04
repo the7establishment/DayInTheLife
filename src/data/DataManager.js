@@ -4,8 +4,7 @@ import JobProfile from "../components/JobProfile/JobProfile"
 import HomePage from "../components/HomePage/HomePage"
 import { RestDataSource } from "../data/RestDataSource"
 import Splash from "../components/Splash/SplashScreen"
-import { Components, DataMap } from "../data/Constants"
-import { isThisTypeNode } from "typescript"
+import {  DataMap } from "../data/Constants"
 
 var dataSource = new RestDataSource()
 
@@ -49,7 +48,6 @@ export default class DataManager extends Component {
     }
 
     render() {
-        let Component = this.props.component
         if (this.state.loading) {
             return <Splash />
         } else {
