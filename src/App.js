@@ -5,6 +5,7 @@ import "./styles.css";
 import AccountProfile from "./components/AccountProfile/AccountProfile";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import SearchResults from "./components/SearchResults/SearchResults";
+import Login from "./components/Login/Login";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="/AccountProfile" component={AccountProfile} />
           <Route path="/Results" component={SearchResults} />
         </Switch>
+        <Login />
       </div>
     </Router>
   );

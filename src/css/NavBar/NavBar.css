@@ -54,6 +54,7 @@
 .navprofile{
   border-radius: 50%;
   height: 40px;
+  display: none;
 }
 .navprofile:hover{
   cursor: pointer;
