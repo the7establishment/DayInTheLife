@@ -22,7 +22,7 @@ export default class Login extends React.Component {
             <input className="modalinput" placeholder="Email"/>
             <input className="modalinput" placeholder="Password"/>
             <div className="rememberforgotbar">
-              <div>
+              <div className="remembermebox">
                 <input className="rememberme" type="checkbox" />
                 <span>Keep me logged in</span>
               </div>
@@ -31,8 +31,10 @@ export default class Login extends React.Component {
               </div>
             </div>
             <button className="ditl-button modalbutton">LOG IN</button>
+            
           </div>
           <div className="modalfooter">
+            <hr/>
             <span className="policy">
               By logging in or creating an account, you agree to DayInTheLife's Terms of Service and Privacy Policy.
             </span>

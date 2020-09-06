@@ -1,7 +1,7 @@
 .login{
     display: block;
-  }
-  .modalbackground{
+}
+.modalbackground{
     position: fixed;
     z-index: 1; 
     left: 0;
@@ -13,29 +13,29 @@
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  .modal{
+    }
+.modal{
     background-color: #fefefe;
     position: relative;
     margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 375px;
-    height: 525px;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-  }
-  .modal-open{
+}
+.modal-open{
     overflow: hidden;
-  }
-  
-  .modalcloseicon{
+}
+
+.modalcloseicon{
     height: 24px;
     width: 24px;
     padding: 10px
-  }
-  .modalclosebutton{
+}
+.modalclosebutton{
     position: absolute;
     top: 0;
     right: 0;
@@ -49,43 +49,46 @@
     border: 0;
     outline: 0;
     cursor: pointer;
-  }
-  .modalbody{
+}
+.modalbody{
     display: flex;
     flex-direction: column;
-  }
-  .modaltitle{
-      font-size: 20px;
-  }
-  .modalinput{
+}
+.modaltitle{
+    font-size: 20px;
+}
+.modalinput{
     height: 42px;
     margin-top: 40px;
     font-size: 16px;
     padding-left: 20px;
-  }
-  .modalbutton{
+}
+.modalbutton{
     margin-top: 30px;
     font-size: 16px;
     width: 100%;
     cursor: pointer;
-  }
-  .rememberforgotbar{
+}
+.rememberforgotbar{
     display: flex;
     flex-direction: row;
     margin-top: 30px;
     justify-content: space-between;
-  }
-  .rememberme{
-      font-size: 14px;
-  }
-  .forgotpassword{
+}
+.rememberme{
+    height: 16px;
+    width: 16px;
+    margin-right: 10px;
+}
+.forgotpassword{
     font-size: 14px;
     color: #8c8c8c;
     cursor: pointer;
-  }
-  .modalfooter{
-      margin-top: 40px;
-  }
-  .policy{
-      font-size: 12px;
-  }
+}
+.modalfooter{
+    margin-top: 40px;
+    text-align: center;
+}
+.policy{
+    font-size: 12px;
+}
