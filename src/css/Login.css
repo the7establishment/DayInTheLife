@@ -1,4 +1,7 @@
 .login{
+    display: block;
+}
+.none{
     display: none;
 }
 .modalbackground{
@@ -58,12 +61,17 @@
     font-size: 20px;
 }
 .modalinput{
-    height: 42px;
+    height: 24px;
     margin-top: 40px;
-    font-size: 16px;
-    padding-left: 20px;
+    font-size: 14px;
+    padding: 13px 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    width: 343px;
+
+}
+.error{
+    border: 1px solid #cb242b;
 }
 .modalbutton{
     margin-top: 30px;
@@ -114,4 +122,14 @@
     color: #333;
     user-select: none;
     cursor: pointer;
+}
+.showicon{
+    position: absolute;
+    height: 24px;
+    top: 52px;
+    right: 13px;
+    cursor: pointer;
+}
+.passwordwrap{
+    position: relative;
 }
