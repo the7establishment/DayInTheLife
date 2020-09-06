@@ -53,6 +53,9 @@
     outline: 0;
     cursor: pointer;
 }
+.modalheader{
+    margin-bottom: 20px;
+}
 .modalbody{
     display: flex;
     flex-direction: column;
@@ -62,16 +65,20 @@
 }
 .modalinput{
     height: 24px;
-    margin-top: 40px;
     font-size: 14px;
     padding: 13px 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 343px;
-
+    outline-style: none;
 }
 .error{
     border: 1px solid #cb242b;
+}
+.errMsg{
+    font-size: 13px;
+    color: #cb242b;
+    padding-left: 5px;
 }
 .modalbutton{
     margin-top: 30px;
@@ -82,7 +89,7 @@
 .rememberforgotbar{
     display: flex;
     flex-direction: row;
-    margin-top: 30px;
+    margin-top: 10px;
     justify-content: space-between;
 }
 .remembermebox{
@@ -126,10 +133,24 @@
 .showicon{
     position: absolute;
     height: 24px;
-    top: 52px;
+    top: 14px;
     right: 13px;
     cursor: pointer;
 }
 .passwordwrap{
     position: relative;
+    height: 105px;
+}
+.emailwrap{
+    height: 105px;
+}
+.wrapper{
+    position: relative;
+    height: 105px;
+}
+.button-disabled{
+    background: #f7f7fa;
+    border: 1px solid #f7f7fa;
+    color: #d9d9d9;
+    cursor: not-allowed;
 }
