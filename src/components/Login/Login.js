@@ -31,7 +31,10 @@ export default class Login extends React.Component {
               </div>
             </div>
             <button className="ditl-button modalbutton">LOG IN</button>
-            
+            <div className="logintypebox">
+              <span className="signtypehint">No account yet?</span>
+              <span className="signuplink">Sign up</span>
+            </div>
           </div>
           <div className="modalfooter">
             <hr/>
