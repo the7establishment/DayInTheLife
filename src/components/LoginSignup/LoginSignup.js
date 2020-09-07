@@ -64,7 +64,7 @@ export default class LoginSignup extends React.Component {
 
   verifyName = () => {
     var name = document.getElementById("Name")
-    var re = /([a-zA-Z]).{3,20}/
+    var re = /([a-zA-Z]).{3,50}/
     if(name.value == 0){
       name.classList.add("error")
       this.setState({nameErrMsg: "Please enter a name.", hasError: true, valid: false})
@@ -72,7 +72,7 @@ export default class LoginSignup extends React.Component {
     }
     else if(!re.test(name.value)){
       name.classList.add("error")
-      this.setState({nameErrMsg: "Please enter between 3 and 20 characters.", hasError: true, valid: false})
+      this.setState({nameErrMsg: "Please enter at least 3 characters.", hasError: true, valid: false})
       return false
     }
     else {
@@ -84,7 +84,7 @@ export default class LoginSignup extends React.Component {
 
   verifyPassword = () => {
     var pass = document.getElementById("Password")
-    var re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}/
+    var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\S{8,20}$/
     if(pass.value.length == 0){
       pass.classList.add("error")
       this.setState({passErrMsg: "Please enter a password.", hasError: true, valid: false})
@@ -155,15 +155,15 @@ export default class LoginSignup extends React.Component {
           </div>
           <div className="modalbody">
             <div className={this.state.isLogin ? 'none' : 'wrapper'}>
-              <input className="modalinput" id="Name" placeholder="Name" onBlur={this.verifyName} onChange={this.verifyName}/>
+              <input className="modalinput" id="Name" placeholder="Name" onBlur={this.verifyName} onChange={this.verifyName} maxLength="50"/>
               <p className="errMsg">{this.state.nameErrMsg}</p>
             </div>
             <div className="wrapper">
-              <input className="modalinput" id="Email" placeholder="Email" onBlur={this.verifyEmail} onChange={this.verifyEmail}/>
+              <input className="modalinput" id="Email" placeholder="Email" onBlur={this.verifyEmail} onChange={this.verifyEmail} maxLength="50"/>
               <p className="errMsg">{this.state.emailErrMsg}</p>
             </div>
             <div className="wrapper">
-              <input className="modalinput" id="Password" placeholder="Password" type={this.state.show ? "text" : "password"} size="20" onChange={this.verifyPassword} onBlur={this.verifyPassword}/>
+              <input className="modalinput" id="Password" placeholder="Password" type={this.state.show ? "text" : "password"} onChange={this.verifyPassword} onBlur={this.verifyPassword} maxLength="20"/>
               <img className="showicon" alt="eye" src={this.state.show ?slash_eye : eye} onClick={this.showHidePassword}></img>
               <p className="errMsg">{this.state.passErrMsg}</p>
             </div>
