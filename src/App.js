@@ -17,6 +17,9 @@ export default class App extends React.Component {
   login = () => {
     this.setState({isAccount:true})
   }
+  logout = () => {
+    this.setState({isAccount:false})
+  }
 
   render() {
     return (

@@ -18,6 +18,7 @@ export default class Overview extends Component {
             <p className="smalltext">User Id: { this.props.user.userId }</p>
             <button className="btn-wide btn-navy">ADD AS FRIEND</button>
             <button className="btn-wide btn-wht">SEND MESSAGE</button>
+            <button className="btn-wide btn-red">LOG OUT</button>
         </div>
     
 }
