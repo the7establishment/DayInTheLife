@@ -5,7 +5,6 @@ import "./styles.css";
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import SearchResults from "./components/SearchResults/SearchResults";
 import LoginSignup from "./components/LoginSignup/LoginSignup";
-
 import DataManager from "./data/DataManager"
 import { Components } from "./data/Constants"
 
@@ -18,6 +17,7 @@ export default class App extends Component {
   }
   login = () => {
     this.setState({isAccount:true})
+    window.url = ""
   }
   logout = () => {
     this.setState({isAccount:false})
@@ -27,7 +27,7 @@ export default class App extends Component {
     return(
       <Router>
       <div className="App">
-        <NavBar isAccount={this.state.isAccount}/>
+        <NavBar isAccount={this.state.isAccount} logout={this.logout}/>
         <Switch>
           <Route exact path="/" component={ () => <DataManager component={Components.HOME_PAGE}/> } />
           <Route path="/JobProfile" component={JobProfile} />

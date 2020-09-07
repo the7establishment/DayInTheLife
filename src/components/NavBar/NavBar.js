@@ -10,7 +10,7 @@ export default class NavBar extends React.Component {
       <div className="navbar">
         <NavLeft />
         <NavSearch />
-        <NavRight isAccount={this.props.isAccount}/>
+        <NavRight isAccount={this.props.isAccount} logout={this.props.logout}/>
       </div>
   )}
 }
