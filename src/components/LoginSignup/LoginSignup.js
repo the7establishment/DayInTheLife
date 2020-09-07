@@ -1,10 +1,10 @@
 import React from "react";
-import "../../css/Login.css"
+import "../../css/LoginSignup.css"
 import close_icon from "../../resource/icons/close_icon.png"
 import eye from '../../resource/icons/eye.png'
 import slash_eye from '../../resource/icons/slash_eye.png'
 
-export default class Login extends React.Component {
+export default class LoginSignup extends React.Component {
 
   constructor(){
     super()
@@ -136,6 +136,10 @@ export default class Login extends React.Component {
     var isValid = this.validateEmailNamePass()
     if(isValid){
       this.setState({valid:isValid})
+      if(this.state.isLogin)
+        this.props.login()
+      else
+        console.log("signup")
       this.closeModal()
     }
     else
