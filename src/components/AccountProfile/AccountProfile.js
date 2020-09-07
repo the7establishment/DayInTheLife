@@ -4,7 +4,6 @@ import Visual from "./Visual/Visual"
 import DayDisplay from "./DayDisplay/DayDisplay"
 import Experience from "./Experience/Experience"
 import Tools from "./Tools/Tools"
-import { MockUser, MockDays, MockProducts } from "../../mock/MockData"
 import { RestDataSource } from "../../data/RestDataSource"
 import "../../css/AccountProfile/AccountProfile.css"
 
@@ -15,11 +14,8 @@ export default class AccountProfile extends Component {
     constructor(props) {         
         super(props);
         this.state = {
-            currentDay: MockDays[0],
-            days: MockDays,
-            user: MockUser,
-            users: MockUser,
-            products: MockProducts
+            currentDay: props.days[0],
+            days: props.days
         }
     }
 
@@ -35,33 +31,18 @@ export default class AccountProfile extends Component {
             <div className="page">
                 <div className="stage-type-2">
                     <div className="stage-left">
-                        <Overview user={ this.state.user }/>
-                        <Experience days={ this.state.days }
+                        <Overview user={ this.props.user }/>
+                        <Experience days={ this.props.days }
                             currentDay={ this.state.currentDay }
                                 callback={ this.updateDay }/>
                     </div>
                     <div className="stage-right">
                         <Visual/> 
-                        <DayDisplay day={ this.state.currentDay } user={ this.state.user }/>
-                        <Tools tools={ this.state.products }/>
+                        <DayDisplay day={ this.state.currentDay } user={ this.props.user }/>
+                        <Tools tools={ this.props.products }/>
                     </div>
                 </div>
             </div>
         )
-    }
-
-    componentDidMount() {
-        dataSource.GetData("days").then(response => {
-            this.setState({ currentDay: response.data[0], days: response.data })
-        })
-        dataSource.GetData("users").then(response => {
-            this.setState({ users: response.data })
-        })
-        dataSource.GetData("user").then(response => {
-            this.setState({ user: response.data})
-        })
-        dataSource.GetData("products").then(response => {
-            this.setState({ products: response.data })
-        })
     }
 }
