@@ -1,6 +1,6 @@
 # DayInTheLife
 
-A platform dedicated to showcasing the day in the lives of different walks of life.
+A platform dedicated to showcasing the day in the lives of different users.
 
 ➖
 
