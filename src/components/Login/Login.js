@@ -125,20 +125,21 @@ export default class Login extends React.Component {
   validateEmailNamePass = () => {
     var validEmail = this.verifyEmail()
     var validPass = this.verifyPassword()
-    if(validEmail && validPass)
-      return true
+    var validName = this.verifyName()
+    if(this.state.isLogin)
+      return validEmail && validPass ? true : false 
     else
-      return false
+      return validEmail && validPass && validName ? true : false
   }
 
-  login = () => {
+  login_signup = () => {
     var isValid = this.validateEmailNamePass()
-    if(this.state.isLogin){
-      if(isValid)
-        this.setState({valid:isValid})
-      else
-        this.setState({valid:isValid})
+    if(isValid){
+      this.setState({valid:isValid})
+      this.closeModal()
     }
+    else
+      this.setState({valid:isValid})
   }
 
   render() {
@@ -171,7 +172,7 @@ export default class Login extends React.Component {
                 <span className="forgotpassword">Forgot Password?</span>
               </div>
             </div>
-            <button className={this.state.valid ? "ditl-button modalbutton" : "ditl-button modalbutton button-disabled"} onClick={this.login}>{this.state.isLogin ? 'LOG IN' : 'SIGN UP'}</button>
+            <button className={this.state.valid ? "ditl-button modalbutton" : "ditl-button modalbutton button-disabled"} onClick={this.login_signup}>{this.state.isLogin ? 'LOG IN' : 'SIGN UP'}</button>
             <div className="logintypebox">
               <span className="signtypehint">{this.state.isLogin ? 'No account yet?' : 'Already have an account?'}</span>
               <span className="signuplink" onClick={this.changeLoginType}>{this.state.isLogin ? 'Sign up' : 'Log in'}</span>
