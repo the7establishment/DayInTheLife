@@ -90,7 +90,7 @@
 .rememberforgotbar{
     display: flex;
     flex-direction: row;
-    margin-top: 10px;
+    margin-top: 20px;
     justify-content: space-between;
 }
 .remembermebox{
