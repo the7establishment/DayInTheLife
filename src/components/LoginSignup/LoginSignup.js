@@ -1,14 +1,14 @@
-import React from "react";
+import React from "react"
+import Modal from '../Modal'
 import "../../css/LoginSignup.css"
 import close_icon from "../../resource/icons/close_icon.png"
 import eye from '../../resource/icons/eye.png'
 import slash_eye from '../../resource/icons/slash_eye.png'
 
-export default class LoginSignup extends React.Component {
-
-  constructor() {
+export default class Login extends React.Component {
+  constructor(){
     super()
-    this.state = {
+    this.state={
       isLogin: true,
       show: false,
       passErrMsg: '',
@@ -147,52 +147,47 @@ export default class LoginSignup extends React.Component {
   }
 
   render() {
-    return (
-      <div id="login" className="login modalbackground">
-        <div className="modal">
-          <div className="modalheader">
-            <span className="modaltitle">{this.state.isLogin ? 'LOG IN' : 'SIGN UP'}</span>
+    return(
+      <Modal title={this.state.isLogin ? 'LOG IN' : 'SIGN UP'} id="login">
+        <div className="modalbody">
+          <div className={this.state.isLogin ? 'none' : 'wrapper'}>
+            <input className="modalinput" id="Name" placeholder="Name" onBlur={this.verifyName} onChange={this.verifyName} maxLength="50" />
+            <p className="errMsg">{this.state.nameErrMsg}</p>
           </div>
-          <div className="modalbody">
-            <div className={this.state.isLogin ? 'none' : 'wrapper'}>
-              <input className="modalinput" id="Name" placeholder="Name" onBlur={this.verifyName} onChange={this.verifyName} maxLength="50" />
-              <p className="errMsg">{this.state.nameErrMsg}</p>
+          <div className="wrapper">
+            <input className="modalinput" id="Email" placeholder="Email" onBlur={this.verifyEmail} onChange={this.verifyEmail} maxLength="50" />
+            <p className="errMsg">{this.state.emailErrMsg}</p>
+          </div>
+          <div className="wrapper">
+            <input className="modalinput" id="Password" placeholder="Password" type={this.state.show ? "text" : "password"} onChange={this.verifyPassword} onBlur={this.verifyPassword} maxLength="20" />
+            <img className="showicon" alt="eye" src={this.state.show ? slash_eye : eye} onClick={this.showHidePassword}></img>
+            <p className="errMsg">{this.state.passErrMsg}</p>
+          </div>
+          <div className={this.state.isLogin ? 'rememberforgotbar' : 'none'}>
+            <div className="remembermebox">
+              <input className="rememberme" type="checkbox" />
+              <span>Keep me logged in</span>
             </div>
-            <div className="wrapper">
-              <input className="modalinput" id="Email" placeholder="Email" onBlur={this.verifyEmail} onChange={this.verifyEmail} maxLength="50" />
-              <p className="errMsg">{this.state.emailErrMsg}</p>
-            </div>
-            <div className="wrapper">
-              <input className="modalinput" id="Password" placeholder="Password" type={this.state.show ? "text" : "password"} onChange={this.verifyPassword} onBlur={this.verifyPassword} maxLength="20" />
-              <img className="showicon" alt="eye" src={this.state.show ? slash_eye : eye} onClick={this.showHidePassword}></img>
-              <p className="errMsg">{this.state.passErrMsg}</p>
-            </div>
-            <div className={this.state.isLogin ? 'rememberforgotbar' : 'none'}>
-              <div className="remembermebox">
-                <input className="rememberme" type="checkbox" />
-                <span>Keep me logged in</span>
-              </div>
-              <div>
-                <span className="forgotpassword">Forgot Password?</span>
-              </div>
-            </div>
-            <button className={this.state.valid ? "ditl-button modalbutton" : "ditl-button modalbutton button-disabled"} onClick={this.login_signup}>{this.state.isLogin ? 'LOG IN' : 'SIGN UP'}</button>
-            <div className="logintypebox">
-              <span className="signtypehint">{this.state.isLogin ? 'No account yet?' : 'Already have an account?'}</span>
-              <span className="signuplink" onClick={this.changeLoginType}>{this.state.isLogin ? 'Sign up' : 'Log in'}</span>
+            <div>
+              <span className="forgotpassword">Forgot Password?</span>
             </div>
           </div>
-          <div className="modalfooter">
-            <hr />
-            <span className="policy">
-              By logging in or creating an account, you agree to DayInTheLife's Terms of Service and Privacy Policy.
-            </span>
+          <button className={this.state.valid ? "ditl-button modalbutton" : "ditl-button modalbutton button-disabled"} onClick={this.login_signup}>{this.state.isLogin ? 'LOG IN' : 'SIGN UP'}</button>
+          <div className="logintypebox">
+            <span className="signtypehint">{this.state.isLogin ? 'No account yet?' : 'Already have an account?'}</span>
+            <span className="signuplink" onClick={this.changeLoginType}>{this.state.isLogin ? 'Sign up' : 'Log in'}</span>
           </div>
-          <button className="modalclosebutton">
-            <img className="modalcloseicon" alt="" src={close_icon} onClick={this.closeModal}></img>
-          </button>
         </div>
-      </div>
+        <div className="modalfooter">
+          <hr />
+          <span className="policy">
+            By logging in or creating an account, you agree to DayInTheLife's Terms of Service and Privacy Policy.
+          </span>
+        </div>
+        <button className="modalclosebutton">
+          <img className="modalcloseicon" alt="" src={close_icon} onClick={this.closeModal}></img>
+        </button>
+      </Modal>
     )
   }
 }
