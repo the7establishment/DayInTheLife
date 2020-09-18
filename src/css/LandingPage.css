@@ -1,0 +1,28 @@
+.landingpage{
+  display: grid;
+  grid-row: 2;
+  background: black;
+}
+.landingimage{
+  height: 100%;
+  width: 100%;
+  opacity: 0.4;
+  object-fit: cover;
+}
+.imgmsg{
+  position: absolute;
+  color: white;
+  top: 50%;
+  left: 10vw;
+  width: 480px;
+}
+.imgmsg h1{
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 60px;
+}
+.imgmsg p{
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
