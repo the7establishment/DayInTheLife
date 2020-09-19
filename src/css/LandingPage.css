@@ -26,3 +26,34 @@
   font-weight: 400;
   line-height: 24px;
 }
+.whyditl{
+  height: 100vw;
+  padding: 60px 0px;
+}
+.ditltitle{
+  text-align: center;
+}
+.howditl{
+  background-color: #F5F6F7;
+  padding: 40px 0px;
+}
+.iconbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.how-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px 20px;
+  width: 200px;
+}
+.how-wrapper span{
+  font-weight: 600;
+}
+.howicon{
+  height: 80px;
+  width: 80px;
+  margin-bottom: 20px;
+}
