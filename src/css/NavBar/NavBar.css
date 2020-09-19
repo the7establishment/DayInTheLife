@@ -1,12 +1,13 @@
-/* NavBar Section */
 .navbar{
   grid-row: 1;
-  position: sticky;
+  position: fixed;
+  min-height: 70px;
+  height: auto;
   margin: 0; 
   background-color: hsl(81, 31%, 66%);
   list-style-type: none;
   font-family: "Acme", sans-serif;
-  height: 100%;
+  width: 100%;
   display: grid;
   grid-template-columns: 15% 70% 15%;
   align-items: center;
@@ -70,4 +71,37 @@
 }
 .navsearch a:hover{
     cursor: pointer;
+}
+.nav-menu{
+  position: fixed;
+  top: 60px;
+  right: 0;
+  list-style: none;
+  background-color: #fff;
+  box-sizing: border-box;
+  bottom: 0;
+  height: 100%;
+  width: 280px;
+  padding: 0 24px;
+  border-left: 1px solid #eee;
+}
+.nav-menu-item{
+  border-radius: 5px;
+  border-bottom: 1px solid #eee;
+}
+.nav-menu-item:hover{
+  background-color: aliceblue;
+}
+.nav-menu-item-content{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 54px;
+  cursor: pointer;
+}
+.nav-menu-icon{
+  height: 28px;
+}
+.nav-menu-item-title{
+  margin-left: 20px;
 }

@@ -73,19 +73,24 @@
     margin-bottom: 15px;
     height: 42px;
     cursor: pointer;
+    border-radius: 5px;
+    border: none;
 }
 
 .btn-navy {
-    border-radius: 5px;
     background-color: #23629F;
     color: #FFFFFF;
 }
 
 .btn-wht {
-    border-radius: 5px;
     background-color: #FFFFFF;
     border-color: #707070;
     color: #707070;
+    border: 1px solid black;
+}
+.btn-red{
+    background-color: #cb242b;
+    color: #FFFFFF;
 }
 
 /* ---------- splash ----------*/

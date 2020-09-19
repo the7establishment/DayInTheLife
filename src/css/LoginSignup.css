@@ -1,0 +1,154 @@
+.none{
+    display: none;
+}
+.modalbackground{
+    position: fixed;
+    z-index: 998; 
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+.modal{
+    background-color: #fefefe;
+    position: relative;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 375px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    z-index: 999;
+}
+.modal-open{
+    overflow: hidden;
+}
+
+.modalcloseicon{
+    height: 24px;
+    width: 24px;
+    padding: 10px
+}
+.modalclosebutton{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    padding: 0;
+    color: rgba(0,0,0,.45);
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+.modalheader{
+    margin-bottom: 20px;
+}
+.modalbody{
+    display: flex;
+    flex-direction: column;
+}
+.modaltitle{
+    font-size: 20px;
+}
+.modalinput{
+    height: 24px;
+    font-size: 14px;
+    padding: 13px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 343px;
+    outline-style: none;
+}
+.error{
+    border: 1px solid #cb242b;
+}
+.errMsg{
+    font-size: 13px;
+    color: #cb242b;
+    padding-left: 5px;
+}
+.modalbutton{
+    margin-top: 30px;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+}
+.rememberforgotbar{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+.remembermebox{
+    display: flex;
+    place-items: center;
+}
+.rememberme{
+    height: 16px;
+    width: 16px;
+    margin-right: 10px;
+}
+.forgotpassword{
+    font-size: 14px;
+    color: #8c8c8c;
+    cursor: pointer;
+}
+.modalfooter{
+    margin-top: 20px;
+    text-align: center;
+}
+.policy{
+    font-size: 12px;
+}
+.logintypebox{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.signtypehint{
+    font-size: 14px;
+    color: #8c8c8c;
+    margin-right: 10px;
+}
+.signuplink{
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    user-select: none;
+    cursor: pointer;
+}
+.showicon{
+    position: absolute;
+    height: 24px;
+    top: 14px;
+    right: 13px;
+    cursor: pointer;
+}
+.passwordwrap{
+    position: relative;
+    height: 105px;
+}
+.emailwrap{
+    height: 105px;
+}
+.wrapper{
+    position: relative;
+    height: 105px;
+}
+.button-disabled{
+    background: #f7f7fa;
+    border: 1px solid #f7f7fa;
+    color: #d9d9d9;
+    cursor: not-allowed;
+}
