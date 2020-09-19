@@ -1,10 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../../css/LandingPage.css'
 import landingimg from '../../resource/img/laptop-iphone-desk-notebook.jpg'
 import search from '../../resource/icons/search.png'
+import search_green from '../../resource/icons/search_green.png'
 import know from '../../resource/icons/know.png'
 import calendar from '../../resource/icons/calendar.png'
 import lightbulb from '../../resource/icons/lightbulb.png'
+import callToActionImg from '../../resource/img/asian-guy.jpg'
 
 export default class LandingPage extends React.Component {
   constructor(){
@@ -14,10 +17,18 @@ export default class LandingPage extends React.Component {
   render(){
     return(
       <div className="landingpage">
-        <img alt="" src={landingimg} className="landingimage"></img>
-        <div className="imgmsg">
-          <h1>TAKE A PEEK INTO EVERYDAY LIFE</h1>
-          <p>Look at a day in the life from over millions of people</p>
+        <div className="top">
+          <img alt="" src={landingimg} className="landingimage"></img>
+          <div className="imgmsg">
+            <h1>TAKE A PEEK INTO EVERYDAY LIFE</h1>
+            <p>Look at a day in the life from over millions of people. See their day to day routine, responsibilities, and balance.</p>
+            <div className="searchbar">
+              <input className="modalinput"/>
+              <Link to="/Results">
+                <img alt="" src={search_green} className="searchicon"></img>
+              </Link>
+            </div>
+          </div>
         </div>
         <div className="howditl">
           <h1 className="ditltitle">How DayInTheLife works for You</h1>
@@ -42,10 +53,24 @@ export default class LandingPage extends React.Component {
         </div>
         <div className="exploreditl">
           <h1 className="ditltitle">Explore DayInTheLife</h1>
+          <span>Millions of people are searching for jobs, salary information, company reviews, and interview questions. See what others are looking for on DayInTheLife today.</span>
         </div>
-        <div className="whyditl">
+        {/* <div className="whyditl">
           <h1 className="ditltitle">Why DayInTheLife?</h1>
 
+        </div> */}
+        <div className="calltoaction">
+          <img alt="" src={callToActionImg} className="landingimage"></img>
+          <div className="imgmsg" style={{top:"-80%"}}>
+            <h1>Find the Job That Fits Your Life</h1>
+            <p>On DayInTheLife it's about searching for the perfect lifestyle without questioning if the job is the right fit for you.</p>
+            <Link to="/Results">
+              <button className="ditl-button">GET STARTED NOW</button>
+            </Link>
+          </div>
+        </div>
+        <div className="footer">
+          <span>Copyright © 2020, DayInTheLife, Inc. "DayInTheLife" and logo are registered trademarks of DayInTheLife, Inc</span>
         </div>
       </div>
     )

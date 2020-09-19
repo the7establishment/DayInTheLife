@@ -22,6 +22,7 @@ export default class App extends Component {
   }
   logout = () => {
     this.setState({isAccount:false})
+    document.getElementById("SideMenu").classList.add("none")
   }
 
   render() {
@@ -30,8 +31,7 @@ export default class App extends Component {
       <div className="App">
         <NavBar isAccount={this.state.isAccount} logout={this.logout}/>
         <Switch>
-          <Route exact path="/" component={ () => <DataManager component={Components.HOME_PAGE}/> } />
-          <Route path="/LandingPage" component={LandingPage} />
+          <Route exact path="/" component={!this.state.isAccount ? LandingPage : () => <DataManager component={Components.HOME_PAGE}/> } />
           <Route path="/JobProfile" component={JobProfile} />
           <Route path="/AccountProfile" component={ () => <DataManager component={Components.ACCT_PROFILE}/> } />
           <Route path="/Results" component={SearchResults} />
