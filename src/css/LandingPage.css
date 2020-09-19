@@ -86,6 +86,23 @@
   text-align: center;
   padding: 20px;
 }
+.cardbar{
+  display: flex;
+  place-content: center;
+}
+.whycard{
+  width: 300px;
+  padding: 10px 15px;
+  margin: 0 20px;
+}
+.whycard h2{
+  margin: 0;
+}
+.whyimg{
+  object-fit: cover;
+  height: 325px;
+  width: 305px;
+}
 .calltoaction{
   height: 500px;
   background-color: black;

@@ -8,10 +8,25 @@ import know from '../../resource/icons/know.png'
 import calendar from '../../resource/icons/calendar.png'
 import lightbulb from '../../resource/icons/lightbulb.png'
 import callToActionImg from '../../resource/img/asian-guy.jpg'
+import man from '../../resource/img/man_desk.png'
+import man_idea from '../../resource/img/man_idea.png'
+import man_thinking from '../../resource/img/man_thinking.png'
+import mountain_textbook from '../../resource/img/mountain_textbooks.png'
+import WhyCard from './WhyCard'
 
 export default class LandingPage extends React.Component {
   constructor(){
     super()
+    this.state = {
+      title: "Check Anytime",
+      content: "Explore DayinTheLife from the comfort of your home or on your mobile device.",
+      title2: "Day to Day Routine",
+      content2: "See real routines and responsibilities from people that actually work there.",
+      title3: "Confidence",
+      content3: "Have confidencein your career or when changing careers and know exactly what your going to be doing.",
+      title4: "Level Up",
+      content4: "See what skills other people have and know the end goal of what you should achieve to be the right fit for the job.",
+    }
   }
 
   render(){
@@ -51,14 +66,19 @@ export default class LandingPage extends React.Component {
             </div>
           </div>
         </div>
-        <div className="exploreditl">
+        {/* <div className="exploreditl">
           <h1 className="ditltitle">Explore DayInTheLife</h1>
           <span>Millions of people are searching for jobs, salary information, company reviews, and interview questions. See what others are looking for on DayInTheLife today.</span>
-        </div>
-        {/* <div className="whyditl">
-          <h1 className="ditltitle">Why DayInTheLife?</h1>
-
         </div> */}
+        <div className="whyditl">
+          <h1 className="ditltitle">Why DayInTheLife?</h1>
+          <div className="cardbar">
+            <WhyCard title={this.state.title} content={this.state.content} img={man}/>
+            <WhyCard title={this.state.title2} content={this.state.content2} img={man_thinking}/>
+            <WhyCard title={this.state.title3} content={this.state.content3} img={man_idea}/>
+            <WhyCard title={this.state.title4} content={this.state.content4} img={mountain_textbook}/>
+          </div>
+        </div>
         <div className="calltoaction">
           <img alt="" src={callToActionImg} className="landingimage"></img>
           <div className="imgmsg" style={{top:"-80%"}}>

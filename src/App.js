@@ -30,6 +30,7 @@ export default class App extends Component {
       <Router>
       <div className="App">
         <NavBar isAccount={this.state.isAccount} logout={this.logout}/>
+        <LoginSignup login={this.login}/>
         <Switch>
           <Route exact path="/" component={!this.state.isAccount ? LandingPage : () => <DataManager component={Components.HOME_PAGE}/> } />
           <Route path="/JobProfile" component={JobProfile} />
@@ -37,7 +38,6 @@ export default class App extends Component {
           <Route path="/Results" component={SearchResults} />
           <Redirect to="/" />
         </Switch>
-        <LoginSignup login={this.login}/>
       </div>
     </Router>
   )}
