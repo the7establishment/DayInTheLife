@@ -14,18 +14,9 @@ class App extends Component {
     super()
     this.state = {
       isAccount: false,
-      isLanding: true
+      isLanding: true,
+      isLoginSignupModalOpen: false
     }
-  }
-  login = () => {
-    this.setState({isAccount:true})
-    this.setIsLanding(false)
-    window.url = ""
-  }
-  logout = () => {
-    this.setState({isAccount:false})
-    this.setIsLanding(true)
-    document.getElementById("SideMenu").classList.add("none")
   }
   componentDidMount(){
     this.updateIsLandingIfNeeded(this.props.location.pathname)
@@ -41,12 +32,26 @@ class App extends Component {
   setIsLanding = (isLanding) => {
     this.setState({isLanding:isLanding})
   }
-
+  login = () => {
+    this.setState({isAccount:true})
+    this.setIsLanding(false)
+    window.url = ""
+  }
+  logout = () => {
+    this.setState({isAccount:false})
+    this.setIsLanding(true)
+    document.getElementById("SideMenu").classList.add("none")
+  }
+  openOrCloseLoginModal = () => {
+    var body = document.body
+    !this.state.isLoginSignupModalOpen ? body.classList.add("modal-open") : body.classList.remove("modal-open")
+    this.state.isLoginSignupModalOpen ? this.setState({isLoginSignupModalOpen:false}) : this.setState({isLoginSignupModalOpen:true})
+  }
   render() {
     return(
       <div className="App">
-        <NavBar isAccount={this.state.isAccount} logout={this.logout} isLanding={this.state.isLanding}/>
-        <LoginSignup login={this.login}/>
+        <NavBar isAccount={this.state.isAccount} logout={this.logout} isLanding={this.state.isLanding} openOrCloseLoginModal={this.openOrCloseLoginModal} isSideMenuOpen={this.state.isSideMenuOpen} openSideMenu={this.openSideMenu}/>
+        <LoginSignup login={this.login} isLoginSignupModalOpen={this.state.isLoginSignupModalOpen} openOrCloseLoginModal={this.openOrCloseLoginModal}/>
         <Switch>
           <Route exact path="/" component={!this.state.isAccount ? LandingPage : () => <DataManager component={Components.HOME_PAGE}/> } />
           <Route path="/JobProfile" component={JobProfile} />

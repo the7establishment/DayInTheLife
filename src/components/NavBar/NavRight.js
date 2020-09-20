@@ -5,13 +5,6 @@ import logout from '../../resource/icons/logout.png'
 
 export default class NavRight extends React.Component {
 
-  openLoginModal = () => {
-    var modal = document.getElementById("login")
-    var body = document.body
-    modal.style.display = "block"
-    body.classList.add("modal-open")
-  }
-
   openSideMenu = () => {
     document.getElementById("SideMenu").classList.remove("none")
   }
@@ -24,11 +17,11 @@ export default class NavRight extends React.Component {
       <div className="navright center">
         <li className={!this.props.isAccount ? "none" : "navitem"}>Notifications</li>
         <li className={!this.props.isAccount ? "none" : "navitem"}>Messages</li>
-        <li className={this.props.isAccount ? "none" : "navitem"} onClick={this.openLoginModal}>Login</li>
+        <li className={this.props.isAccount ? "none" : "navitem"} onClick={this.props.openOrCloseLoginModal}>Login</li>
         <Link to="/AccountProfile">
           <img src={profilePicMatthew} className={this.props.isAccount ? "navprofile" : "none"} onMouseEnter={this.openSideMenu}></img>
         </Link>
-        <ul className="nav-menu none" id="SideMenu" onMouseLeave={this.closeSideMenu}>
+        <ul className={this.props.isSideMenuOpen ? "nav-menu" : "nav-menu none"} id="SideMenu" onMouseLeave={this.closeSideMenu}>
           <Link to="/">
             <li className="nav-menu-item" onClick={this.props.logout}>
               <div className="nav-menu-item-content">
