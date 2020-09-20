@@ -54,6 +54,7 @@ class App extends Component {
           <Route path="/Results" component={SearchResults} />
           <Redirect to="/" />
         </Switch>
+        <LoginSignup login={this.login}/>
       </div>
   )}
 }
