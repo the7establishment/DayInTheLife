@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import JobProfile from "./components/JobProfile/JobProfile";
 import "./styles.css";
-import { BrowserRouter as Switch, Route, Redirect, withRouter } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import SearchResults from "./components/SearchResults/SearchResults";
 import LoginSignup from "./components/LoginSignup/LoginSignup";
 import DataManager from "./data/DataManager"
@@ -24,18 +24,19 @@ class App extends Component {
   }
   logout = () => {
     this.setState({isAccount:false})
+    this.setIsLanding(true)
     document.getElementById("SideMenu").classList.add("none")
   }
-
+  componentDidMount(){
+    this.updateIsLandingIfNeeded(this.props.location.pathname)
+  }
   componentDidUpdate(prevProps){
     if(this.props.location.pathname !== prevProps.location.pathname)
       this.updateIsLandingIfNeeded(this.props.location.pathname)
   }
   updateIsLandingIfNeeded = (pathname) =>{
-    if(pathname === "/")
-      this.setIsLanding(true)
-    else
-      this.setIsLanding(false)
+    var isItLandingAndNotAccount = pathname === "/" && !this.state.isAccount
+    this.setIsLanding(isItLandingAndNotAccount)
   }
   setIsLanding = (isLanding) => {
     this.setState({isLanding:isLanding})
