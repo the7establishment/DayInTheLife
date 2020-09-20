@@ -23,7 +23,7 @@ export default class LandingPage extends React.Component {
       title2: "Day to Day Routine",
       content2: "See real routines and responsibilities from people that actually work there.",
       title3: "Confidence",
-      content3: "Have confidencein your career or when changing careers and know exactly what your going to be doing.",
+      content3: "Have confidence in your career or when changing careers. Know exactly what you are going to be doing.",
       title4: "Level Up",
       content4: "See what skills other people have and know the end goal of what you should achieve to be the right fit for the job.",
     }
