@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import JobProfile from "./components/JobProfile/JobProfile";
 import "./styles.css";
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import SearchResults from "./components/SearchResults/SearchResults";
 import LoginSignup from "./components/LoginSignup/LoginSignup";
 import DataManager from "./data/DataManager"
 import LandingPage from './components/LandingPage/LandingPage'
 import { Components } from "./data/Constants"
 
-export default class App extends Component {
+class App extends Component {
   constructor(){
     super()
     this.state = {
@@ -19,6 +19,7 @@ export default class App extends Component {
   }
   login = () => {
     this.setState({isAccount:true})
+    this.setIsLanding(false)
     window.url = ""
   }
   logout = () => {
@@ -26,9 +27,22 @@ export default class App extends Component {
     document.getElementById("SideMenu").classList.add("none")
   }
 
+  componentDidUpdate(prevProps){
+    if(this.props.location.pathname !== prevProps.location.pathname)
+      this.updateIsLandingIfNeeded(this.props.location.pathname)
+  }
+  updateIsLandingIfNeeded = (pathname) =>{
+    if(pathname === "/")
+      this.setIsLanding(true)
+    else
+      this.setIsLanding(false)
+  }
+  setIsLanding = (isLanding) => {
+    this.setState({isLanding:isLanding})
+  }
+
   render() {
     return(
-      <Router>
       <div className="App">
         <NavBar isAccount={this.state.isAccount} logout={this.logout} isLanding={this.state.isLanding}/>
         <LoginSignup login={this.login}/>
@@ -40,6 +54,7 @@ export default class App extends Component {
           <Redirect to="/" />
         </Switch>
       </div>
-    </Router>
   )}
 }
+
+export default withRouter(props => <App {...props}/>)
