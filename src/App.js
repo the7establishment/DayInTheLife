@@ -13,7 +13,8 @@ export default class App extends Component {
   constructor(){
     super()
     this.state = {
-      isAccount: false
+      isAccount: false,
+      isLanding: true
     }
   }
   login = () => {
@@ -29,7 +30,7 @@ export default class App extends Component {
     return(
       <Router>
       <div className="App">
-        <NavBar isAccount={this.state.isAccount} logout={this.logout}/>
+        <NavBar isAccount={this.state.isAccount} logout={this.logout} isLanding={this.state.isLanding}/>
         <LoginSignup login={this.login}/>
         <Switch>
           <Route exact path="/" component={!this.state.isAccount ? LandingPage : () => <DataManager component={Components.HOME_PAGE}/> } />

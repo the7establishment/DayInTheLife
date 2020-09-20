@@ -22,8 +22,8 @@ export default class NavRight extends React.Component {
   render(){
     return (
       <div className="navright center">
-        <li className="navitem">Notifications</li>
-        <li className="navitem">Messages</li>
+        <li className={!this.props.isAccount ? "none" : "navitem"}>Notifications</li>
+        <li className={!this.props.isAccount ? "none" : "navitem"}>Messages</li>
         <li className={this.props.isAccount ? "none" : "navitem"} onClick={this.openLoginModal}>Login</li>
         <Link to="/AccountProfile">
           <img src={profilePicMatthew} className={this.props.isAccount ? "navprofile" : "none"} onMouseEnter={this.openSideMenu}></img>
