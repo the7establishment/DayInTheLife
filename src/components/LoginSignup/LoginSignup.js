@@ -60,7 +60,7 @@ export default class LoginSignup extends React.Component {
   verifyName = () => {
     var name = document.getElementById("Name")
     var re = /([a-zA-Z]).{3,50}/
-    if (name.value == 0) {
+    if (name.value === 0) {
       name.classList.add("error")
       this.setState({ nameErrMsg: "Please enter a name.", hasError: true, valid: false })
       return false
@@ -80,7 +80,7 @@ export default class LoginSignup extends React.Component {
   verifyPassword = () => {
     var pass = document.getElementById("Password")
     var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\S{8,20}$/
-    if (pass.value.length == 0) {
+    if (pass.value.length === 0) {
       pass.classList.add("error")
       this.setState({ passErrMsg: "Please enter a password.", hasError: true, valid: false })
       return false
@@ -99,8 +99,8 @@ export default class LoginSignup extends React.Component {
 
   verifyEmail = () => {
     var email = document.getElementById("Email")
-    var re = /.+\@[a-z]+\.[a-z]+/
-    if (email.value.length == 0) {
+    var re = /.+@[a-z]+\.[a-z]+/
+    if (email.value.length === 0) {
       email.classList.add("error")
       this.setState({ emailErrMsg: "Please enter a email address.", hasError: true, valid: false })
       return false

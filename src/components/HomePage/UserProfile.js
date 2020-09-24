@@ -16,7 +16,7 @@ export default function UserProfile(props) {
             <div className="flex-start">
                 <a className="largetext ditl-a" href="/AccountProfile">{ props.user.firstName }</a>
                 <a className="edit-profile">
-                    <img className="edit-profile" src={require("../../resource/icons/edit.png")}/>
+                    <img className="edit-profile" alt="" src={require("../../resource/icons/edit.png")}/>
                 </a>
             </div>
             <hr className="spacer-shrt"/>

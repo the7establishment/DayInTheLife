@@ -16,7 +16,6 @@ export default class Card extends React.Component {
   }
 
   setFavorite = () => {
-    console.log('works')
     if(this.state.favorite)
       this.setState({favorite: false})
     else
@@ -40,7 +39,7 @@ export default class Card extends React.Component {
               <span className="star-number">{card.starNumber}</span>
             </span>
             <span className={card.new ? 'card-new' : 'none'}>new</span>
-            <Link to={card.type == 'Worker' ? "/AccountProfile" : "/JobProfile"}>
+            <Link to={card.type === 'Worker' ? "/AccountProfile" : "/JobProfile"}>
               <button className="card-button">View</button>
             </Link>
           </div>

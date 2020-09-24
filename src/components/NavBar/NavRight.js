@@ -19,13 +19,13 @@ export default class NavRight extends React.Component {
         <li className={!this.props.isAccount ? "none" : "navitem"}>Messages</li>
         <li className={this.props.isAccount ? "none" : "navitem"} onClick={this.props.openOrCloseLoginModal}>Login</li>
         <Link to="/AccountProfile">
-          <img src={profilePicMatthew} className={this.props.isAccount ? "navprofile" : "none"} onMouseEnter={this.openSideMenu}></img>
+          <img src={profilePicMatthew} alt="" className={this.props.isAccount ? "navprofile" : "none"} onMouseEnter={this.openSideMenu}></img>
         </Link>
         <ul className={this.props.isSideMenuOpen ? "nav-menu" : "nav-menu none"} id="SideMenu" onMouseLeave={this.closeSideMenu}>
           <Link to="/">
             <li className="nav-menu-item" onClick={this.props.logout}>
               <div className="nav-menu-item-content">
-                <img className="nav-menu-icon" src={logout} alt="logout"></img>
+                <img className="nav-menu-icon" alt="" src={logout} alt="logout"></img>
                 <span className="nav-menu-item-title">Log Out</span>
               </div>
             </li>
