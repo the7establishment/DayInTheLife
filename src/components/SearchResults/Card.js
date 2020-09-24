@@ -40,7 +40,7 @@ export default class Card extends React.Component {
               <span className="star-number">{card.starNumber}</span>
             </span>
             <span className={card.new ? 'card-new' : 'none'}>new</span>
-            <Link to="/AccountProfile">
+            <Link to={card.type == 'Worker' ? "/AccountProfile" : "/JobProfile"}>
               <button className="card-button">View</button>
             </Link>
           </div>
