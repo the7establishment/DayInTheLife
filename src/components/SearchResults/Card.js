@@ -4,6 +4,7 @@ import empty_heart from '../../resource/icons/empty_heart.png'
 import star from '../../resource/icons/star.png'
 import Heatmap from "./HeatMap";
 import HeaderMenu from "../AccountProfile/HeaderMenu";
+import { Link } from 'react-router-dom'
 
 export default class Card extends React.Component {
   constructor(props) {
@@ -15,7 +16,6 @@ export default class Card extends React.Component {
   }
 
   setFavorite = () => {
-    console.log('works')
     if(this.state.favorite)
       this.setState({favorite: false})
     else
@@ -39,7 +39,9 @@ export default class Card extends React.Component {
               <span className="star-number">{card.starNumber}</span>
             </span>
             <span className={card.new ? 'card-new' : 'none'}>new</span>
-            <button className="card-button">View</button>
+            <Link to={card.type === 'Worker' ? "/AccountProfile" : "/JobProfile"}>
+              <button className="card-button">View</button>
+            </Link>
           </div>
           <div className="card-detail-right">
             <span className="card-title">{card.title}</span>
