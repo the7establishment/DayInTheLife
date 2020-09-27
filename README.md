@@ -6,7 +6,7 @@ A platform dedicated to showcasing the day in the lives of different users.
 
 Currently developing front-end with plans to implement back-end and data persistance beginning in October 2020.
 
-##### Homepage
+##### Homepage / Landing Page
 
 https://day-in-the-life.herokuapp.com/
 
