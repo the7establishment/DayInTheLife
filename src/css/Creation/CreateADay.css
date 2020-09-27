@@ -1,0 +1,11 @@
+.page-wide {
+    grid-row: 2;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 12.5% 75% 12.5%;
+    grid-column-gap: 0px;
+}
+
+.create-view {
+    min-height: 40%;
+}
