@@ -1,6 +1,3 @@
-.landingpage{
-
-}
 .top{
   background-color: black;
   position: relative;
@@ -93,6 +90,7 @@
   width: 300px;
   padding: 10px 15px;
   margin: 0 20px;
+  background-color: white;
 }
 .whycard h2{
   margin: 0;

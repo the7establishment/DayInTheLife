@@ -14,7 +14,7 @@ export default class SearchResults extends React.Component {
   getCardList = () => 
     this.state.cards.map(card => {
       // if(card.type == 'Worker')
-        return <Card card={card} />
+        return <Card key={card.title} card={card} />
     })
   
 
