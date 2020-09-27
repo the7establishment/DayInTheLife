@@ -74,6 +74,7 @@
     padding: 10px;
     font-size: 15px;
     height: 40px;
+    width: 100%;
 }
 .card-button:hover{
     cursor: pointer;

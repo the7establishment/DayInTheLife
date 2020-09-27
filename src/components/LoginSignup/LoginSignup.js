@@ -2,10 +2,10 @@ import React from "react"
 import Modal from '../Modal'
 import "../../css/LoginSignup.css"
 import close_icon from "../../resource/icons/close_icon.png"
-import eye from '../../resource/icons/eye.png'
-import slash_eye from '../../resource/icons/slash_eye.png'
+import Login from './Login'
+import Signup from "./Signup"
 
-export default class Login extends React.Component {
+export default class LoginSignup extends React.Component {
   constructor(){
     super()
     this.state={
@@ -17,13 +17,6 @@ export default class Login extends React.Component {
       hasError: false,
       valid: true
     }
-  }
-
-  closeModal = () => {
-    var modal = document.getElementById("login")
-    var body = document.body
-    modal.style.display = "none"
-    body.classList.remove("modal-open")
   }
 
   changeLoginType = () => {
@@ -44,14 +37,16 @@ export default class Login extends React.Component {
       valid: true
     })
     var email = document.getElementById("Email")
-    var name = document.getElementById("Name")
     var pass = document.getElementById("Password")
     email.classList.remove("error")
     email.value = ""
     pass.classList.remove("error")
     pass.value = ""
-    name.classList.remove("error")
-    name.value = ""
+    if(!this.state.isLogin){
+      var name = document.getElementById("Name")
+      name.classList.remove("error")
+      name.value = ""
+    }
   }
 
   showHidePassword = () => {
@@ -65,7 +60,7 @@ export default class Login extends React.Component {
   verifyName = () => {
     var name = document.getElementById("Name")
     var re = /([a-zA-Z]).{3,50}/
-    if (name.value == 0) {
+    if (name.value === 0) {
       name.classList.add("error")
       this.setState({ nameErrMsg: "Please enter a name.", hasError: true, valid: false })
       return false
@@ -85,7 +80,7 @@ export default class Login extends React.Component {
   verifyPassword = () => {
     var pass = document.getElementById("Password")
     var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\S{8,20}$/
-    if (pass.value.length == 0) {
+    if (pass.value.length === 0) {
       pass.classList.add("error")
       this.setState({ passErrMsg: "Please enter a password.", hasError: true, valid: false })
       return false
@@ -104,8 +99,8 @@ export default class Login extends React.Component {
 
   verifyEmail = () => {
     var email = document.getElementById("Email")
-    var re = /.+\@[a-z]+\.[a-z]+/
-    if (email.value.length == 0) {
+    var re = /.+@[a-z]+\.[a-z]+/
+    if (email.value.length === 0) {
       email.classList.add("error")
       this.setState({ emailErrMsg: "Please enter a email address.", hasError: true, valid: false })
       return false
@@ -125,11 +120,12 @@ export default class Login extends React.Component {
   validateEmailNamePass = () => {
     var validEmail = this.verifyEmail()
     var validPass = this.verifyPassword()
-    var validName = this.verifyName()
     if (this.state.isLogin)
       return validEmail && validPass ? true : false
-    else
+    else{
+      var validName = this.verifyName()
       return validEmail && validPass && validName ? true : false
+    }
   }
 
   login_signup = () => {
@@ -140,7 +136,7 @@ export default class Login extends React.Component {
         this.props.login()
       else
         console.log("signup")
-      this.closeModal()
+      this.props.openOrCloseLoginModal()
     }
     else
       this.setState({ valid: isValid })
@@ -148,35 +144,33 @@ export default class Login extends React.Component {
 
   render() {
     return(
-      <Modal title={this.state.isLogin ? 'LOG IN' : 'SIGN UP'} id="login">
-        <div className="modalbody">
-          <div className={this.state.isLogin ? 'none' : 'wrapper'}>
-            <input className="modalinput" id="Name" placeholder="Name" onBlur={this.verifyName} onChange={this.verifyName} maxLength="50" />
-            <p className="errMsg">{this.state.nameErrMsg}</p>
-          </div>
-          <div className="wrapper">
-            <input className="modalinput" id="Email" placeholder="Email" onBlur={this.verifyEmail} onChange={this.verifyEmail} maxLength="50" />
-            <p className="errMsg">{this.state.emailErrMsg}</p>
-          </div>
-          <div className="wrapper">
-            <input className="modalinput" id="Password" placeholder="Password" type={this.state.show ? "text" : "password"} onChange={this.verifyPassword} onBlur={this.verifyPassword} maxLength="20" />
-            <img className="showicon" alt="eye" src={this.state.show ? slash_eye : eye} onClick={this.showHidePassword}></img>
-            <p className="errMsg">{this.state.passErrMsg}</p>
-          </div>
-          <div className={this.state.isLogin ? 'rememberforgotbar' : 'none'}>
-            <div className="remembermebox">
-              <input className="rememberme" type="checkbox" />
-              <span>Keep me logged in</span>
-            </div>
-            <div>
-              <span className="forgotpassword">Forgot Password?</span>
-            </div>
-          </div>
-          <button className={this.state.valid ? "ditl-button modalbutton" : "ditl-button modalbutton button-disabled"} onClick={this.login_signup}>{this.state.isLogin ? 'LOG IN' : 'SIGN UP'}</button>
-          <div className="logintypebox">
-            <span className="signtypehint">{this.state.isLogin ? 'No account yet?' : 'Already have an account?'}</span>
-            <span className="signuplink" onClick={this.changeLoginType}>{this.state.isLogin ? 'Sign up' : 'Log in'}</span>
-          </div>
+      <Modal title={this.state.isLogin ? 'LOG IN' : 'SIGN UP'} id="login" isOpen={this.props.isLoginSignupModalOpen}>
+        {this.state.isLogin ? //Dynamically shows Login or Signup Page with tertionary operator
+        <Login 
+          verifyEmail={this.verifyEmail} 
+          verifyPassword={this.verifyPassword} 
+          emailErrMsg={this.state.emailErrMsg} 
+          passErrMsg={this.state.passErrMsg} 
+          valid={this.state.valid} 
+          login_signup={this.login_signup} 
+          showHidePassword={this.showHidePassword} 
+          show={this.state.show}
+        /> : 
+        <Signup 
+          verifyEmail={this.verifyEmail} 
+          verifyPassword={this.verifyPassword} 
+          verifyName={this.verifyName} 
+          nameErrMsg={this.state.nameErrMsg} 
+          emailErrMsg={this.state.emailErrMsg} 
+          passErrMsg={this.state.passErrMsg} 
+          valid={this.state.valid} 
+          login_signup={this.login_signup} 
+          showHidePassword={this.showHidePassword} 
+          show={this.state.show}
+        />}
+        <div className="logintypebox">
+          <span className="signtypehint">{this.state.isLogin ? 'No account yet?' : 'Already have an account?'}</span>
+          <span className="signuplink" onClick={this.changeLoginType}>{this.state.isLogin ? 'Sign up' : 'Log in'}</span>
         </div>
         <div className="modalfooter">
           <hr />
@@ -185,7 +179,7 @@ export default class Login extends React.Component {
           </span>
         </div>
         <button className="modalclosebutton">
-          <img className="modalcloseicon" alt="" src={close_icon} onClick={this.closeModal}></img>
+          <img className="modalcloseicon" alt="" src={close_icon} onClick={this.props.openOrCloseLoginModal}></img>
         </button>
       </Modal>
     )

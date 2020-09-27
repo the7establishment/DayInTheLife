@@ -10,17 +10,17 @@ export default function DisplayItem() {
                         </div>
                         <div className="item-overview">
                             <div className="day-title">Software Engineer
-                                <img className="launch-arrow" src={require('../../resource/icons/blue-arrow.png')} />
+                                <img className="launch-arrow" alt="" src={require('../../resource/icons/blue-arrow.png')} />
                             </div>
                             <div className="day-info">
                                 <div className="day-author">Matthew Chuong</div>
                                 <div className="day-stat-group">
                                     <div className="day-likes">
-                                        <img className="likes-pic" src={require('../../resource/icons/thumb-up.png')}></img>
+                                        <img className="likes-pic" alt="" src={require('../../resource/icons/thumb-up.png')}></img>
                                         <span className="likes-count">34</span>
                                     </div>
                                     <div className="day-cmnts">
-                                        <img className="cmnts-pic" src={require('../../resource/icons/comments.png')}/>
+                                        <img className="cmnts-pic" alt="" src={require('../../resource/icons/comments.png')}/>
                                         <span className="cmnts-count">2</span>
                                     </div>
                                 </div>
