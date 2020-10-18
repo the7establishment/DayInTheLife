@@ -5,7 +5,6 @@ const cors = require("cors")
 
 const fileName = process.argv[2] || "./data.js"
 const port = process.env.PORT || 3500;
-
 let router = undefined;
 
 const app = express();

@@ -1,5 +1,5 @@
 const protocol = "http";
-const hostname = process.env.API_Server || "localhost";
+const hostname = process.env.REACT_APP_API_SERVER || "http://localhost";
 const port = process.env.PORT || "3500";
 
 export const RestUrls = {
