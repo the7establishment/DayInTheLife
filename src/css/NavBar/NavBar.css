@@ -9,7 +9,7 @@
   font-family: "Acme", sans-serif;
   width: 100%;
   display: grid;
-  grid-template-columns: 15% 70% 15%;
+  grid-template-columns: 20% 60% 20%;
   align-items: center;
   z-index: 500;
 }
@@ -25,6 +25,7 @@
   grid-column: 1;
   font-size: x-large;
   font-weight: 500;
+  padding-right: 20px;
 }
   
 .navsearch{
