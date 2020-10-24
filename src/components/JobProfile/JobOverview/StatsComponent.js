@@ -22,8 +22,7 @@ export default function StatsComponent() {
 
         <img className='icon' src={balance} alt="Balance"></img>
         <div style={{display:'inline-flex'}}>
-          <span>Work</span>
-          <span>Life</span>
+          <span>Work Life</span>
         </div>
     </div>
   );
