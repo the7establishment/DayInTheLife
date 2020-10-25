@@ -14,8 +14,8 @@ export default class AccountProfile extends Component {
     constructor(props) {         
         super(props);
         this.state = {
-            currentDay: props.days[0],
-            days: props.days
+            currentDay: props.day[0],
+            days: props.day
         }
     }
 
@@ -32,14 +32,14 @@ export default class AccountProfile extends Component {
                 <div className="stage-type-2">
                     <div className="stage-left">
                         <Overview user={ this.props.user }/>
-                        <Experience days={ this.props.days }
+                        <Experience days={ this.props.day }
                             currentDay={ this.state.currentDay }
                                 callback={ this.updateDay }/>
                     </div>
                     <div className="stage-right">
                         <Visual/> 
                         <DayDisplay day={ this.state.currentDay } user={ this.props.user }/>
-                        <Tools tools={ this.props.products }/>
+                        <Tools tools={ this.props.product }/>
                     </div>
                 </div>
             </div>
