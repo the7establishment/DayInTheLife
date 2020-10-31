@@ -7,8 +7,6 @@ import Tools from "./Tools/Tools"
 import { RestDataSource } from "../../data/RestDataSource"
 import "../../css/AccountProfile/AccountProfile.css"
 
-const dataSource = new RestDataSource();
-
 export default class AccountProfile extends Component {
 
     constructor(props) {
