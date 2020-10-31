@@ -31,10 +31,7 @@ for (let i = 0; i < 5; i++) {
     }
     days.push({
         _id: faker.random.number(),
-        job: {
-            _id: faker.random.number(),
-            title: faker.lorem.words()
-        },
+        job: faker.lorem.words(),
         company: faker.company.companyName(),
         items: items
     })
@@ -53,17 +50,17 @@ for (let i = 0; i < 2; i++) {
         products: products,
     })
 }
-var products = {
+var products = [{
     productType: faker.lorem.word(),
     categories: categories,
-}
+}]
+
 
 
 module.exports = function () {
     return {
-        user: user,
-        users: users,
-        days: days,
-        products: products
+        user: users,
+        day: days,
+        product: products
     }
 }

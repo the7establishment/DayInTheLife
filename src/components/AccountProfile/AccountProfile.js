@@ -4,7 +4,6 @@ import Visual from "./Visual/Visual"
 import DayDisplay from "./DayDisplay/DayDisplay"
 import Experience from "./Experience/Experience"
 import Tools from "./Tools/Tools"
-import { RestDataSource } from "../../data/RestDataSource"
 import "../../css/AccountProfile/AccountProfile.css"
 
 export default class AccountProfile extends Component {
