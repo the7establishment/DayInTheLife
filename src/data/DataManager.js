@@ -4,7 +4,7 @@ import JobProfile from "../components/JobProfile/JobProfile"
 import HomePage from "../components/HomePage/HomePage"
 import { RestDataSource } from "../data/RestDataSource"
 import Splash from "../components/Splash/SplashScreen"
-import {  DataMap } from "../data/Constants"
+import { DataMap } from "../data/Constants"
 
 var dataSource = new RestDataSource()
 
@@ -15,12 +15,13 @@ export default class DataManager extends Component {
             loading: true,
             data: {}
         }
-    } 
+    }
 
-    loadData(paths) {
+    loadData(paths, param = "") {
         let dataLoad = []
         for (var index in paths) {
-            dataLoad.push(dataSource.GetData(paths[index]))
+            paths[index] == 'user' ? dataLoad.push(dataSource.GetData(paths[index], param)) : dataLoad.push(dataSource.GetData(paths[index]))
+            // dataLoad.push(dataSource.GetData(paths[index], param))
         }
         Promise.all(dataLoad).then((responses) => {
             let paths = DataMap[this.props.component]
@@ -28,32 +29,35 @@ export default class DataManager extends Component {
                 obj[paths[i]] = res.data
                 return obj
             }, {})
-            this.setState({ 
+            this.setState({
                 data: data,
                 loading: false
-             })
+            })
         })
     }
 
     selectComponent(comp) {
-        const wrap = (Component) =><Component {...this.state.data} />
+        const wrap = (Component) => <Component {...this.state.data} />
         switch (comp) {
-            case "AccountProfile" :
+            case "AccountProfile":
                 return wrap(AccountProfile)
-            case "JobProfile" :
+            case "JobProfile":
                 return wrap(JobProfile)
-            default : 
+            default:
                 return wrap(HomePage)
         }
+    }
+
+    componentDidMount = () => {
+        let param = window.location.pathname.substr(16, 25)
+        this.loadData(DataMap[this.props.component], param)
     }
 
     render() {
         if (this.state.loading) {
             return <Splash />
         } else {
-            return this.selectComponent(this.props.component) 
+            return this.selectComponent(this.props.component)
         }
     }
-
-    componentDidMount = () => this.loadData(DataMap[this.props.component])
 }

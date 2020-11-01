@@ -14,7 +14,7 @@ export default class DayDisplay extends Component {
         return(
         <div className="viewbox">
             <HeaderMenu 
-                header={"A Day In The Life of " + this.props.user[0].firstName}
+                header={"A Day In The Life of " + this.props.user.firstName}
                 items={ this.props.day.items.map(item => item.label) }
                 currentTab={ this.state.currentTab }
                 callback={(newTab) => this.setState({currentTab: newTab})} />
