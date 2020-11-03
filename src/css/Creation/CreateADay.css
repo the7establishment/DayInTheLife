@@ -8,4 +8,159 @@
 
 .create-view {
     min-height: 40%;
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.create-desc-view {
+    min-height: 40%;
+    display: flex;
+}
+
+.create-overview-row {
+    min-height: 40%;
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.create-overview-job {
+    grid-column: 1 / span 2;
+}
+
+.create-overview {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.create-view-icon {
+    height: 40px;
+    margin-right: 40px;
+    margin-top: 15px;
+}
+
+.createview-header {
+    color: darkslategray;
+}
+
+.hr-shrt {
+    width: 15px;
+    margin-left: 0;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-color: rgba(151, 151, 151, 0.5);
+}
+
+.create-input{
+    height: 18px;
+    padding: 13px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+    outline-style: none;
+}
+
+.input-job {
+    width: 300px;
+    font-size: 18px;
+}
+
+.input-sal {
+    width: 150px;
+    font-size: 18px;
+}
+
+.create-select {
+    height: 40px;
+    font-size: 18px;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline-style: none;
+}
+
+.select-reg {
+    width: 150px
+}
+
+.select-nrw {
+    width: 100px
+}
+
+.btn-reg {
+    border-width: 1px;
+    width: 100px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    height: 42px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    float: right;
+}
+
+.btn-grey {
+    background-color: #FAFAFA;
+    border-color: #707070;
+    color: #707070;
+    border: 1px solid black;
+}
+
+.btn-red {
+    background-color: #ff554b;
+    color: #ffffff;
+}
+
+.create-textarea {
+    height: 80%;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    outline-style: none;
+    padding: 10px 10px;
+}
+
+.create-description {
+    width: 85%;
+    height: 350px;
+}
+
+.optional {
+    font-style: italic;
+}
+
+.create-review-overview {
+    height: fit-content;
+    padding-left: 30px;
+    padding-bottom: 30px;
+}
+
+.overview-result{
+    row-gap: 20px;
+    column-gap: 10px;
+    margin-top: 25px
+}
+
+.review-stats {
+    display: grid;
+    grid-template-columns: 20% 30% 20% 30%;
+    grid-template-rows: auto auto auto;
+    align-items: end;
+    padding-bottom: 20px;
+}
+
+.review-stats span {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.review-stats img {
+    margin-right: 20px;
+}
+
+.review-description {
+    min-height: 150px;
+}
+
+.review-desc-text {
+    margin-top: 30px;
 }
