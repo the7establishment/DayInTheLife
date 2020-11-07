@@ -26,9 +26,9 @@ export default class Card extends React.Component {
     var { card } = this.props
     var details = card.details.map((detail) => <li key={detail} className="card-list gray">{detail}</li>)
     var stars = []
-    for (var i = 0; i < parseInt(card.starNumber); i++) {
+    /* for (var i = 0; i < parseInt(card.starNumber); i++) {
       stars.push(<img key={i} src={star} alt="" className="star"></img>)
-    }
+    } */
     return (
       <div className="card">
         <div className="card-left">
@@ -36,10 +36,10 @@ export default class Card extends React.Component {
             <img src={card.image} alt="" className="cardprofile"></img>
             <span className="stars-box">
               {stars}
-              <span className="star-number">{card.starNumber}</span>
+              {/* <span className="star-number">{card.starNumber}</span> */}
             </span>
-            <span className={card.new ? 'card-new' : 'none'}>new</span>
-            <Link to={card.type === 'Worker' ? `/AccountProfile/${card.userId}` : "/JobProfile"}>
+            {/* {<span className={card.new ? 'card-new' : 'none'}>new</span>} */}
+            <Link to={card.type === 'Worker' ? "/AccountProfile" : "/JobProfile"}>
               <button className="card-button">View</button>
             </Link>
           </div>
@@ -48,7 +48,7 @@ export default class Card extends React.Component {
             <span className="card-name">{card.name}</span>
             <span className="card-location">{card.location}</span>
             {details}
-            <img src={this.state.favorite ? heart : empty_heart} alt="" className="cardicon" onClick={this.setFavorite}></img>
+            {/* <img src={this.state.favorite ? heart : empty_heart} alt="" className="cardicon" onClick={this.setFavorite}></img> */}
           </div>
         </div>
         <div className="card-right">
@@ -70,29 +70,31 @@ export default class Card extends React.Component {
   getCardTabContent = () => {
     var { currentTab } = this.state
     var { tabs } = this.props.card.cardRight
-    if (tabs[currentTab].name === 'Video') {
-      return (
-        <div id="card-video" className="card-tabcontent">
-          <iframe id="video" width="100%" height="100%" src={tabs[currentTab].content} allowFullScreen></iframe>
-        </div>
-      )
-    }
-    else if (tabs[currentTab].name === 'Popular Day') {
+        /* if(tabs[currentTab].name === 'Video'){
+          return (
+            <div id="card-video" className="card-tabcontent">
+              <iframe id="video" width="100%" height="100%" src={tabs[currentTab].content} allowFullScreen></iframe>
+            </div>
+          )
+        }  */
+    if (tabs[currentTab].name === 'Popular Day') {
       return (
         <div id="card-intro" className="card-tabcontent">
           <span>{tabs[currentTab].content}</span>
           <span>...</span>
+          <Link to="/JobProfile">
           <a>Read More</a>
+          </Link>
         </div>
       )
     }
-    else if (tabs[currentTab].name === 'Activity') {
-      return (
-        <div id="card-heatmap" className="card-tabcontent">
-          <Heatmap heatmap={tabs[currentTab].content} />
-        </div>
-      )
-    }
+        /* else if(tabs[currentTab].name === 'Activity'){
+          return (
+            <div id="card-heatmap" className="card-tabcontent">
+              <Heatmap heatmap={tabs[currentTab].content}/>
+            </div>
+          )
+        } */
     else
       return <div>Not Found</div>
   }
