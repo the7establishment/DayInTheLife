@@ -7,8 +7,11 @@ export class RestDataSource {
         this.error_handler = err_handler || (() => {});
     }
 
-    GetData = (dataType, params = "") =>
-        this.SendRequest("get", Urls[dataType] + `/${params}`);
+    GetData = (dataType, params = "") =>{
+        var parameters = '' 
+        params.forEach(param => parameters += `/${param}`)
+        this.SendRequest("get", Urls[dataType] + `/${parameters}`);
+    }
 
     SendRequest = (method, url) => Axios.request({method,url});
 }
