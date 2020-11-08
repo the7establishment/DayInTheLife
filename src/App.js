@@ -55,8 +55,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={!this.state.isAccount ? LandingPage : () => <DataManager component={Components.HOME_PAGE} />} />
           <Route path="/JobProfile" component={JobProfile} />
-          {/* <Router path="/AccountProfile" component={AccountProfile} /> */}
-          <Route path="/AccountProfile/:userId" component={() => <DataManager component={Components.ACCT_PROFILE} />} />
+          <Route path="/AccountProfile" component={() => <DataManager component={Components.ACCT_PROFILE} />} />
           <Route path="/Results" component={SearchResults} />
           <Redirect to="/" />
         </Switch>

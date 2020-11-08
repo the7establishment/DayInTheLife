@@ -49,8 +49,10 @@ export default class DataManager extends Component {
     }
 
     componentDidMount = () => {
-        let param = window.location.pathname.substr(16, 25)
-        this.loadData(DataMap[this.props.component], param)
+        var url= new URL(window.location.href)
+        var params = url.searchParams.get("query")
+        // let param = window.location.pathname.substr(16, 25)
+        this.loadData(DataMap[this.props.component], params)
     }
 
     render() {

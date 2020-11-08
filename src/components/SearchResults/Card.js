@@ -39,7 +39,7 @@ export default class Card extends React.Component {
               {/* <span className="star-number">{card.starNumber}</span> */}
             </span>
             {/* {<span className={card.new ? 'card-new' : 'none'}>new</span>} */}
-            <Link to={card.type === 'Worker' ? `/AccountProfile/${card.userId}` : "/JobProfile"}>
+            <Link to={card.type === 'Worker' ? `/AccountProfile?query=${card.userId}` : "/JobProfile"}>
               <button className="card-button">View</button>
             </Link>
           </div>
