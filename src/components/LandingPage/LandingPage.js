@@ -26,6 +26,16 @@ export default class LandingPage extends React.Component {
       content3: "Have confidence in your career or when changing careers. Know exactly what you are going to be doing.",
       title4: "Level Up",
       content4: "See what skills other people have and know the end goal of what you should achieve to be the right fit for the job.",
+      query: ''
+    }
+  }
+
+  searchJobs = (event) => {
+    var query = event.target.value
+    this.setState({query: query})
+    if(event.key === "Enter"){
+      console.log("Hit Enter")
+      window.location.href = `/Results?keyword=${query}` 
     }
   }
 
@@ -38,8 +48,8 @@ export default class LandingPage extends React.Component {
             <h1>TAKE A PEEK INTO EVERYDAY LIFE</h1>
             <p>Look at a day in the life from over millions of people. See their day to day routine, responsibilities, and balance.</p>
             <div className="searchbar">
-              <input className="modalinput"/>
-              <Link to="/Results">
+              <input className="modalinput" onKeyPress={this.searchJobs} onChange={this.searchJobs}/>
+              <Link to={`/Results?keyword=${this.state.query}`}>
                 <img alt="" src={search_green} className="searchicon"></img>
               </Link>
             </div>
