@@ -83,7 +83,7 @@ export default class Card extends React.Component {
           <span>{tabs[currentTab].content}</span>
           <span>...</span>
           <Link to="/JobProfile">
-          <a>Read More</a>
+            <span>Read More</span>
           </Link>
         </div>
       )

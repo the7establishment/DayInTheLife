@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import AccountProfile from "../components/AccountProfile/AccountProfile"
 import JobProfile from "../components/JobProfile/JobProfile"
 import HomePage from "../components/HomePage/HomePage"
+import SearchResults from "../components/SearchResults/SearchResults"
 import { RestDataSource } from "../data/RestDataSource"
 import Splash from "../components/Splash/SplashScreen"
 import { DataMap } from "../data/Constants"
@@ -20,8 +21,8 @@ export default class DataManager extends Component {
     loadData(paths, param = "") {
         let dataLoad = []
         for (var index in paths) {
-            paths[index] == 'user' ? dataLoad.push(dataSource.GetData(paths[index], param)) : dataLoad.push(dataSource.GetData(paths[index]))
-            // dataLoad.push(dataSource.GetData(paths[index], param))
+            // paths[index] == 'user' || paths[index] == 'job' ? dataLoad.push(dataSource.GetData(paths[index], param)) : dataLoad.push(dataSource.GetData(paths[index]))
+            dataLoad.push(dataSource.GetData(paths[index], param))
         }
         Promise.all(dataLoad).then((responses) => {
             let paths = DataMap[this.props.component]
@@ -43,6 +44,8 @@ export default class DataManager extends Component {
                 return wrap(AccountProfile)
             case "JobProfile":
                 return wrap(JobProfile)
+            case "SearchResults":
+                return wrap(SearchResults)
             default:
                 return wrap(HomePage)
         }
