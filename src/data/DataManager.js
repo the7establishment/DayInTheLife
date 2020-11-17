@@ -18,11 +18,20 @@ export default class DataManager extends Component {
         }
     }
 
-    loadData(paths, param = "") {
+    loadData(paths, param) {
         let dataLoad = []
+        let parameters = []
+        let paramPropertyName, paramPropertyValue
         for (var index in paths) {
-            // paths[index] == 'user' || paths[index] == 'job' ? dataLoad.push(dataSource.GetData(paths[index], param)) : dataLoad.push(dataSource.GetData(paths[index]))
-            dataLoad.push(dataSource.GetData(paths[index], param))
+            parameters = []
+            for( var i in param){
+                paramPropertyName = Object.keys(param[i])[0]
+                if( paramPropertyName === paths[index]){
+                    paramPropertyValue = Object.values(param[i])[0] 
+                    parameters.push(paramPropertyValue)
+                }
+            }
+            dataLoad.push(dataSource.GetData(paths[index], parameters))
         }
         Promise.all(dataLoad).then((responses) => {
             let paths = DataMap[this.props.component]
@@ -58,9 +67,13 @@ export default class DataManager extends Component {
         .split("&")
         .forEach(function (nameAndValue) {
             tmp = nameAndValue.split("=");
-            params += tmp[1] //add value to param
+            var tempObject = {}
+            tempObject= {[tmp[0]]: tmp[1]}
+            params.push(tempObject) //add value object to param
         });
+
         return params
+
     }
 
     componentDidMount = () => {

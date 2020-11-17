@@ -7,11 +7,18 @@ export class RestDataSource {
         this.error_handler = err_handler || (() => { });
     }
 
-    GetData = (dataType, params = "") => {
-        // var parameters = '' 
-        // params.forEach(param => parameters += `/${param}`)
-        this.SendRequest("get", Urls[dataType] + `/${params}`);
+    GetData = (dataType, params = "") =>{
+        var parameters = ''
+        if(params.length > 0){
+            params.forEach(param => parameters += `${param}`)
+            return this.SendRequest("get", Urls[dataType] + `/${parameters}`);
+        }
+        else {
+            return this.SendRequest("get", Urls[dataType])    
+        }
     }
 
-    SendRequest = (method, url) => Axios.request({ method, url });
+    SendRequest = (method, url) => {
+        return Axios.request({method,url})
+    };
 }
