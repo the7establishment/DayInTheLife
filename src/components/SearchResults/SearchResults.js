@@ -21,7 +21,7 @@ export default class SearchResults extends React.Component {
       jobCards.push(
         {
           type: 'Job',
-          jobId: ``,
+          jobId: job.OnetCode,
           image: work,
           title: job.OnetTitle,
           name: '',
@@ -46,7 +46,7 @@ export default class SearchResults extends React.Component {
 
   getCardList = () => {
     return this.state.jobCards.map(card => {
-        return <Card card={card} />
+        return <Card key={card.jobId} card={card} />
     })
   }
 
