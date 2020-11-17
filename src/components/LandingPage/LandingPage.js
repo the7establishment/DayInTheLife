@@ -35,7 +35,7 @@ export default class LandingPage extends React.Component {
     this.setState({query: query})
     if(event.key === "Enter"){
       console.log("Hit Enter")
-      window.location.href = `/Results?keyword=${query}` 
+      window.location.href = `/Results?job=${query}` 
     }
   }
 
@@ -49,7 +49,7 @@ export default class LandingPage extends React.Component {
             <p>Look at a day in the life from over millions of people. See their day to day routine, responsibilities, and balance.</p>
             <div className="searchbar">
               <input className="modalinput" onKeyPress={this.searchJobs} onChange={this.searchJobs}/>
-              <Link to={`/Results?keyword=${this.state.query}`}>
+              <Link to={`/Results?job=${this.state.query}`}>
                 <img alt="" src={search_green} className="searchicon"></img>
               </Link>
             </div>

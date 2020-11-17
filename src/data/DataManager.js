@@ -71,7 +71,6 @@ export default class DataManager extends Component {
             tempObject= {[tmp[0]]: tmp[1]}
             params.push(tempObject) //add value object to param
         });
-
         return params
 
     }
