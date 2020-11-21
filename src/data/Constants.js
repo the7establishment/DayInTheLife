@@ -5,7 +5,7 @@ export const Components = {
 }
 
 export const DataMap = {
-    AccountProfile: ["days","user","products"],
+    AccountProfile: ["day", "user", "product"],
     JobProfile: [],
     HomePage: ["user"]
 }

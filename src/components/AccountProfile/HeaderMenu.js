@@ -4,7 +4,7 @@ export default class HeaderMenu extends Component {
 
     getMenuOptions = (items) => 
         items.map( (item,index) => 
-            <div className="displaymenuitem">
+            <div key={index} className="displaymenuitem">
                 <span className={ this.props.currentTab !== index ? "menuoption" : "" } 
                     onClick={ () => this.props.callback(index) } >{ item }</span>
                 { this.props.currentTab === index && <hr className="selectionindicator" /> }

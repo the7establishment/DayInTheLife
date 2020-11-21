@@ -10,7 +10,7 @@ import LandingPage from './components/LandingPage/LandingPage'
 import { Components } from "./data/Constants"
 
 class App extends Component {
-  constructor(){
+  constructor() {
     super()
     this.state = {
       isAccount: false,
@@ -18,50 +18,50 @@ class App extends Component {
       isLoginSignupModalOpen: false
     }
   }
-  componentDidMount(){
+  componentDidMount() {
     this.updateIsLandingIfNeeded(this.props.location.pathname)
   }
-  componentDidUpdate(prevProps){
-    if(this.props.location.pathname !== prevProps.location.pathname)
+  componentDidUpdate(prevProps) {
+    if (this.props.location.pathname !== prevProps.location.pathname)
       this.updateIsLandingIfNeeded(this.props.location.pathname)
   }
-  updateIsLandingIfNeeded = (pathname) =>{
+  updateIsLandingIfNeeded = (pathname) => {
     var isItLandingAndNotAccount = pathname === "/" && !this.state.isAccount
     this.setIsLanding(isItLandingAndNotAccount)
   }
   setIsLanding = (isLanding) => {
-    this.setState({isLanding:isLanding})
+    this.setState({ isLanding: isLanding })
   }
   login = () => {
-    this.setState({isAccount:true})
+    this.setState({ isAccount: true })
     this.setIsLanding(false)
     window.url = ""
   }
   logout = () => {
-    this.setState({isAccount:false})
+    this.setState({ isAccount: false })
     this.setIsLanding(true)
     document.getElementById("SideMenu").classList.add("none")
   }
   openOrCloseLoginModal = () => {
     var body = document.body
     !this.state.isLoginSignupModalOpen ? body.classList.add("modal-open") : body.classList.remove("modal-open")
-    this.state.isLoginSignupModalOpen ? this.setState({isLoginSignupModalOpen:false}) : this.setState({isLoginSignupModalOpen:true})
+    this.state.isLoginSignupModalOpen ? this.setState({ isLoginSignupModalOpen: false }) : this.setState({ isLoginSignupModalOpen: true })
   }
   render() {
-    return(
+    return (
       <div className="App">
-        <NavBar isAccount={this.state.isAccount} logout={this.logout} isLanding={this.state.isLanding} openOrCloseLoginModal={this.openOrCloseLoginModal} isSideMenuOpen={this.state.isSideMenuOpen} openSideMenu={this.openSideMenu}/>
-        <LoginSignup login={this.login} isLoginSignupModalOpen={this.state.isLoginSignupModalOpen} openOrCloseLoginModal={this.openOrCloseLoginModal}/>
+        <NavBar isAccount={this.state.isAccount} logout={this.logout} isLanding={this.state.isLanding} openOrCloseLoginModal={this.openOrCloseLoginModal} isSideMenuOpen={this.state.isSideMenuOpen} openSideMenu={this.openSideMenu} />
+        <LoginSignup login={this.login} isLoginSignupModalOpen={this.state.isLoginSignupModalOpen} openOrCloseLoginModal={this.openOrCloseLoginModal} />
         <Switch>
-          <Route exact path="/" component={!this.state.isAccount ? LandingPage : () => <DataManager component={Components.HOME_PAGE}/> } />
+          <Route exact path="/" component={!this.state.isAccount ? LandingPage : () => <DataManager component={Components.HOME_PAGE} />} />
           <Route path="/JobProfile" component={JobProfile} />
-          <Route path="/AccountProfile" component={ () => <DataManager component={Components.ACCT_PROFILE}/> } />
+          <Route path="/AccountProfile" component={() => <DataManager component={Components.ACCT_PROFILE} />} />
           <Route path="/Results" component={SearchResults} />
           <Redirect to="/" />
         </Switch>
-        <LoginSignup login={this.login}/>
       </div>
-  )}
+    )
+  }
 }
 
-export default withRouter(props => <App {...props}/>)
+export default withRouter(props => <App {...props} />)
