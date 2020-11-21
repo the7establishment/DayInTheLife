@@ -6,7 +6,7 @@ export default class NavSearch extends React.Component {
     if (event.key === "Enter") {
       var query = event.target.value
       console.log("Hit Enter")
-      window.location.href = `/Results?keyword=${query}`
+      window.location.href = `/Results?job=${query}`
     }
   }
 
