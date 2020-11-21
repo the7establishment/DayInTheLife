@@ -22,6 +22,44 @@ export default class Card extends React.Component {
       this.setState({ favorite: true })
   }
 
+  getCardTabContent = () => {
+    var { currentTab } = this.state
+    var { tabs } = this.props.card.cardRight
+        /* if(tabs[currentTab].name === 'Video'){
+          return (
+            <div id="card-video" className="card-tabcontent">
+              <iframe id="video" width="100%" height="100%" src={tabs[currentTab].content} allowFullScreen></iframe>
+            </div>
+          )
+        }  */
+    if (tabs[currentTab].name === 'Popular Day') {
+      return (
+        <div id="card-intro" className="card-tabcontent">
+          <span className="card-content">{this.truncateText(tabs[currentTab].content, 300)}</span>
+          {/* <Link to="/JobProfile">
+             <span>Read More</span>
+          </Link> */}
+        </div>
+      )
+    }
+        /* else if(tabs[currentTab].name === 'Activity'){
+          return (
+            <div id="card-heatmap" className="card-tabcontent">
+              <Heatmap heatmap={tabs[currentTab].content}/>
+            </div>
+          )
+        } */
+    else
+      return <div>Not Found</div>
+  }
+
+  truncateText = (text, maxLength) => {
+    if (text.length > maxLength) {
+        text = text.substr(0,maxLength) + '...';
+    }
+    return text;
+  }
+
   render() {
     var { card } = this.props
     var details = card.details.map((detail) => <li key={detail} className="card-list gray">{detail}</li>)
@@ -65,37 +103,5 @@ export default class Card extends React.Component {
         </div>
       </div>
     );
-  }
-
-  getCardTabContent = () => {
-    var { currentTab } = this.state
-    var { tabs } = this.props.card.cardRight
-        /* if(tabs[currentTab].name === 'Video'){
-          return (
-            <div id="card-video" className="card-tabcontent">
-              <iframe id="video" width="100%" height="100%" src={tabs[currentTab].content} allowFullScreen></iframe>
-            </div>
-          )
-        }  */
-    if (tabs[currentTab].name === 'Popular Day') {
-      return (
-        <div id="card-intro" className="card-tabcontent">
-          <span>{tabs[currentTab].content}</span>
-          <span>...</span>
-          <Link to="/JobProfile">
-          <a>Read More</a>
-          </Link>
-        </div>
-      )
-    }
-        /* else if(tabs[currentTab].name === 'Activity'){
-          return (
-            <div id="card-heatmap" className="card-tabcontent">
-              <Heatmap heatmap={tabs[currentTab].content}/>
-            </div>
-          )
-        } */
-    else
-      return <div>Not Found</div>
   }
 }

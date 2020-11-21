@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import AccountProfile from "../components/AccountProfile/AccountProfile"
 import JobProfile from "../components/JobProfile/JobProfile"
 import HomePage from "../components/HomePage/HomePage"
+import SearchResults from "../components/SearchResults/SearchResults"
 import { RestDataSource } from "../data/RestDataSource"
 import Splash from "../components/Splash/SplashScreen"
 import { DataMap } from "../data/Constants"
@@ -52,6 +53,8 @@ export default class DataManager extends Component {
                 return wrap(AccountProfile)
             case "JobProfile":
                 return wrap(JobProfile)
+            case "SearchResults":
+                return wrap(SearchResults)
             default:
                 return wrap(HomePage)
         }
@@ -68,7 +71,6 @@ export default class DataManager extends Component {
             tempObject= {[tmp[0]]: tmp[1]}
             params.push(tempObject) //add value object to param
         });
-
         return params
 
     }

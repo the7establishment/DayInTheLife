@@ -4,7 +4,7 @@ import { Urls } from "./Urls";
 export class RestDataSource {
 
     constructor(err_handler) {
-        this.error_handler = err_handler || (() => {});
+        this.error_handler = err_handler || (() => { });
     }
 
     GetData = (dataType, params = "") =>{
