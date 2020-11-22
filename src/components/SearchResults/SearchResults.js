@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react"
 import '../../css/SearchResults/SearchResults.css'
-import Card from "./Card";
+import Card from "./Card"
+import Pagination from "./Pagination"
 import { MockCards } from '../../mock/MockData'
 import work from '../../resource/icons/work.png'
-
 
 export default class SearchResults extends React.Component {
   constructor(props){
@@ -59,6 +59,7 @@ export default class SearchResults extends React.Component {
         <label className={this.state.jobCards.length > 0 ? "results-count" : "none"}>{this.state.jobCards.length} Results Found</label>
         <h1 className={this.state.jobCards.length <= 0 ? "" : "none" }>No Results</h1>  
         {this.getCardList()}
+        <Pagination />
       </div>
     </div>
   )}

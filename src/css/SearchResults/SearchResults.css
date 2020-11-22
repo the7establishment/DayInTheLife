@@ -151,3 +151,22 @@
 #card-intro a:hover{
     cursor: pointer;
 }
+.pages{
+    display: flex;
+    align-items: flex-end;
+}
+.page{
+    font-size: 18px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: white;
+    cursor: pointer;
+    color: black;
+}
+.page:hover{
+    background-color: grey;
+}
+.right-arrow{
+    transform: scaleX(-1);
+}
