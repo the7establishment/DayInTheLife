@@ -14,7 +14,7 @@ https://day-in-the-life.herokuapp.com/
 
 Additionaly, the following paths are currently accessible but with no back-end counterpart.
 
-##### Search Results
+##### Search Results: has the ability to search Jobs 11/21/2020
 
 https://day-in-the-life.herokuapp.com/results
 
