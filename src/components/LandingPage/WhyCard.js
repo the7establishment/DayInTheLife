@@ -2,9 +2,6 @@ import React from 'react'
 
 
 export default class WhyCard extends React.Component {
-  constructor(){
-    super()
-  }
   
   render(){
     return(

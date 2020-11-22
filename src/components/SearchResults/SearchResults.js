@@ -17,8 +17,9 @@ export default class SearchResults extends React.Component {
 
   componentDidMount(){
     var jobCards = []
-    this.state.job.OccupationList.map(job => {
-      jobCards.push(
+    if(this.state.job){
+      this.state.job.OccupationList.map(job => {
+        jobCards.push(
         {
           type: 'Job',
           jobId: job.OnetCode,
@@ -31,16 +32,17 @@ export default class SearchResults extends React.Component {
           favorite: false,
           details: [],
           cardRight: {
-              header: "",
-              tabs:[
-                  {
-                      name: 'Popular Day',
-                      content: job.OccupationDescription
-                  },
-              ]
+            header: "",
+            tabs:[
+              {
+                name: 'Popular Day',
+                content: job.OccupationDescription
+              },
+            ]
           }
+        }
+        )})
       }
-    )})
     this.setState({jobCards: jobCards})
   }
 
@@ -55,7 +57,7 @@ export default class SearchResults extends React.Component {
       <div className="searchresults gray">
       <div className="results-column">
         <label className={this.state.jobCards.length > 0 ? "results-count" : "none"}>{this.state.jobCards.length} Results Found</label>
-        <h2 className={this.state.jobCards.length <= 0 ? "" : "none" }>No Results</h2>  
+        <h1 className={this.state.jobCards.length <= 0 ? "" : "none" }>No Results</h1>  
         {this.getCardList()}
       </div>
     </div>

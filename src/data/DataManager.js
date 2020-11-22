@@ -33,17 +33,24 @@ export default class DataManager extends Component {
             }
             dataLoad.push(dataSource.GetData(paths[index], parameters))
         }
-        Promise.all(dataLoad).then((responses) => {
-            let paths = DataMap[this.props.component]
-            let data = responses.reduce((obj, res, i) => {
-                obj[paths[i]] = res.data
-                return obj
-            }, {})
-            this.setState({
-                data: data,
-                loading: false
+        Promise.all(dataLoad)
+            .then((responses) => {
+                let paths = DataMap[this.props.component]
+                let data = responses.reduce((obj, res, i) => {
+                    obj[paths[i]] = res.data
+                    return obj
+                }, {})
+                this.setState({
+                    data: data,
+                    loading: false
+                })
             })
-        })
+            .catch(error => {
+                console.log(error)
+                this.setState({
+                    loading: false
+                })
+            })
     }
 
     selectComponent(comp) {
