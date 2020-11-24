@@ -151,21 +151,28 @@
 #card-intro a:hover{
     cursor: pointer;
 }
+.pagination-row{
+    padding-bottom: 20px;
+}
 .pages{
     display: flex;
     align-items: flex-end;
+}
+.pagecurrent{
+    background-color: black;
+    color: white;
 }
 .pagenum{
     font-size: 18px;
     border: 1px solid black;
     border-radius: 5px;
-    padding: 5px;
-    background-color: white;
+    padding: 0 5px;
+    margin: 0 5px;
     cursor: pointer;
-    color: black;
 }
 .pagenum:hover{
     background-color: grey;
+    color: white;
 }
 .right-arrow{
     transform: scaleX(-1);
