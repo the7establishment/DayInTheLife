@@ -14,11 +14,11 @@ export default class Pagination extends React.Component {
       <div className="pagination-row">
         <div className="pages">
           <img className="icon left-arrow" alt="" src={leftarrow}></img>
-          <div className="page">1</div>
-          <div className="page">2</div>
-          <div className="page">3</div>
-          <div className="page">4</div>
-          <div className="page">5</div>
+          <div className="pagenum">1</div>
+          <div className="pagenum">2</div>
+          <div className="pagenum">3</div>
+          <div className="pagenum">4</div>
+          <div className="pagenum">5</div>
           <img className="icon right-arrow" alt="" src={leftarrow}></img>
         </div>
       </div>

@@ -155,7 +155,7 @@
     display: flex;
     align-items: flex-end;
 }
-.page{
+.pagenum{
     font-size: 18px;
     border: 1px solid black;
     border-radius: 5px;
@@ -164,7 +164,7 @@
     cursor: pointer;
     color: black;
 }
-.page:hover{
+.pagenum:hover{
     background-color: grey;
 }
 .right-arrow{

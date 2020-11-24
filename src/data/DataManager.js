@@ -48,6 +48,7 @@ export default class DataManager extends Component {
             .catch(error => {
                 console.log(error)
                 this.setState({
+                    data: param[0],
                     loading: false
                 })
             })
@@ -79,7 +80,6 @@ export default class DataManager extends Component {
             params.push(tempObject) //add value object to param
         });
         return params
-
     }
 
     componentDidMount = () => {
