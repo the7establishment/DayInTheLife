@@ -176,4 +176,8 @@
 }
 .right-arrow{
     transform: scaleX(-1);
+    cursor: pointer;
+}
+.left-arrow{
+    cursor: pointer;
 }

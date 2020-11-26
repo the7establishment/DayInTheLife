@@ -52,15 +52,28 @@ export default class SearchResults extends React.Component {
     }
   }
 
-
   getCardList = () => {
+    var pageList = []
     var begin = (this.state.pageCurrent - 1) * this.state.pageItems
     var end = begin + this.state.pageItems
-    var pageList = []
     pageList = this.state.jobCards.slice(begin, end)
     return pageList.map(card => {
       return <Card key={card.jobId} card={card} />
     })
+  }
+
+  setCurrentPage = (event) => {
+    this.setState({pageCurrent: parseInt(event.target.textContent, 10)})
+  }
+
+  nextPage = () => {
+    if(!(this.state.pageCurrent === this.state.pageNum))
+      this.setState({pageCurrent: ++this.state.pageCurrent})
+  }
+
+  prevPage = () => {
+    if(!(this.state.pageCurrent === 1))
+    this.setState({pageCurrent: --this.state.pageCurrent})
   }
 
   render() {
@@ -70,8 +83,9 @@ export default class SearchResults extends React.Component {
         <div className="results-column">
           <label className={this.state.jobCards.length > 0 ? "results-count" : "none"}>{this.state.jobCards.length} Results Found for {this.state.job.Request.InputOccupation}</label>
           <h1 className={typeof this.state.job === "object" ? "none" : ""}>No Results for {this.state.query}</h1>
+          <Pagination pageNum={this.state.pageNum} pageCurrent={this.state.pageCurrent} setCurrentPage={this.setCurrentPage} nextPage={this.nextPage} prevPage={this.prevPage}/>
           {this.getCardList()}
-          <Pagination pageNum={this.state.pageNum} pageCurrent={this.state.pageCurrent}/>
+          <Pagination pageNum={this.state.pageNum} pageCurrent={this.state.pageCurrent} setCurrentPage={this.setCurrentPage} nextPage={this.nextPage} prevPage={this.prevPage}/>
         </div>
       </div>
     )
