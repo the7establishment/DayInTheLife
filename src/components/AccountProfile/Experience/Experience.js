@@ -10,31 +10,27 @@ export default class Experience extends Component {
     }
 
     getClassName(day) {
-        let className=""
-        if (this.props.currentDay.dayId === day.dayId) {
-            className = "sidenav-item sidenav-current"
-        } else {
-            className = "sidenav-item"
-        }
+        let className = ""
+        this.props.currentDay._id === day._id ? className = "sidenav-item sidenav-current" : className = "sidenav-item"
         return className
     }
 
     expNavRows() {
-        return(
+        return (
             this.props.days.map(day =>
-            <li 
-            className={this.getClassName(day)}  onClick={ () => this.props.callback(day.dayId) } >{ day.job.title } 
-            </li>
+                <li key={day._id} className={this.getClassName(day)} onClick={() => this.props.callback(day._id)}>
+                    {day.job}
+                </li>
             )
         )
     }
 
     render() {
-        return(
+        return (
             <div className="viewbox">
                 <h2>Experience</h2>
-                <ul className = "sidenav-list">
-                    { this.expNavRows() }
+                <ul className="sidenav-list">
+                    {this.expNavRows()}
                 </ul>
             </div>
         )

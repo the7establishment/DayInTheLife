@@ -1,12 +1,20 @@
 import React from "react";
 
 export default class NavSearch extends React.Component {
-  render(){
+
+  searchJobs = (event) => {
+    if (event.key === "Enter") {
+      var query = event.target.value
+      console.log("Hit Enter")
+      window.location.href = `/Results?job=${query}`
+    }
+  }
+
+  render() {
     return (
       <div className={this.props.isLanding ? "none" : "navsearch center"}>
-        <input className="navinput" placeholder="Search Jobs, Hobbies, Lifestyles..." maxLength="50"/>
-        <a>Advance Search</a>
-    </div>
+        <input className="navinput" placeholder="Search Jobs, Hobbies, Lifestyles..." maxLength="50" onKeyPress={this.searchJobs} />
+      </div>
     )
   }
 }

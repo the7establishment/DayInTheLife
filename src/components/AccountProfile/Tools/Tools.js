@@ -10,14 +10,14 @@ export default class Tools extends Component {
         }
     }
 
-    getToolList = () => this.props.tools.categories[this.state.currentTab].products.map(product =>
+    getToolList = () => this.props.tools[0].categories[this.state.currentTab].products.map(product =>
          <li key={product.label}>{product.label}</li>
         )
 
     render = () =>
         <div className="viewbox">
-            <HeaderMenu header={this.props.tools.productType} 
-                items={ this.props.tools.categories.map(cat => cat.name)}
+            <HeaderMenu header={this.props.tools[0].productType} 
+                items={ this.props.tools[0].categories.map(cat => cat.name)}
                     currentTab={ this.state.currentTab }
                         callback={(newTab) => this.setState({currentTab: newTab})} />
             <hr/>

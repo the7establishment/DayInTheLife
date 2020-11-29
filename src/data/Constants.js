@@ -1,11 +1,13 @@
 export const Components = {
     ACCT_PROFILE: "AccountProfile",
     JOB_PROFILE: "JobProfile",
-    HOME_PAGE: "HomePage"
+    HOME_PAGE: "HomePage",
+    RESULTS: "SearchResults"
 }
 
 export const DataMap = {
-    AccountProfile: ["days","user","products"],
+    AccountProfile: ["day", "user", "product"],
     JobProfile: [],
-    HomePage: ["user"]
+    HomePage: ["user"],
+    SearchResults: ["job"]
 }

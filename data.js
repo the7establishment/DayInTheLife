@@ -1,11 +1,11 @@
 var faker = require("faker");
 faker.seed(100);
-var jobs = ["Pro Gamer","Cage Dancer","Software Developer","Kpop Idol",]
+var jobs = ["Pro Gamer", "Cage Dancer", "Software Developer", "Kpop Idol",]
 var users = []
-for (let i=0; i<=503; i++) {
-        users.push(
+for (let i = 0; i <= 503; i++) {
+    users.push(
         {
-            userId: faker.random.number(),
+            _id: faker.random.number(),
             fullName: faker.name.findName(),
             firstName: faker.name.firstName(),
             lastName: faker.name.lastName(),
@@ -13,7 +13,7 @@ for (let i=0; i<=503; i++) {
             title: faker.helpers.randomize(jobs),
             timeAt: faker.random.number(10) + " years",
             location: faker.address.state(),
-            homeTown: faker.address.city() + "," +  faker.address.state(),
+            homeTown: faker.address.city() + "," + faker.address.state(),
             image: faker.image.avatar()
         }
     )
@@ -21,28 +21,25 @@ for (let i=0; i<=503; i++) {
 var user = faker.helpers.randomize(users);
 
 var days = []
-for (let i=0; i<5; i++) {
+for (let i = 0; i < 5; i++) {
     var items = []
-    for (let i=0; i<3; i++) {
+    for (let i = 0; i < 3; i++) {
         items.push({
             label: faker.lorem.word(),
             body: faker.lorem.paragraph()
         })
     }
     days.push({
-        dayId: faker.random.number(),
-        job: {
-            jobId: faker.random.number(),
-            title: faker.lorem.words()
-        },
+        _id: faker.random.number(),
+        job: faker.lorem.words(),
         company: faker.company.companyName(),
         items: items
     })
 }
 var categories = [];
-for (let i=0; i<2; i++) {
+for (let i = 0; i < 2; i++) {
     var products = []
-    for (let i=0; i<8; i++) {
+    for (let i = 0; i < 8; i++) {
         products.push({
             label: faker.lorem.word(),
             company: faker.company.companyName()
@@ -53,17 +50,17 @@ for (let i=0; i<2; i++) {
         products: products,
     })
 }
-var products = {
+var products = [{
     productType: faker.lorem.word(),
     categories: categories,
-}
+}]
+
 
 
 module.exports = function () {
-    return { 
-        user: user,
-        users: users,
-        days: days,
-        products: products
-     }
+    return {
+        user: users,
+        day: days,
+        product: products
+    }
 }
