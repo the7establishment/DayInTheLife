@@ -37,8 +37,9 @@ export default class Overview extends Component {
     }
 
     updateFormValue = (event) => {
-        this.setState({ [event.target.name]: event.target.value },
-            () => this.props.update(this.state))
+        if(event.target.value == '--') event.target.value = null;
+            this.setState({ [event.target.name]: event.target.value },
+                () => this.props.update(this.state))
     }
 
     setIsValid = (data) => {
@@ -86,11 +87,11 @@ export default class Overview extends Component {
                                 <img className="create-view-icon" src={work} alt=""/>
                                 <div>
                                     <p>Job Title</p>
-                                    <input className="create-input input-job" name="jobTitle" 
+                                    <input className="create-input input-job" name="jobTitle" maxLength="40"
                                         value={ this.state.jobTitle } onChange={ this.updateFormValue } />
                                     <ValidationMessage field="jobTitle" />
                                     <p>Company</p>
-                                    <input className="create-input input-job" name="company" 
+                                    <input className="create-input input-job" name="company" maxLength="40"
                                         value={ this.state.company } onChange={ this.updateFormValue } />
                                     <ValidationMessage field="company" />
                                 </div>
@@ -145,7 +146,7 @@ export default class Overview extends Component {
                                 <img className="create-view-icon" src={money} alt=""/>
                                 <div>
                                     <p>Salary - <span className="optional">Optional</span></p>
-                                    <input className="create-input input-sal" name="salary"
+                                    <input className="create-input input-sal" name="salary" maxLength="10"
                                         value={ this.state.salary } onChange={ this.updateFormValue } />
                                     <ValidationMessage field="salary" />
                                 </div>

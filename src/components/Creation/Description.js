@@ -37,7 +37,7 @@ export default class Description extends Component {
                         <img className="create-view-icon" src={user} alt=""/>
                         <div className="create-description">
                             <p>A Day in the Life of [ Username ] ...</p>
-                            <textarea className="create-textarea" name="text" 
+                            <textarea className="create-textarea" name="text"
                                 onChange={ this.updateFormValue } value={ this.state.text }/>
                             <ValidationMessage field="text" />
                         </div>

@@ -118,6 +118,7 @@
     width: 100%;
     outline-style: none;
     padding: 10px 10px;
+    resize: none;
 }
 
 .create-description {
