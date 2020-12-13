@@ -7,6 +7,7 @@ import SearchResults from "./components/SearchResults/SearchResults";
 import LoginSignup from "./components/LoginSignup/LoginSignup";
 import DataManager from "./data/DataManager"
 import LandingPage from './components/LandingPage/LandingPage'
+import CreateADay from "./components/Creation/CreateADay"
 import { Components } from "./data/Constants"
 
 class App extends Component {
@@ -57,6 +58,7 @@ class App extends Component {
           <Route path="/JobProfile" component={JobProfile} />
           <Route path="/AccountProfile" component={() => <DataManager component={Components.ACCT_PROFILE} />} />
           <Route path="/Results" component={()=> <DataManager component={Components.RESULTS} />} />
+          <Route path="/Create" component={CreateADay} />
           <Redirect to="/" />
         </Switch>
       </div>
