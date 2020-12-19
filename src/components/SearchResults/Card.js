@@ -25,13 +25,13 @@ export default class Card extends React.Component {
   getCardTabContent = () => {
     var { currentTab } = this.state
     var { tabs } = this.props.card.cardRight
-        /* if(tabs[currentTab].name === 'Video'){
-          return (
-            <div id="card-video" className="card-tabcontent">
-              <iframe id="video" width="100%" height="100%" src={tabs[currentTab].content} allowFullScreen></iframe>
-            </div>
-          )
-        }  */
+    /* if(tabs[currentTab].name === 'Video'){
+      return (
+        <div id="card-video" className="card-tabcontent">
+          <iframe id="video" width="100%" height="100%" src={tabs[currentTab].content} allowFullScreen></iframe>
+        </div>
+      )
+    }  */
     if (tabs[currentTab].name === 'Popular Day') {
       return (
         <div id="card-intro" className="card-tabcontent">
@@ -42,26 +42,28 @@ export default class Card extends React.Component {
         </div>
       )
     }
-        /* else if(tabs[currentTab].name === 'Activity'){
-          return (
-            <div id="card-heatmap" className="card-tabcontent">
-              <Heatmap heatmap={tabs[currentTab].content}/>
-            </div>
-          )
-        } */
+    /* else if(tabs[currentTab].name === 'Activity'){
+      return (
+        <div id="card-heatmap" className="card-tabcontent">
+          <Heatmap heatmap={tabs[currentTab].content}/>
+        </div>
+      )
+    } */
     else
       return <div>Not Found</div>
   }
 
   truncateText = (text, maxLength) => {
     if (text.length > maxLength) {
-        text = text.substr(0,maxLength) + '...';
+      text = text.substr(0, maxLength) + '...';
     }
     return text;
   }
 
   render() {
+    var { currentTab } = this.state
     var { card } = this.props
+    var { tabs } = this.props.card.cardRight
     var details = card.details.map((detail) => <li key={detail} className="card-list gray">{detail}</li>)
     var stars = []
     /* for (var i = 0; i < parseInt(card.starNumber); i++) {
@@ -69,7 +71,7 @@ export default class Card extends React.Component {
     } */
     return (
       <div className="card">
-        <div className="card-left">
+        <div className="card-left" style={tabs[currentTab].content.length > 0 ? {} : { gridColumn: "1/span 2" }}>
           <div className="card-detail-left">
             <img src={card.image} alt="" className="cardprofile"></img>
             <span className="stars-box">
@@ -89,7 +91,7 @@ export default class Card extends React.Component {
             {/* <img src={this.state.favorite ? heart : empty_heart} alt="" className="cardicon" onClick={this.setFavorite}></img> */}
           </div>
         </div>
-        <div className="card-right">
+        <div className={tabs[currentTab].content.length > 0 ? "card-right" : "none"}>
           <div className="card-tabmenu">
             <HeaderMenu
               header={card.cardRight.header}
