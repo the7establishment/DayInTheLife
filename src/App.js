@@ -55,7 +55,7 @@ class App extends Component {
         <LoginSignup login={this.login} isLoginSignupModalOpen={this.state.isLoginSignupModalOpen} openOrCloseLoginModal={this.openOrCloseLoginModal} />
         <Switch>
           <Route exact path="/" component={!this.state.isAccount ? LandingPage : () => <DataManager component={Components.HOME_PAGE} />} />
-          <Route path="/JobProfile" component={JobProfile} />
+          <Route path="/JobProfile" component={() => <DataManager component={Components.JOB_PROFILE} />} />
           <Route path="/AccountProfile" component={() => <DataManager component={Components.ACCT_PROFILE} />} />
           <Route path="/Results" component={()=> <DataManager component={Components.RESULTS} />} />
           <Route path="/Create" component={CreateADay} />

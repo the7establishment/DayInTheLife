@@ -5,5 +5,6 @@ export const Urls = {
     user: `${protocol}://${hostname}/user`,
     day: `${protocol}://${hostname}/day`,
     product: `${protocol}://${hostname}/product`,
-    job: `${protocol}://${hostname}/job`
+    job: `${protocol}://${hostname}/job`,
+    jobDescription: `${protocol}://${hostname}/job/description`
 }

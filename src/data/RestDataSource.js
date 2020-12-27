@@ -10,8 +10,8 @@ export class RestDataSource {
     GetData = (dataType, params = "") =>{
         var parameters = ''
         if(params.length > 0){
-            params.forEach(param => parameters += `${param}`)
-            return this.SendRequest("get", Urls[dataType] + `/${parameters}`);
+            params.forEach(param => parameters += `/${param}`)
+            return this.SendRequest("get", Urls[dataType] + `${parameters}`);
         }
         else {
             return this.SendRequest("get", Urls[dataType])    
