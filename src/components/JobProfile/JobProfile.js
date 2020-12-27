@@ -24,7 +24,7 @@ export default class JopProfile extends React.Component {
             <Summaries/>
           </div>
           <div className="profile-right">
-            <Qualifications/>
+            <Qualifications knowledge={this.props.jobDescription.KnowledgeList}/>
             <Tools/>
             <Listings/>
           </div>

@@ -1,18 +1,19 @@
 import React, { useState } from "react"
 
-export default function Qualifications() {
+export default function Qualifications(props) {
     
-    //react Hooks note they don't work inside classes
-    const[qualifications, setQualifications] = useState(['Qualification 1', 'Qualification 2', 'Qualification 3']);
-
-    const qualItems = qualifications.map((item) => 
-      <li>{item}</li>)
+  const knowledge = props.knowledge
+  const knowItems = knowledge.map((item) => {
+    let end = item.Content.indexOf("</strong>")
+    let result = item.Content.slice(8, end) 
+    return <li>{result}</li>
+  })
 
   return (
     <div className="qualifications box-shadow">
         <h2>Qualifications</h2>
         <ul>
-            {qualItems}
+            {knowItems}
         </ul>
     </div>
   );
