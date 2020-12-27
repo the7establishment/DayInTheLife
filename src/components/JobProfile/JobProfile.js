@@ -16,16 +16,17 @@ export default class JopProfile extends React.Component {
   }
 
   render(){
+    let { jobDescription } = this.props
     return (
       <div className="jobprofile">
         <div className="profile">
           <div className="profile-left">
-            <Overview purpose={this.props.jobDescription.Purpose}/>
+            <Overview purpose={jobDescription.Purpose}/>
             <Summaries/>
           </div>
           <div className="profile-right">
-            <Qualifications knowledge={this.props.jobDescription.KnowledgeList}/>
-            <Tools/>
+            <Qualifications knowledge={jobDescription.KnowledgeList}/>
+            <Tools toolsTech={jobDescription.ToolsTech}/>
             <Listings/>
           </div>
         </div>
