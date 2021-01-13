@@ -7,7 +7,7 @@ export const Components = {
 
 export const DataMap = {
     AccountProfile: ["day", "user", "product"],
-    JobProfile: ["jobDescription"],
+    JobProfile: ["jobDescription", "jobSalary"],
     HomePage: ["user"],
     SearchResults: ["job"]
 }

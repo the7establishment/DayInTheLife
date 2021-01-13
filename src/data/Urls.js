@@ -6,5 +6,6 @@ export const Urls = {
     day: `${protocol}://${hostname}/day`,
     product: `${protocol}://${hostname}/product`,
     job: `${protocol}://${hostname}/job`,
-    jobDescription: `${protocol}://${hostname}/job/description`
+    jobDescription: `${protocol}://${hostname}/job/description`,
+    jobSalary: `${protocol}://${hostname}/job/salary`
 }
