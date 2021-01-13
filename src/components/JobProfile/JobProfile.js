@@ -16,12 +16,12 @@ export default class JopProfile extends React.Component {
   }
 
   render(){
-    let { jobDescription } = this.props
+    let { jobDescription, jobSalary } = this.props
     return (
       <div className="jobprofile">
         <div className="profile">
           <div className="profile-left">
-            <Overview purpose={jobDescription.Purpose}/>
+            <Overview purpose={jobDescription.Purpose} salary={jobSalary[0].OccupationList[0].WageInfo}/>
             <Summaries/>
           </div>
           <div className="profile-right">
