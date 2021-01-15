@@ -21,7 +21,7 @@ export default class JopProfile extends React.Component {
       <div className="jobprofile">
         <div className="profile">
           <div className="profile-left">
-            <Overview purpose={jobDescription.Purpose} salary={jobSalary[0].OccupationList[0].WageInfo}/>
+            <Overview purpose={jobDescription.Purpose} salary={jobSalary}/>
             <Summaries/>
           </div>
           <div className="profile-right">
