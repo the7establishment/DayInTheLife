@@ -66,6 +66,7 @@ export default class Card extends React.Component {
     var { tabs } = this.props.card.cardRight
     var details = card.details.map((detail) => <li key={detail} className="card-list gray">{detail}</li>)
     var stars = []
+    var location = 'GA'
     /* for (var i = 0; i < parseInt(card.starNumber); i++) {
       stars.push(<img key={i} src={star} alt="" className="star"></img>)
     } */
@@ -79,7 +80,7 @@ export default class Card extends React.Component {
               {/* <span className="star-number">{card.starNumber}</span> */}
             </span>
             {/* {<span className={card.new ? 'card-new' : 'none'}>new</span>} */}
-            <Link to={card.type === 'Worker' ? `/AccountProfile?user=${card.userId}` : "/JobProfile"}>
+            <Link to={card.type === 'Worker' ? `/AccountProfile?user=${card.userId}` : `/JobProfile?jobDescription=${card.jobId}&jobDescription=${location}&jobSalary=${card.jobId}&jobSalary=${location}`}>
               <button className="card-button">View</button>
             </Link>
           </div>

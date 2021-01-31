@@ -7,20 +7,30 @@ import Qualifications from './Qualifications/Qualifications'
 import "../../css/JobProfile/JobProfile.css"
 
 
-export default function JopProfile() {
-  return (
-    <div className="jobprofile">
-      <div className="profile">
-        <div className="profile-left">
-          <Overview/>
-          <Summaries/>
-        </div>
-        <div className="profile-right">
-          <Qualifications/>
-          <Tools/>
-          <Listings/>
+export default class JopProfile extends React.Component {
+  constructor(props){
+    super(props)
+    this.state= {
+      data: this.props.jobDescription
+    }
+  }
+
+  render(){
+    let { jobDescription, jobSalary } = this.props
+    return (
+      <div className="jobprofile">
+        <div className="profile">
+          <div className="profile-left">
+            <Overview purpose={jobDescription.Purpose} salary={jobSalary}/>
+            <Summaries/>
+          </div>
+          <div className="profile-right">
+            <Qualifications knowledge={jobDescription.KnowledgeList}/>
+            <Tools toolsTech={jobDescription.ToolsTech}/>
+            <Listings/>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
