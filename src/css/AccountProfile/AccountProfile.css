@@ -137,6 +137,12 @@
     cursor: pointer;
 }
 
+.add-exp {
+    height: 30px;
+    margin-right: 20px;
+    opacity: 75%;
+}
+
 /* ---------- text ---------- */
 
 .largetext {
@@ -165,6 +171,11 @@
 .optionheader {
     box-shadow: none !important;
     display: flex;
+    justify-content: space-between;
+}
+
+.exp-header {
+    display:flex;
     justify-content: space-between;
 }
 
