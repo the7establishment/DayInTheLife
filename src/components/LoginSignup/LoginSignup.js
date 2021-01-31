@@ -5,6 +5,11 @@ import close_icon from "../../resource/icons/close_icon.png"
 import Login from './Login'
 import Signup from "./Signup"
 
+const EMPTY_NAME_MESSAGE = 'Please enter a name.';
+const INVALID_NAME_MESSAGE = 'Please enter at least 3 characters.';
+const EMPTY_PASSWORD_MESSAGE = 'Please enter a password.';
+const INVALID_PASSWORD_MESSAGE = 'Passwords must be 8 to 20 characters, contain at least 1 uppercase and lowercase letter, 1 number, and not include spaces.';
+
 export default class LoginSignup extends React.Component {
   constructor(){
     super()
@@ -15,16 +20,19 @@ export default class LoginSignup extends React.Component {
       emailErrMsg: '',
       nameErrMsg: '',
       hasError: false,
-      valid: true
+      validName: false,
+      validEmail: false,
+      validPwd: false,
+      validLogin: true
     }
   }
 
   changeLoginType = () => {
     var { isLogin } = this.state
     if (isLogin)
-      this.setState({ isLogin: false })
+      this.setState({ isLogin: false, validName : false, validEmail : false, validPwd: false })
     else
-      this.setState({ isLogin: true })
+      this.setState({ isLogin: true, validName : false, validEmail : false, validPwd : false })
     this.clearForm()
   }
 
@@ -49,6 +57,16 @@ export default class LoginSignup extends React.Component {
     }
   }
 
+  checkForm = () => {
+    if(this.state.isLogin) {
+      if(this.state.validEmail && this.state.validPwd) 
+        this.setState({ hasError: false, valid: true })
+    } else {
+      if(this.state.validName && this.state.validEmail && this.state.validPwd) 
+        this.setState({ hasError: false, valid: true })
+    }
+  }
+
   showHidePassword = () => {
     var { show } = this.state
     if (show)
@@ -57,47 +75,47 @@ export default class LoginSignup extends React.Component {
       this.setState({ show: true })
   }
 
-  verifyName = () => {
+  validateName = () => {
     var name = document.getElementById("Name")
     var re = /([a-zA-Z]).{3,50}/
     if (name.value === 0) {
       name.classList.add("error")
-      this.setState({ nameErrMsg: "Please enter a name.", hasError: true, valid: false })
+      this.setState({ nameErrMsg: EMPTY_NAME_MESSAGE, hasError: true, valid: false })
       return false
     }
     else if (!re.test(name.value)) {
       name.classList.add("error")
-      this.setState({ nameErrMsg: "Please enter at least 3 characters.", hasError: true, valid: false })
+      this.setState({ nameErrMsg: INVALID_NAME_MESSAGE, hasError: true, valid: false })
       return false
     }
     else {
       name.classList.remove("error")
-      this.setState({ nameErrMsg: "", hasError: false, valid: true })
+      this.setState({ nameErrMsg: "", validName : true }, this.checkForm)
       return true
     }
   }
 
-  verifyPassword = () => {
+  validatePwd = () => {
     var pass = document.getElementById("Password")
     var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\S{8,20}$/
     if (pass.value.length === 0) {
       pass.classList.add("error")
-      this.setState({ passErrMsg: "Please enter a password.", hasError: true, valid: false })
+      this.setState({ passErrMsg: EMPTY_PASSWORD_MESSAGE, hasError: true, valid: false })
       return false
     }
     else if (!re.test(pass.value)) {
       pass.classList.add("error")
-      this.setState({ passErrMsg: "Passwords must be 8 to 20 characters, contain at least 1 uppercase and lowercase letter, 1 number, and not include spaces.", hasError: true, valid: false })
+      this.setState({ passErrMsg: INVALID_PASSWORD_MESSAGE, hasError: true, valid: false })
       return false
     }
     else {
       pass.classList.remove("error")
-      this.setState({ passErrMsg: "", hasError: false, valid: true })
+      this.setState({ passErrMsg: "", validPwd : true }, this.checkForm)
       return true
     }
   }
 
-  verifyEmail = () => {
+  validateEmail = () => {
     var email = document.getElementById("Email")
     var re = /.+@[a-z]+\.[a-z]+/
     if (email.value.length === 0) {
@@ -112,7 +130,7 @@ export default class LoginSignup extends React.Component {
     }
     else {
       email.classList.remove("error")
-      this.setState({ emailErrMsg: "", hasError: false, valid: true })
+      this.setState({ emailErrMsg: "", validEmail : true }, this.checkForm)
       return true
     }
   }
@@ -120,26 +138,59 @@ export default class LoginSignup extends React.Component {
   validateEmailNamePass = () => {
     var validEmail = this.verifyEmail()
     var validPass = this.verifyPassword()
-    if (this.state.isLogin)
-      return validEmail && validPass ? true : false
-    else{
+    if (this.state.isLogin) {
+      var validLogin = validEmail && validPass;
+      return validLogin;
+    } else{
       var validName = this.verifyName()
-      return validEmail && validPass && validName ? true : false
+      var validSignup = validEmail && validPass && validName;
+      return validSignup;
     }
   }
 
-  login_signup = () => {
-    var isValid = this.validateEmailNamePass()
-    if (isValid) {
-      this.setState({ valid: isValid })
-      if (this.state.isLogin)
-        this.props.login()
-      else
-        console.log("signup")
-      this.props.openOrCloseLoginModal()
-    }
+  submit = () => {
+    var isValid;
+    if(this.state.isLogin)
+      this.handleLogin();
     else
-      this.setState({ valid: isValid })
+      this.handleSignup();
+  }
+
+  handleLogin() {
+    var validLogin = this.validateLogin();
+    if(validLogin) 
+      this.executeLogin();
+    else
+      this.setState({ valid: false })
+  }
+
+  handleSignup() {
+    var validSignup = this.validateSignup()
+    if(validSignup) 
+      this.executeSignup()
+    this.setState({ valid: validSignup })
+  }
+
+  validateLogin() {
+    var validEmail = this.validateEmail();
+    var validPwd = this.validatePwd();
+    return validEmail && validPwd;
+  }
+
+  validateSignup() {
+    var validName = this.validateName();
+    var validEmail = this.validateEmail();
+    var validPwd = this.validatePwd();
+    return validName && validEmail && validPwd;
+  }
+
+  executeLogin() {
+    this.props.login();
+    this.props.openOrCloseLoginModal();
+  }
+
+  executeSignup() {
+    this.props.openOrCloseLoginModal();
   }
 
   render() {
@@ -147,24 +198,24 @@ export default class LoginSignup extends React.Component {
       <Modal title={this.state.isLogin ? 'LOG IN' : 'SIGN UP'} id="login" isOpen={this.props.isLoginSignupModalOpen}>
         {this.state.isLogin ? //Dynamically shows Login or Signup Page with tertionary operator
         <Login 
-          verifyEmail={this.verifyEmail} 
-          verifyPassword={this.verifyPassword} 
+        validateEmail={this.validateEmail} 
+          validatePwd={this.validatePwd} 
           emailErrMsg={this.state.emailErrMsg} 
           passErrMsg={this.state.passErrMsg} 
           valid={this.state.valid} 
-          login_signup={this.login_signup} 
+          submit={this.submit} 
           showHidePassword={this.showHidePassword} 
           show={this.state.show}
         /> : 
         <Signup 
-          verifyEmail={this.verifyEmail} 
-          verifyPassword={this.verifyPassword} 
-          verifyName={this.verifyName} 
+          validateEmail={this.validateEmail} 
+          validatePwd={this.validatePwd} 
+          validateName={this.validateName} 
           nameErrMsg={this.state.nameErrMsg} 
           emailErrMsg={this.state.emailErrMsg} 
           passErrMsg={this.state.passErrMsg} 
           valid={this.state.valid} 
-          login_signup={this.login_signup} 
+          submit={this.submit} 
           showHidePassword={this.showHidePassword} 
           show={this.state.show}
         />}
