@@ -9,6 +9,7 @@ export default class Signup extends React.Component {
       <div className="signup">
         <div className="modalbody">
           <div className='wrapper'>
+            <p className="errMsg">{this.props.serviceErrMsg}</p>
             <input className="modalinput" id="Name" placeholder="Name" onBlur={this.props.validateName} onChange={this.props.validateName} maxLength="50" />
             <p className="errMsg">{this.props.nameErrMsg}</p>
           </div>
