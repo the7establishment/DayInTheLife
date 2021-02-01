@@ -3,19 +3,24 @@ import Modal from '../Modal'
 import "../../css/LoginSignup.css"
 import close_icon from "../../resource/icons/close_icon.png"
 import Login from './Login'
-import Signup from "./Signup"
+import { Form1, Form2 } from "./Signup"
+import { RestDataSource } from "../../data/RestDataSource"
 
 const EMPTY_NAME_MESSAGE = 'Please enter a name.';
 const INVALID_NAME_MESSAGE = 'Please enter at least 3 characters.';
 const EMPTY_PASSWORD_MESSAGE = 'Please enter a password.';
 const INVALID_PASSWORD_MESSAGE = 'Passwords must be 8 to 20 characters, contain at least 1 uppercase and lowercase letter, 1 number, and not include spaces.';
+const SERVICE_ERROR_MESSAGE = 'Service is not available at this time. Please try again later.'
+
+var dataSource = new RestDataSource()
 
 export default class LoginSignup extends React.Component {
   constructor(){
     super()
     this.state={
-      isLogin: true,
+      currentForm: "Login",
       show: false,
+      serviceErrMsg:'',
       passErrMsg: '',
       emailErrMsg: '',
       nameErrMsg: '',
@@ -23,16 +28,25 @@ export default class LoginSignup extends React.Component {
       validName: false,
       validEmail: false,
       validPwd: false,
-      validLogin: true
+      valid: false,
+      firstName: '',
+      lastName:'',
+      email: '',
+      password: '',
+      gender: 'Other',
+      country: 'United States',
+      region: '',
+      homeCountry: 'United States',
+      homeRegion: ''
     }
   }
 
   changeLoginType = () => {
-    var { isLogin } = this.state
+    var isLogin = this.state.currentForm === "Login"
     if (isLogin)
-      this.setState({ isLogin: false, validName : false, validEmail : false, validPwd: false })
+      this.setState({ currentForm: "Form1", validName : false, validEmail : false, validPwd: false })
     else
-      this.setState({ isLogin: true, validName : false, validEmail : false, validPwd : false })
+      this.setState({ currentForm: "Login", validName : false, validEmail : false, validPwd : false })
     this.clearForm()
   }
 
@@ -42,15 +56,16 @@ export default class LoginSignup extends React.Component {
       emailErrMsg: '',
       passErrMsg: '',
       hasError: false,
-      valid: true
+      valid: false
     })
     var email = document.getElementById("Email")
     var pass = document.getElementById("Password")
+    var notLogin = this.state.currentForm !== "Login"
     email.classList.remove("error")
     email.value = ""
     pass.classList.remove("error")
     pass.value = ""
-    if(!this.state.isLogin){
+    if(notLogin){
       var name = document.getElementById("Name")
       name.classList.remove("error")
       name.value = ""
@@ -58,13 +73,18 @@ export default class LoginSignup extends React.Component {
   }
 
   checkForm = () => {
-    if(this.state.isLogin) {
+    var isLogin = this.state.currentForm === "Login"
+    if(isLogin) {
       if(this.state.validEmail && this.state.validPwd) 
         this.setState({ hasError: false, valid: true })
     } else {
       if(this.state.validName && this.state.validEmail && this.state.validPwd) 
         this.setState({ hasError: false, valid: true })
     }
+  }
+
+  changeForm = (form) => {
+      this.setState({ currentForm: form })
   }
 
   showHidePassword = () => {
@@ -75,10 +95,10 @@ export default class LoginSignup extends React.Component {
       this.setState({ show: true })
   }
 
-  validateName = () => {
-    var name = document.getElementById("Name")
+  validateName = (arg) => {
+    var name = arg.target ? arg.target : document.getElementById(arg)
     var re = /([a-zA-Z]).{3,50}/
-    if (name.value === 0) {
+    if (name.value.length === 0) {
       name.classList.add("error")
       this.setState({ nameErrMsg: EMPTY_NAME_MESSAGE, hasError: true, valid: false })
       return false
@@ -90,7 +110,7 @@ export default class LoginSignup extends React.Component {
     }
     else {
       name.classList.remove("error")
-      this.setState({ nameErrMsg: "", validName : true }, this.checkForm)
+      this.setState({ nameErrMsg: "", validName : true, [name.id]: name.value}, this.checkForm)
       return true
     }
   }
@@ -110,7 +130,7 @@ export default class LoginSignup extends React.Component {
     }
     else {
       pass.classList.remove("error")
-      this.setState({ passErrMsg: "", validPwd : true }, this.checkForm)
+      this.setState({ passErrMsg: "", validPwd : true, password: pass.value }, this.checkForm)
       return true
     }
   }
@@ -130,30 +150,41 @@ export default class LoginSignup extends React.Component {
     }
     else {
       email.classList.remove("error")
-      this.setState({ emailErrMsg: "", validEmail : true }, this.checkForm)
+      this.setState({ emailErrMsg: "", validEmail : true, email: email.value }, this.checkForm)
       return true
     }
   }
 
-  validateEmailNamePass = () => {
-    var validEmail = this.verifyEmail()
-    var validPass = this.verifyPassword()
-    if (this.state.isLogin) {
-      var validLogin = validEmail && validPass;
-      return validLogin;
-    } else{
-      var validName = this.verifyName()
-      var validSignup = validEmail && validPass && validName;
-      return validSignup;
-    }
+  updateFormValue = (event) => {
+    this.setState({ [ event.target.name ] : event.target.value })
+  }
+
+  updateCountry = (country) => {
+    //requires separate handler
+    this.setState({ country: country})
+  }
+
+  updateHomeCountry = (country) => {
+    //requires separate handler
+    this.setState({ homeCountry: country})
+  }
+
+  updateRegion = (region) => {
+    //requires separate handler
+    this.setState({ region: region})
+  }
+
+  updateHomeRegion = (region) => {
+    //requires separate handler
+    this.setState({ homeRegion: region})
   }
 
   submit = () => {
-    var isValid;
-    if(this.state.isLogin)
+    var isLogin = this.state.currentForm === "Login";
+    if(isLogin)
       this.handleLogin();
     else
-      this.handleSignup();
+      this.executeSignup();
   }
 
   handleLogin() {
@@ -164,24 +195,10 @@ export default class LoginSignup extends React.Component {
       this.setState({ valid: false })
   }
 
-  handleSignup() {
-    var validSignup = this.validateSignup()
-    if(validSignup) 
-      this.executeSignup()
-    this.setState({ valid: validSignup })
-  }
-
   validateLogin() {
     var validEmail = this.validateEmail();
     var validPwd = this.validatePwd();
     return validEmail && validPwd;
-  }
-
-  validateSignup() {
-    var validName = this.validateName();
-    var validEmail = this.validateEmail();
-    var validPwd = this.validatePwd();
-    return validName && validEmail && validPwd;
   }
 
   executeLogin() {
@@ -190,38 +207,94 @@ export default class LoginSignup extends React.Component {
   }
 
   executeSignup() {
-    this.props.openOrCloseLoginModal();
+    var props = this.props
+    var user = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      fullName: this.state.firstName + " " + this.state.lastName,
+      email: this.state.email,
+      password: this.state.password,
+      gender: this.state.gender,
+      country: this.state.homeCountry,
+      region: this.state.homeRegion,
+      homeCountry: this.state.homeCountry,
+      homeRegion: this.state.homeRegion
+    }
+    dataSource.PostData("user", user)
+      .then(function(res) {
+        if(res.status === 200) {
+          props.openOrCloseLoginModal();
+          window.location.href = '/Home'
+        } else {
+          this.setState({ serviceErrMsg: "Something went wrong."})
+        }
+      }).catch(error => {
+        this.setState({ serviceErrMsg: SERVICE_ERROR_MESSAGE })
+        console.error('User post call failed: ' + error.message);
+      })
+  }
+
+  selectComponent(comp) {
+      var args
+      const wrap = (Component, props) => <Component {...props} ></Component>
+      switch (comp) {
+        case "Login" :
+          args = {
+            validateEmail:this.validateEmail,
+            validatePwd:this.validatePwd,
+            showHidePassword:this.showHidePassword,
+            submit:this.submit,
+            serviceErrMsg:this.state.serviceErrMsg,
+            emailErrMsg:this.state.emailErrMsg,
+            passErrMsg:this.state.passErrMsg,
+            valid:this.state.valid,
+            show:this.state.show,
+          }
+          return wrap(Login, args)
+        case "Form1" :
+          args = {
+            validateEmail:this.validateEmail, 
+            validatePwd:this.validatePwd, 
+            validateName:this.validateName, 
+            showHidePassword:this.showHidePassword,
+            changeForm:this.changeForm,
+            next: this.nextForm,
+            serviceErrMsg:this.state.serviceErrMsg,
+            nameErrMsg:this.state.nameErrMsg, 
+            emailErrMsg:this.state.emailErrMsg, 
+            passErrMsg:this.state.passErrMsg,
+            show:this.state.show,
+            valid:this.state.valid
+          }
+          return wrap(Form1, args)
+        case "Form2" :
+          args = {
+            submit:this.submit,   
+            changeForm:this.changeForm,
+            update:this.updateFormValue,
+            updateCountry:this.updateCountry,
+            updateHomeCountry:this.updateHomeCountry,
+            updateRegion:this.updateRegion,
+            updateHomeRegion:this.updateHomeRegion,
+            gender:this.state.gender,
+            country:this.state.country,
+            region:this.state.region,
+            homeCountry:this.state.homeCountry,
+            homeRegion:this.state.homeRegion,
+            valid:this.state.valid
+          }
+          return wrap(Form2, args)
+      }
   }
 
   render() {
+    var isLogin = this.state.currentForm === "Login"
     return(
-      <Modal title={this.state.isLogin ? 'LOG IN' : 'SIGN UP'} id="login" isOpen={this.props.isLoginSignupModalOpen}>
-        {this.state.isLogin ? //Dynamically shows Login or Signup Page with tertionary operator
-        <Login 
-        validateEmail={this.validateEmail} 
-          validatePwd={this.validatePwd} 
-          emailErrMsg={this.state.emailErrMsg} 
-          passErrMsg={this.state.passErrMsg} 
-          valid={this.state.valid} 
-          submit={this.submit} 
-          showHidePassword={this.showHidePassword} 
-          show={this.state.show}
-        /> : 
-        <Signup 
-          validateEmail={this.validateEmail} 
-          validatePwd={this.validatePwd} 
-          validateName={this.validateName} 
-          nameErrMsg={this.state.nameErrMsg} 
-          emailErrMsg={this.state.emailErrMsg} 
-          passErrMsg={this.state.passErrMsg} 
-          valid={this.state.valid} 
-          submit={this.submit} 
-          showHidePassword={this.showHidePassword} 
-          show={this.state.show}
-        />}
+      <Modal title={isLogin ? 'LOG IN' : 'SIGN UP'} id="login" isOpen={this.props.isLoginSignupModalOpen}>
+        {this.selectComponent(this.state.currentForm)}
         <div className="logintypebox">
-          <span className="signtypehint">{this.state.isLogin ? 'No account yet?' : 'Already have an account?'}</span>
-          <span className="signuplink" onClick={this.changeLoginType}>{this.state.isLogin ? 'Sign up' : 'Log in'}</span>
+          <span className="signtypehint">{isLogin ? 'No account yet?' : 'Already have an account?'}</span>
+          <span className="signuplink" onClick={this.changeLoginType}>{isLogin ? 'Sign up' : 'Log in'}</span>
         </div>
         <div className="modalfooter">
           <hr />
