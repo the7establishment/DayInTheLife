@@ -19,6 +19,19 @@
     outline: none;
 }
 
+.ditl-button-back {
+    background-color: #FFFFFF;
+    border-color: #707070;
+    color: #707070;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    outline: none;
+    width: 100%;
+    margin-top: 20px;
+}
+
 .profile{
     display: grid;
     grid-column: 2;

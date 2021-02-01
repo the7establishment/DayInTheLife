@@ -14,7 +14,7 @@ export default class Overview extends Component {
             <p className="xsmalltext">{this.props.user.timeAt}</p>
             <hr className="spacer-shrt" />
             <p className="smalltext">{this.props.user.gender}, From {this.props.user.homeTown}</p>
-            <p className="smalltext">Working in {this.props.user.location}</p>
+            <p className="smalltext">Living in {this.props.user.location}</p>
             <p className="smalltext">User Id: {this.props.user._id}</p>
             <button className="btn-wide btn-navy">ADD AS FRIEND</button>
             <button className="btn-wide btn-wht">SEND MESSAGE</button>
