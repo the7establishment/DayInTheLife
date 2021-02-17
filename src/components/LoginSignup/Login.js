@@ -8,8 +8,8 @@ export default class Login extends React.Component {
     return(
       <div className="login">
         <div className="modalbody">
+          <p className="errMsg">{this.props.serviceErrMsg}</p>
           <div className="wrapper">
-            <p className="errMsg">{this.props.serviceErrMsg}</p>
             <input className="modalinput" id="Email" placeholder="Email" onBlur={this.props.validateEmail} onChange={this.props.validateEmail} maxLength="50" />
             <p className="errMsg">{this.props.emailErrMsg}</p>
           </div>

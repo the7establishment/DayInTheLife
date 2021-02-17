@@ -47,6 +47,7 @@ export class Form2 extends Component {
     return(
       <div className="signup">
         <div className="modalbody">
+          <p className="errMsg">{this.props.serviceErrMsg}</p>
           <div className="modal-group">
             <label className="modal-label">Gender</label>
             <select className="modal-combobox" name="gender" value={this.props.gender} onChange={this.props.update} maxLength="50">

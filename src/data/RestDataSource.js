@@ -22,7 +22,7 @@ export class RestDataSource {
 
     deriveUrl = (dataType, params) => {
         var url = Urls[dataType]
-        url += params.reduce((parameters,param) => parameters += param , '')
+        url += params.reduce((parameters,param) => parameters += `/${param}` , '')
         return url
     }
 

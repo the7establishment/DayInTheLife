@@ -60,7 +60,7 @@ class App extends Component {
           <Route path="/AccountProfile" component={() => <DataManager component={Components.ACCT_PROFILE} />} />
           <Route path="/Results" component={()=> <DataManager component={Components.RESULTS} />} />
           <Route path="/Create" component={CreateADay} />
-          <Route path="/Home" component={HomePage} />
+          <Route path="/Home" component={()=> <DataManager component={Components.HOME_PAGE} />} />
           <Redirect to="/" />
         </Switch>
       </div>
