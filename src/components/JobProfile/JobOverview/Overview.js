@@ -1,14 +1,16 @@
 import React from "react"
 import StatsComponent from './StatsComponent'
-import JobDescription from './JobDescription'
 
-export default function Overview() {
+export default function Overview(props) {
   return (
     <div className="overview">
-        <h2 className="gray">Software Engineer</h2>
+        <h2 className="gray">{props.purpose.OnetTitle}</h2>
         <hr/>
-        <StatsComponent />
-        <JobDescription />
+        <StatsComponent salary={props.salary}/>
+        <div className="jobdescription">
+        <h3 className="job-label">Description: </h3>
+        <span className="job-description">{props.purpose.OnetDesc}</span>
+        </div>
     </div>
   );
 }

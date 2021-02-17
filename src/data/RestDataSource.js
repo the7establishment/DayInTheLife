@@ -9,7 +9,7 @@ export class RestDataSource {
     constructor(err_handler) {
         this.error_handler = err_handler || (() => { });
     }
-
+  
     GetData = (dataType, params = []) =>{
         var url = this.deriveUrl(dataType, params)
         return this.SendRequest(GET, url)
