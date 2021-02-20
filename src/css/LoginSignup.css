@@ -70,6 +70,24 @@
     width: 343px;
     outline-style: none;
 }
+.modal-combobox{
+    height: 52px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding: 13px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    outline-style: none;
+}
+.modal-group{
+    margin: 15px 0px 20px;
+}
+.modal-label{
+    font-size: 12px;
+    margin-bottom: 2px;
+    font-weight: bold;
+}
 .error{
     border: 1px solid #cb242b;
 }
@@ -80,6 +98,13 @@
 }
 .modalbutton{
     margin-top: 30px;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.modalbutton-submit{
+    margin-top: 10px;
     font-size: 16px;
     width: 100%;
     cursor: pointer;

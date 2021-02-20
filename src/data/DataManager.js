@@ -63,6 +63,8 @@ export default class DataManager extends Component {
                 return wrap(JobProfile)
             case "SearchResults":
                 return wrap(SearchResults)
+            case "HomePage":
+                return wrap(HomePage)
             default:
                 return wrap(HomePage)
         }

@@ -1,4 +1,6 @@
 import React, { Component, useState } from "react";
+import { Link } from "react-router-dom";
+import plus from "../../../resource/icons/plus.png"
 
 export default class Experience extends Component {
 
@@ -28,7 +30,12 @@ export default class Experience extends Component {
     render() {
         return (
             <div className="viewbox">
-                <h2>Experience</h2>
+                <div className="exp-header">
+                    <h2>Experience</h2>
+                    <Link to={{ pathname: "/create", search: `?userId=placeholder`}}>
+                        <img className="add-exp" src={plus} alt="+ Add Exp" />
+                    </Link>
+                </div>
                 <ul className="sidenav-list">
                     {this.expNavRows()}
                 </ul>

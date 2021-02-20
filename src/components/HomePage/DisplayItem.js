@@ -6,10 +6,10 @@ export default function DisplayItem() {
                 <div className="display-item">
                     <div className="display-item-top">
                         <div className="display-item-pic">
-                            <img className="profile-pic-2" alt="" src={require('../../resource/profile/profilePicMatthew.jpg')}></img>
+                            <img className="profile-pic-2" alt="" src={require('../../resource/icons/default_user.png')}></img>
                         </div>
                         <div className="item-overview">
-                            <div className="day-title">Software Engineer
+                            <div className="day-title">Software Engineer Placeholder
                                 <img className="launch-arrow" alt="" src={require('../../resource/icons/blue-arrow.png')} />
                             </div>
                             <div className="day-info">
