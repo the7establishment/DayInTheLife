@@ -202,7 +202,7 @@ export default class LoginSignup extends React.Component {
   }
 
   async executeLogin() {
-    var props = this.props
+    var { openOrCloseLoginModal } = this.props
     var email = this.state.email
     var password = this.state.password
 
@@ -211,7 +211,7 @@ export default class LoginSignup extends React.Component {
     dataSource.PostData("login", { email : email, password : password})
     .then(function(res) {
       if(res.status === 200) {
-        props.openOrCloseLoginModal();
+        openOrCloseLoginModal();
         window.location.href = `/Home?user=${res.data.userId}`
       } else if(res.status === 401) {
         this.setState({ serviceErrMsg: "Invalid username or password"})
@@ -227,7 +227,7 @@ export default class LoginSignup extends React.Component {
   }
 
   async executeSignup() {
-    var props = this.props
+    var { openOrCloseLoginModal } = this.props
     var user = {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
@@ -246,7 +246,7 @@ export default class LoginSignup extends React.Component {
     dataSource.PostData("signup", user)
     .then(function(res) {
       if(res.status === 200) {
-        props.openOrCloseLoginModal();
+        openOrCloseLoginModal();
         window.location.href = `/Home?user=${res.data.userId}`
       } else {
         this.setState({ serviceErrMsg: "Something went wrong."})
