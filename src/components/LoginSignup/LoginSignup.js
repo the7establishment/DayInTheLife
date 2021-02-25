@@ -10,7 +10,6 @@ const EMPTY_NAME_MESSAGE = 'Please enter a name.';
 const INVALID_NAME_MESSAGE = 'Please enter at least 3 characters.';
 const EMPTY_PASSWORD_MESSAGE = 'Please enter a password.';
 const INVALID_PASSWORD_MESSAGE = 'Passwords must be 8 to 20 characters, contain at least 1 uppercase and lowercase letter, 1 number, and not include spaces.';
-const SERVICE_ERROR_MESSAGE = 'Service is not available at this time. Please try again later.'
 
 var dataSource = new RestDataSource()
 
@@ -210,20 +209,12 @@ export default class LoginSignup extends React.Component {
     // post login
     dataSource.PostData("login", { email : email, password : password})
     .then(function(res) {
-      if(res.status === 200) {
         openOrCloseLoginModal();
         window.location.href = `/Home?user=${res.data.userId}`
-      } else if(res.status === 401) {
-        this.setState({ serviceErrMsg: "Invalid username or password"})
-      } else {
-        this.setState({ serviceErrMsg: "Something went wrong."})
-      }
     }).catch(error => {
-      this.setState({ serviceErrMsg: SERVICE_ERROR_MESSAGE })
+      this.setState({ serviceErrMsg: error.response.data.message })
       console.error('Login post call failed: ' + error.message);
     })
-    
-
   }
 
   async executeSignup() {
@@ -245,14 +236,10 @@ export default class LoginSignup extends React.Component {
     // post signup
     dataSource.PostData("signup", user)
     .then(function(res) {
-      if(res.status === 200) {
         openOrCloseLoginModal();
         window.location.href = `/Home?user=${res.data.userId}`
-      } else {
-        this.setState({ serviceErrMsg: "Something went wrong."})
-      }
     }).catch(error => {
-      this.setState({ serviceErrMsg: SERVICE_ERROR_MESSAGE })
+      this.setState({ serviceErrMsg: error.response.data.message })
       console.error('Signup post call failed: ' + error.message);
     })
   }
@@ -299,6 +286,7 @@ export default class LoginSignup extends React.Component {
             updateHomeCountry:this.updateHomeCountry,
             updateRegion:this.updateRegion,
             updateHomeRegion:this.updateHomeRegion,
+            serviceErrMsg:this.state.serviceErrMsg,
             gender:this.state.gender,
             country:this.state.country,
             region:this.state.region,
