@@ -9,7 +9,7 @@ export default class Pagination extends React.Component {
       numOfPages.push(i)
     
     return numOfPages.map(page => {
-      return <div className={this.props.pageCurrent===page ? "pagenum pagecurrent" : "pagenum"} onClick={this.props.setCurrentPage}>{page}</div>
+      return <div key={page} className={this.props.pageCurrent===page ? "pagenum pagecurrent" : "pagenum"} onClick={this.props.setCurrentPage}>{page}</div>
     })
   }
 
