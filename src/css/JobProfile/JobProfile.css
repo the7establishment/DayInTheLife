@@ -30,6 +30,22 @@
     outline: none;
     width: 100%;
     margin-top: 20px;
+    cursor: pointer;
+}
+
+.ditl-button-guest {
+    background-color: hsl(81, 31%, 66%);
+    color: white;
+    border-radius: 5px;
+    border-color: hsl(82, 10%, 23%);
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+    width: 130px;
+    outline: none;
+    width: 100%;
+    margin-top: 20px;
+    cursor: pointer;
 }
 
 .profile{
