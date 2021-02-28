@@ -16,7 +16,7 @@ export default class Pagination extends React.Component {
   render() {
     return (
       <div className="pagination-row">
-        <div className="pages">
+        <div className="pages box-shadow">
           <img className={this.props.pageNum === 0 ? "none" : "icon left-arrow"} alt="" src={leftarrow} style={{height: '30px'}} onClick={this.props.prevPage}></img>
           {this.getPageTabs()}
           <img className={this.props.pageNum === 0 ? "none" : "icon right-arrow"} alt="" src={leftarrow} style={{height: '30px'}} onClick={this.props.nextPage}></img>
