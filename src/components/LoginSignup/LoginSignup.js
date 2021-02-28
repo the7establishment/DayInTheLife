@@ -206,10 +206,9 @@ export default class LoginSignup extends React.Component {
   handleLogin() {
     var validLogin = this.validateLogin();
     if(validLogin) {
-      var email = this.state.loginEmail
-      var password = this.state.loginPassword
+      var { loginEmail, loginPassword } = this.state
       var { openOrCloseLoginModal } = this.props
-      this.executeLogin(email, password, openOrCloseLoginModal);
+      this.executeLogin(loginEmail, loginPassword, openOrCloseLoginModal);
     }
     else 
       this.setState({ valid: false })
