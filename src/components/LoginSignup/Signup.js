@@ -39,8 +39,7 @@ export class Form2 extends Component {
   constructor(props) {
     super(props)
     this.state={
-      country: '',
-      homeCountry: ''
+      country: ''
     }
   }
 
@@ -62,12 +61,6 @@ export class Form2 extends Component {
             <CountryDropdown className="modal-combobox" name="country" defaultOptionLabel={this.props.country} value={this.props.country} onChange={this.props.updateCountry} maxLength="50" />
             <label className="modal-label">Region</label>
             <RegionDropdown className="modal-combobox" name="region" value={this.props.region} country={this.props.country} onChange={this.props.updateRegion} maxLength="50" />
-          </div>
-          <div className="modal-group">
-            <label className="modal-label">Home Country</label>
-            <CountryDropdown className="modal-combobox" name="homeCountry" defaultOptionLabel={this.props.homeCountry} value={this.props.homeCountry} onChange={this.props.updateHomeCountry} maxLength="50" />
-            <label className="modal-label">Home Region</label>
-            <RegionDropdown className="modal-combobox" name="homeRegion" defaultOptionLabel="Select Home Region" value={this.props.homeRegion} country={this.props.homeCountry} onChange={this.props.updateHomeRegion} maxLength="50" />
           </div>
           <div>
             <button className="ditl-button-back modelbutton" onClick={() => this.props.changeForm("Form1")}>BACK</button>

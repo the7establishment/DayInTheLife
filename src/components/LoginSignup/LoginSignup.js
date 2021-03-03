@@ -51,9 +51,7 @@ export default class LoginSignup extends React.Component {
       signupPassword: '',
       gender: 'Other',
       country: 'United States',
-      region: '',
-      homeCountry: 'United States',
-      homeRegion: ''
+      region: ''
     }
   }
 
@@ -192,19 +190,9 @@ export default class LoginSignup extends React.Component {
     this.setState({ country: country})
   }
 
-  updateHomeCountry = (country) => {
-    //requires separate handler
-    this.setState({ homeCountry: country})
-  }
-
   updateRegion = (region) => {
     //requires separate handler
     this.setState({ region: region})
-  }
-
-  updateHomeRegion = (region) => {
-    //requires separate handler
-    this.setState({ homeRegion: region})
   }
 
   submit = () => {
@@ -257,10 +245,7 @@ export default class LoginSignup extends React.Component {
       password: this.state.signupPassword,
       gender: this.state.gender,
       country: this.state.country,
-      region: this.state.region,
-      //placeholders
-      homeCountry: this.state.homeCountry,
-      homeRegion: this.state.homeRegion
+      region: this.state.region
     }
 
     // post signup
@@ -328,8 +313,6 @@ export default class LoginSignup extends React.Component {
             gender:this.state.gender,
             country:this.state.country,
             region:this.state.region,
-            homeCountry:this.state.homeCountry,
-            homeRegion:this.state.homeRegion,
             valid:this.state.signupValid
           }
           return wrap(Form2, args)
