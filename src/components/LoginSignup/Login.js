@@ -2,6 +2,9 @@ import React from "react"
 import eye from '../../resource/icons/eye.png'
 import slash_eye from '../../resource/icons/slash_eye.png'
 
+const GUEST_EMAIL = 'dayInTheLifeGuestEmail7@email.com'
+const GUEST_PASSWORD = 'dayInTheLifeGuest7'
+
 export default class Login extends React.Component {
   
   render(){
@@ -27,6 +30,7 @@ export default class Login extends React.Component {
               <span className="forgotpassword">Forgot Password?</span>
             </div>
           </div>
+          <button className="ditl-button-guest modelbutton" onClick={()=>this.props.executeLogin(GUEST_EMAIL,GUEST_PASSWORD,this.props.closeModal)}>LOG IN AS GUEST</button>
           <button className={this.props.valid ? "ditl-button modalbutton" : "ditl-button modalbutton button-disabled"} onClick={this.props.submit}>LOG IN</button>
         </div>
       </div>  

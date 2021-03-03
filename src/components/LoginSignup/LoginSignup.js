@@ -205,9 +205,12 @@ export default class LoginSignup extends React.Component {
 
   handleLogin() {
     var validLogin = this.validateLogin();
-    if(validLogin) 
-      this.executeLogin();
-    else
+    if(validLogin) {
+      var { loginEmail, loginPassword } = this.state
+      var { openOrCloseLoginModal } = this.props
+      this.executeLogin(loginEmail, loginPassword, openOrCloseLoginModal);
+    }
+    else 
       this.setState({ valid: false })
   }
 
@@ -217,16 +220,12 @@ export default class LoginSignup extends React.Component {
     return validEmail && validPwd;
   }
 
-  async executeLogin() {
-    var { openOrCloseLoginModal } = this.props
-    var email = this.state.loginEmail
-    var password = this.state.loginPassword
-
+  async executeLogin(email, password, closeModal) {
 
     // post login
     dataSource.PostData("login", { email : email, password : password})
     .then(function(res) {
-        openOrCloseLoginModal();
+        closeModal();
         window.location.href = `/Home?user=${res.data.userId}`
     }).catch(error => {
       var errorMessage = error.response ? error.response.data.message : SERVICE_DOWN_MESSAGE
@@ -269,7 +268,9 @@ export default class LoginSignup extends React.Component {
             validateEmail:this.validateEmail,
             validatePwd:this.validatePwd,
             showHidePassword:this.showHidePassword,
+            executeLogin:this.executeLogin,
             submit:this.submit,
+            closeModal:this.props.openOrCloseLoginModal,
             serviceErrMsg:this.state.loginErrMsg,
             emailErrMsg:this.state.loginEmailErrMsg,
             passErrMsg:this.state.loginPassErrMsg,
