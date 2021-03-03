@@ -10,11 +10,11 @@ export default class Login extends React.Component {
         <div className="modalbody">
           <p className="errMsg">{this.props.serviceErrMsg}</p>
           <div className="wrapper">
-            <input className="modalinput" id="Email" placeholder="Email" onBlur={this.props.validateEmail} onChange={this.props.validateEmail} maxLength="50" />
+            <input className="modalinput" id="loginEmail" placeholder="Email" value={this.props.email} onBlur={()=>this.props.validateEmail('login')} onChange={()=>this.props.validateEmail('login')} maxLength="50" />
             <p className="errMsg">{this.props.emailErrMsg}</p>
           </div>
           <div className="wrapper">
-            <input className="modalinput" id="Password" placeholder="Password" type={this.props.show ? "text" : "password"} onChange={this.props.validatePwd} onBlur={this.props.validatePwd} maxLength="20" />
+            <input className="modalinput" id="loginPassword" placeholder="Password" type={this.props.show ? "text" : "password"} value={this.props.password} onChange={()=>this.props.validatePwd('login')} onBlur={()=>this.props.validatePwd('login')} maxLength="20" />
             <img className="showicon" alt="eye" src={this.props.show ? slash_eye : eye} onClick={this.props.showHidePassword}></img>
             <p className="errMsg">{this.props.passErrMsg}</p>
           </div>
