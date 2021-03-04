@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import JobProfile from "./components/JobProfile/JobProfile";
 import "./styles.css";
-import { BrowserRouter as Router, Switch, Route, Redirect, withRouter } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Redirect, withRouter, useLocation } from 'react-router-dom'
 import SearchResults from "./components/SearchResults/SearchResults";
 import LoginSignup from "./components/LoginSignup/LoginSignup";
 import DataManager from "./data/DataManager"
@@ -37,7 +37,6 @@ class App extends Component {
   login = () => {
     this.setState({ isAccount: true })
     this.setIsLanding(false)
-    window.url = ""
   }
   logout = () => {
     this.setState({ isAccount: false })
@@ -49,10 +48,12 @@ class App extends Component {
     !this.state.isLoginSignupModalOpen ? body.classList.add("modal-open") : body.classList.remove("modal-open")
     this.state.isLoginSignupModalOpen ? this.setState({ isLoginSignupModalOpen: false }) : this.setState({ isLoginSignupModalOpen: true })
   }
+
   render() {
+    var landing = window.location.pathname === "/"
     return (
       <div className="App">
-        <NavBar isAccount={this.state.isAccount} logout={this.logout} isLanding={this.state.isLanding} openOrCloseLoginModal={this.openOrCloseLoginModal} isSideMenuOpen={this.state.isSideMenuOpen} openSideMenu={this.openSideMenu} />
+        <NavBar isAccount={!landing} logout={this.logout} isLanding={landing} openOrCloseLoginModal={this.openOrCloseLoginModal} isSideMenuOpen={this.state.isSideMenuOpen} openSideMenu={this.openSideMenu} />
         <LoginSignup login={this.login} isLoginSignupModalOpen={this.state.isLoginSignupModalOpen} openOrCloseLoginModal={this.openOrCloseLoginModal} />
         <Switch>
           <Route exact path="/" component={!this.state.isAccount ? LandingPage : () => <DataManager component={Components.HOME_PAGE} />} />
@@ -60,7 +61,7 @@ class App extends Component {
           <Route path="/AccountProfile" component={() => <DataManager component={Components.ACCT_PROFILE} />} />
           <Route path="/Results" component={()=> <DataManager component={Components.RESULTS} />} />
           <Route path="/Create" component={CreateADay} />
-          <Route path="/Home" component={()=> <DataManager component={Components.HOME_PAGE} />} />
+          <Route path="/Home" component={()=> <DataManager component={Components.HOME_PAGE} />} /> 
           <Redirect to="/" />
         </Switch>
       </div>
