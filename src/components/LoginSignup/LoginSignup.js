@@ -224,8 +224,9 @@ export default class LoginSignup extends React.Component {
     // post login
     dataSource.PostData("login", { email : email, password : password})
     .then(res => {
+        localStorage.setItem('userId', res.data.userId)
         closeModal();
-        window.location.href = `/Home?user=${res.data.userId}`
+        window.location.href = `/?user=${res.data.userId}`
         this.props.login()
     }).catch(error => {
       var errorMessage = error.response ? error.response.data.message : SERVICE_DOWN_MESSAGE
@@ -250,9 +251,10 @@ export default class LoginSignup extends React.Component {
     // post signup
     dataSource.PostData("signup", user)
     .then(function(res) {
+        localStorage.setItem('userId', res.data.userId)
         openOrCloseLoginModal();
         this.props.login()
-        window.location.href = `/Home?user=${res.data.userId}`
+        window.location.href = `/?user=${res.data.userId}`
     }).catch(error => {
       var errorMessage = error.response ? error.response.data.message : SERVICE_DOWN_MESSAGE
       this.setState({ signupErrMsg: errorMessage })

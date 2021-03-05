@@ -1,47 +1,19 @@
 import React, { Component } from "react";
 import NavBar from "./components/NavBar/NavBar";
-import JobProfile from "./components/JobProfile/JobProfile";
 import "./styles.css";
 import { BrowserRouter as Router, Switch, Route, Redirect, withRouter, useLocation } from 'react-router-dom'
-import SearchResults from "./components/SearchResults/SearchResults";
 import LoginSignup from "./components/LoginSignup/LoginSignup";
 import DataManager from "./data/DataManager"
 import LandingPage from './components/LandingPage/LandingPage'
 import CreateADay from "./components/Creation/CreateADay"
-import HomePage from "./components/HomePage/HomePage"
 import { Components } from "./data/Constants"
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      isAccount: false,
-      isLanding: true,
       isLoginSignupModalOpen: false
     }
-  }
-  componentDidMount() {
-    this.updateIsLandingIfNeeded(this.props.location.pathname)
-  }
-  componentDidUpdate(prevProps) {
-    if (this.props.location.pathname !== prevProps.location.pathname)
-      this.updateIsLandingIfNeeded(this.props.location.pathname)
-  }
-  updateIsLandingIfNeeded = (pathname) => {
-    var isItLandingAndNotAccount = pathname === "/" && !this.state.isAccount
-    this.setIsLanding(isItLandingAndNotAccount)
-  }
-  setIsLanding = (isLanding) => {
-    this.setState({ isLanding: isLanding })
-  }
-  login = () => {
-    this.setState({ isAccount: true })
-    this.setIsLanding(false)
-  }
-  logout = () => {
-    this.setState({ isAccount: false })
-    this.setIsLanding(true)
-    document.getElementById("SideMenu").classList.add("none")
   }
   openOrCloseLoginModal = () => {
     var body = document.body
@@ -50,18 +22,17 @@ class App extends Component {
   }
 
   render() {
-    var landing = window.location.pathname === "/"
+    const loggedInUser = localStorage.getItem('userId')
     return (
       <div className="App">
-        <NavBar isAccount={!landing} logout={this.logout} isLanding={landing} openOrCloseLoginModal={this.openOrCloseLoginModal} isSideMenuOpen={this.state.isSideMenuOpen} openSideMenu={this.openSideMenu} />
-        <LoginSignup login={this.login} isLoginSignupModalOpen={this.state.isLoginSignupModalOpen} openOrCloseLoginModal={this.openOrCloseLoginModal} />
+        <NavBar loggedInUser={loggedInUser} openOrCloseLoginModal={this.openOrCloseLoginModal} isSideMenuOpen={this.state.isSideMenuOpen} openSideMenu={this.openSideMenu} />
+        <LoginSignup isLoginSignupModalOpen={this.state.isLoginSignupModalOpen} openOrCloseLoginModal={this.openOrCloseLoginModal} />
         <Switch>
-          <Route exact path="/" component={!this.state.isAccount ? LandingPage : () => <DataManager component={Components.HOME_PAGE} />} />
+          <Route exact path="/" component={ loggedInUser ? () => <DataManager component={Components.HOME_PAGE} />  : LandingPage } />
           <Route path="/JobProfile" component={() => <DataManager component={Components.JOB_PROFILE} />} />
           <Route path="/AccountProfile" component={() => <DataManager component={Components.ACCT_PROFILE} />} />
           <Route path="/Results" component={()=> <DataManager component={Components.RESULTS} />} />
           <Route path="/Create" component={CreateADay} />
-          <Route path="/Home" component={()=> <DataManager component={Components.HOME_PAGE} />} /> 
           <Redirect to="/" />
         </Switch>
       </div>

@@ -32,7 +32,7 @@ export default class Experience extends Component {
             <div className="viewbox">
                 <div className="exp-header">
                     <h2>Experience</h2>
-                    <Link to={{ pathname: "/create", search: `?userId=placeholder`}}>
+                    <Link to={{ pathname: "/create", search: `?userId=${localStorage.getItem('userId')}`}}>
                         <img className="add-exp" src={plus} alt="+ Add Exp" />
                     </Link>
                 </div>

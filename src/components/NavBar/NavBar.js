@@ -6,11 +6,13 @@ import '../../css/NavBar/NavBar.css'
 
 export default class NavBar extends React.Component {
   render() {
+    const loggedInUser = this.props.loggedInUser
     return (
-      <div className={this.props.isLanding ? 'navbar landing' : "navbar"}>
-        <NavLeft isLanding={this.props.isLanding}/>
-        <NavSearch isLanding={this.props.isLanding}/>
-        <NavRight isAccount={this.props.isAccount} logout={this.props.logout} openOrCloseLoginModal={this.props.openOrCloseLoginModal} isSideMenuOpen={this.props.isSideMenuOpen} openSideMenu={this.props.openSideMenu}/>
+      <div className={loggedInUser ? 'navbar' : 'navbar landing'}>
+        <NavLeft loggedIn={loggedInUser}/>
+        <NavSearch loggedIn={loggedInUser}/>
+        <NavRight loggedIn={loggedInUser} openOrCloseLoginModal={this.props.openOrCloseLoginModal} 
+          isSideMenuOpen={this.props.isSideMenuOpen} openSideMenu={this.props.openSideMenu}/>
       </div>
   )}
 }
