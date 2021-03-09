@@ -142,6 +142,10 @@
     height: 40px;
 }
 
+.icon-small{
+    height: 30px;
+}
+
 /* Daily Life Summaries Section */
 .dailylifesummaries {
     margin-top: 20px;

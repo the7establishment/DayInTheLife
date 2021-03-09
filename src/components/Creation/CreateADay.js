@@ -5,6 +5,11 @@ import Description from "./Description"
 import Media from "./Media"
 import Review from "./Review"
 import "../../css/Creation/CreateADay.css"
+import { RestDataSource } from "../../data/RestDataSource"
+
+var dataSource = new RestDataSource()
+
+const SERVICE_DOWN_MESSAGE = 'Service is not available at this time. Please try again later.'
 
 export default class CreateADay extends Component {
     constructor(props) {
@@ -92,7 +97,7 @@ export default class CreateADay extends Component {
             case "Media" :
                 return wrap(Media)
             case "Review" :
-                return wrap(Review, this.getDayData())
+                return wrap(Review, this.getDayData(), this.submitForm)
             default :
                 return wrap(Overview,  this.state.overview,  this.updateOverview)
         }
@@ -107,7 +112,20 @@ export default class CreateADay extends Component {
     }
 
     submitForm() {
+        const fromJobProfile = true // placeholder
+        const PATH = fromJobProfile ? '/JobProfile': '/AccountProfile'
+        var data =  { ...this.state.overview }
+        data.description = this.state.description
+        data.userId = localStorage.getItem('userId')
         
+        // post day
+        dataSource.PostData("day", data)
+        .then(function(res) {
+            window.location.href = PATH
+        }).catch(error => {
+            var errorMessage = error.response ? error.response.data.message : SERVICE_DOWN_MESSAGE
+            this.setState({ serviceErrMsg: errorMessage })
+        })
     }
 
     render() {

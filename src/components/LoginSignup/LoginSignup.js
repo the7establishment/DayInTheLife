@@ -223,11 +223,10 @@ export default class LoginSignup extends React.Component {
   async executeLogin(email, password, closeModal) {
     // post login
     dataSource.PostData("login", { email : email, password : password})
-    .then(res => {
-        localStorage.setItem('userId', res.data.userId)
+    .then(async function(res) {
+        await localStorage.setItem('userId', res.data.userId)
         closeModal();
         window.location.href = `/?user=${res.data.userId}`
-        this.props.login()
     }).catch(error => {
       var errorMessage = error.response ? error.response.data.message : SERVICE_DOWN_MESSAGE
       this.setState({ loginErrMsg: errorMessage })
@@ -250,10 +249,9 @@ export default class LoginSignup extends React.Component {
 
     // post signup
     dataSource.PostData("signup", user)
-    .then(function(res) {
-        localStorage.setItem('userId', res.data.userId)
+    .then(async function(res) {
+        await localStorage.setItem('userId', res.data.userId)
         openOrCloseLoginModal();
-        this.props.login()
         window.location.href = `/?user=${res.data.userId}`
     }).catch(error => {
       var errorMessage = error.response ? error.response.data.message : SERVICE_DOWN_MESSAGE
