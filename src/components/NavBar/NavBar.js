@@ -6,7 +6,7 @@ import '../../css/NavBar/NavBar.css'
 
 export default class NavBar extends React.Component {
   render() {
-    const loggedInUser = this.props.loggedInUser
+    const { loggedInUser }=  this.props 
     const isLanding = window.location.pathname == "/" && localStorage.getItem('userId') === null
     return (
       <div className={ isLanding ? 'navbar landing' : 'navbar'}>

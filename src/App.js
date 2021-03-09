@@ -28,7 +28,7 @@ class App extends Component {
         <NavBar loggedInUser={loggedInUser} openOrCloseLoginModal={this.openOrCloseLoginModal} isSideMenuOpen={this.state.isSideMenuOpen} openSideMenu={this.openSideMenu} />
         <LoginSignup isLoginSignupModalOpen={this.state.isLoginSignupModalOpen} openOrCloseLoginModal={this.openOrCloseLoginModal} />
         <Switch>
-          <Route exact path="/" component={ loggedInUser ? () => <DataManager component={Components.HOME_PAGE} />  : LandingPage } />
+          <Route exact path="/" component={ loggedInUser ? () => <DataManager component={Components.HOME_PAGE} />  : LandingPage } /> 
           <Route path="/JobProfile" component={() => <DataManager component={Components.JOB_PROFILE} />} />
           <Route path="/AccountProfile" component={() => <DataManager component={Components.ACCT_PROFILE} />} />
           <Route path="/Results" component={()=> <DataManager component={Components.RESULTS} />} />
