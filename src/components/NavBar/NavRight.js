@@ -14,6 +14,7 @@ export default class NavRight extends React.Component {
   }
   logout = () => {
     localStorage.removeItem('userId')
+    this.closeSideMenu()
   }
   render(){
     const loggedIn = this.props.loggedIn
