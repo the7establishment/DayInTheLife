@@ -54,13 +54,12 @@ export default class SearchResults extends React.Component {
 
   getCardList = () => {
     var pageList = []
-    var i = 0
+    var order = 0
     var begin = (this.state.pageCurrent - 1) * this.state.pageItems
     var end = begin + this.state.pageItems
     pageList = this.state.jobCards.slice(begin, end)
     return pageList.map(card => {
-      i++
-      return <Card key={card.jobId} card={card} order={i}/>
+      return <Card key={card.jobId} card={card} order={order++}/>
     })
   }
 
