@@ -30,8 +30,8 @@ export default class Login extends React.Component {
               <span className="forgotpassword">Forgot Password?</span>
             </div>
           </div>
-          <button className="ditl-button-modal button-green" onClick={()=>this.props.executeLogin(GUEST_EMAIL,GUEST_PASSWORD,this.props.closeModal)}>LOG IN AS GUEST</button>
           <button className={this.props.valid ? "ditl-button-modal button-blue" : "ditl-button-modal button-blue button-disabled"} onClick={this.props.submit} disabled={!this.props.valid}>LOG IN</button>
+          <button className="ditl-button-modal button-green" onClick={()=>this.props.executeLogin(GUEST_EMAIL,GUEST_PASSWORD,this.props.closeModal)}>LOG IN AS GUEST</button>
         </div>
       </div>  
     )
