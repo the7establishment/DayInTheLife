@@ -13,11 +13,29 @@
     grid-column: 2;
     grid-row-gap: 30px;
 }
+@keyframes animateIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.6) translateY(-8px);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
 .card{
     display: grid;
     grid-template-columns: auto 40%;
     background-color: white;
-    height: 284px;
+    height: 284px; 
+    animation-name: animateIn;
+    animation-duration: 350ms;
+    animation-delay: calc(var(--animation-order) * 100ms);
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+}
+.show{
+    opacity: 1;
 }
 .card-left{
     background-color: #FFFFFF;
@@ -162,6 +180,7 @@
     padding: 5px;
     width: fit-content;
 }
+
 .pagecurrent{
     background-color: #659AEB !important;
     color: white;
