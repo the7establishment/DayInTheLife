@@ -158,9 +158,9 @@
     display: flex;
     align-items: flex-end;
     background-color: white;
-    /* justify-content: space-between; */
     border-radius: 3px;
     padding: 5px;
+    width: fit-content;
 }
 .pagecurrent{
     background-color: #659AEB !important;
