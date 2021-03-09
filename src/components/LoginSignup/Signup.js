@@ -27,7 +27,7 @@ export class Form1 extends Component {
             <img className="showicon" alt="eye" src={this.props.show ? slash_eye : eye} onClick={this.props.showHidePassword}></img>
             <p className="errMsg">{this.props.passErrMsg}</p>
           </div>
-          <button className={this.props.valid ? "ditl-button modalbutton" : "ditl-button modalbutton button-disabled"} onClick={() => this.props.changeForm("Form2")}>NEXT</button>
+          <button className={this.props.valid ? "ditl-button-modal button-blue" : "ditl-button-modal button-blue button-disabled"} onClick={() => this.props.changeForm("Form2")}>NEXT</button>
         </div>
       </div>  
     )
@@ -63,8 +63,8 @@ export class Form2 extends Component {
             <RegionDropdown className="modal-combobox" name="region" value={this.props.region} country={this.props.country} onChange={this.props.updateRegion} maxLength="50" />
           </div>
           <div>
-            <button className="ditl-button-back modelbutton" onClick={() => this.props.changeForm("Form1")}>BACK</button>
-            <button className={this.props.valid ? "ditl-button modalbutton-submit" : "ditl-button modalbutton-submit button-disabled"} onClick={this.props.submit}>SUBMIT</button>
+            <button className="ditl-button-modal button-white" onClick={() => this.props.changeForm("Form1")}>BACK</button>
+            <button className={this.props.valid ? "ditl-button-modal button-blue" : "ditl-button-modal button-blue button-disabled"} onClick={this.props.submit}>SUBMIT</button>
           </div>
         </div>
       </div>
