@@ -7,8 +7,9 @@ import '../../css/NavBar/NavBar.css'
 export default class NavBar extends React.Component {
   render() {
     const loggedInUser = this.props.loggedInUser
+    const isLanding = window.location.pathname == "/"
     return (
-      <div className={loggedInUser ? 'navbar' : 'navbar landing'}>
+      <div className={ isLanding ? 'navbar landing' : 'navbar'}>
         <NavLeft loggedIn={loggedInUser}/>
         <NavSearch loggedIn={loggedInUser}/>
         <NavRight loggedIn={loggedInUser} openOrCloseLoginModal={this.props.openOrCloseLoginModal} 
