@@ -33,8 +33,8 @@
     background-color: white;
     height: 284px; 
     animation-name: animateIn;
-    animation-duration: 350ms;
-    animation-delay: calc(var(--animation-order) * 50ms);
+    animation-duration: 150ms;
+    animation-delay: calc(var(--animation-order) * 25ms);
     animation-fill-mode: both;
     animation-timing-function: ease-in-out;
 }
