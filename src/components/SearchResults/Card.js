@@ -62,16 +62,17 @@ export default class Card extends React.Component {
 
   render() {
     var { currentTab } = this.state
-    var { card } = this.props
+    var { card, order } = this.props
     var { tabs } = this.props.card.cardRight
     var details = card.details.map((detail) => <li key={detail} className="card-list gray">{detail}</li>)
     var stars = []
     var location = 'GA'
+    var style = {'--animation-order': order}
     /* for (var i = 0; i < parseInt(card.starNumber); i++) {
       stars.push(<img key={i} src={star} alt="" className="star"></img>)
     } */
     return (
-      <div className="card">
+      <div className="card" style={style}>
         <div className="card-left" style={tabs[currentTab].content.length > 0 ? {} : { gridColumn: "1/span 2" }}>
           <div className="card-detail-left">
             <img src={card.image} alt="" className="cardprofile"></img>

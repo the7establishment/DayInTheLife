@@ -54,11 +54,12 @@ export default class SearchResults extends React.Component {
 
   getCardList = () => {
     var pageList = []
+    var order = 0
     var begin = (this.state.pageCurrent - 1) * this.state.pageItems
     var end = begin + this.state.pageItems
     pageList = this.state.jobCards.slice(begin, end)
     return pageList.map(card => {
-      return <Card key={card.jobId} card={card} />
+      return <Card key={card.jobId} card={card} order={order++}/>
     })
   }
 
@@ -83,16 +84,17 @@ export default class SearchResults extends React.Component {
     return (
       <div className="searchresults gray">
         <div className="results-column">
-          <label className={this.state.jobCards.length > 0 ? "results-count" : "none"}>
-            {this.state.jobCards.length} Results Found for {query}
-          </label>
-          <h1 className={typeof this.state.job === "object" ? "none" : ""}>No Results for {this.state.query}</h1>
           <Pagination 
             pageNum={this.state.pageNum} 
             pageCurrent={this.state.pageCurrent} 
             setCurrentPage={this.setCurrentPage} 
             nextPage={this.nextPage} 
-            prevPage={this.prevPage}/>
+            prevPage={this.prevPage}
+            style={{'transform': 'translateY(45px)'}}/>
+          <label className={this.state.jobCards.length > 0 ? "results-count" : "none"}>
+            {this.state.jobCards.length} Results Found for {query}
+          </label>
+          <h1 className={typeof this.state.job === "object" ? "none" : ""}>No Results for {this.state.query}</h1>
           {this.getCardList()}
           <Pagination 
             pageNum={this.state.pageNum} 
@@ -100,6 +102,7 @@ export default class SearchResults extends React.Component {
             setCurrentPage={this.setCurrentPage} 
             nextPage={this.nextPage} 
             prevPage={this.prevPage}
+            style={{'paddingBottom': '30px'}}
             />
         </div>
       </div>
