@@ -18,6 +18,9 @@ export class Form1 extends Component {
             <input className="modalinput" id="lastName" placeholder="Last Name" value={this.props.lastName} onBlur={()=>this.props.validateName("last")} onChange={()=>this.props.validateName("last")} maxLength="50" />
             <p className="errMsg">{this.props.lastNameErrMsg}</p>
           </div>
+          <div className='wrapper'>
+            <input className="modalinput" id="lastName" placeholder="Last Name" onBlur={this.props.validateName} onChange={this.props.validateName} maxLength="50" />
+          </div>
           <div className="wrapper">
             <input className="modalinput" id="signupEmail" placeholder="Email" value={this.props.email} onBlur={()=>this.props.validateEmail('signup')} onChange={()=>this.props.validateEmail('signup')} maxLength="50" />
             <p className="errMsg">{this.props.emailErrMsg}</p>
