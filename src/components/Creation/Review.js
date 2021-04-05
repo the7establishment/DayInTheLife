@@ -40,7 +40,7 @@ export default function Review(props) {
                 </div>    
             </div>
             <div className="viewbox review-description">
-                <h2>A Day in the Life of [ Username ] ...</h2>
+                <h2>A Day in the Life of {props.user.firstName}...</h2>
                 <p className="review-desc-text">{ description.text }</p>
             </div>
             { 

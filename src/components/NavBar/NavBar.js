@@ -10,8 +10,8 @@ export default class NavBar extends React.Component {
     const isLanding = window.location.pathname == "/" && localStorage.getItem('userId') === null
     return (
       <div className={ isLanding ? 'navbar landing' : 'navbar'}>
-        <NavLeft loggedIn={loggedInUser}/>
-        <NavSearch loggedIn={loggedInUser}/>
+        <NavLeft loggedIn={loggedInUser} isLanding={isLanding}/>
+        <NavSearch isLanding={isLanding}/>
         <NavRight loggedIn={loggedInUser} openOrCloseLoginModal={this.props.openOrCloseLoginModal} 
           isSideMenuOpen={this.props.isSideMenuOpen} openSideMenu={this.props.openSideMenu}/>
       </div>

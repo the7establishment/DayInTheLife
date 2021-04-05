@@ -32,7 +32,7 @@ class App extends Component {
           <Route path="/JobProfile" component={() => <DataManager component={Components.JOB_PROFILE} />} />
           <Route path="/AccountProfile" component={() => <DataManager component={Components.ACCT_PROFILE} />} />
           <Route path="/Results" component={()=> <DataManager component={Components.RESULTS} />} />
-          <Route path="/Create" component={CreateADay} />
+          <Route path="/Create" component={()=> <DataManager component={Components.CREATE} />} />
           <Redirect to="/" />
         </Switch>
       </div>

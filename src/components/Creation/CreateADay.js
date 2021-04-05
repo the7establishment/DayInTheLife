@@ -26,7 +26,8 @@ export default class CreateADay extends Component {
             overview: { isValid: false },
             routine: {},
             description: { isValid: false },
-            media: {}
+            media: {},
+            serviceErrMsg: ""
 
         }
     }
@@ -86,20 +87,48 @@ export default class CreateADay extends Component {
     }
 
     selectComponent(comp) {
-        const wrap = (Component, data, submit, setValid, update) => <Component data={ data } submit={ submit } setValid={ setValid } update={ update }></Component>
+        var args
+        const wrap = (Component, args) => <Component {...args}/>
         switch (comp) {
             case "Overview" : 
-                return wrap(Overview, this.state.overview, this.submitOverview, this.setOverviewValid, this.updateOverview)
+                args = {
+                    data: this.state.overview,
+                    submit: this.submitOverview,
+                    setValid: this.setOverviewValid,
+                    update: this.updateOverview
+                }
+                return wrap(Overview, args)
             case "Routine" : 
-                return wrap(Routine)
+                args = {}
+                return wrap(Routine, args)
             case "Description" :
-                return wrap(Description, this.state.description, this.submitDescription, this.setDescriptionValid, this.updateDescription)
+                args = {
+                    data: this.state.description,
+                    submit: this.submitDescription,
+                    setValid: this.setDescriptionValid,
+                    update: this.updateDescription,
+                    user: this.props.user
+                }
+                return wrap(Description, args)
             case "Media" :
-                return wrap(Media)
+                args = {}
+                return wrap(Media, args)
             case "Review" :
-                return wrap(Review, this.getDayData(), this.submitForm)
+                args = {
+                    data: this.getDayData(),
+                    submit: this.submitForm.bind(this),
+                    user: this.props.user,
+                    serviceErrMsg: this.state.serviceErrMsg
+                }
+                return wrap(Review, args)
             default :
-                return wrap(Overview,  this.state.overview,  this.updateOverview)
+                args = {
+                    data: this.state.overview,
+                    submit: this.submitOverview,
+                    setValid: this.setOverviewValid,
+                    update: this.updateOverview
+                }
+                return wrap(Overview,  args)
         }
     }
 
@@ -112,10 +141,10 @@ export default class CreateADay extends Component {
     }
 
     submitForm() {
-        const fromJobProfile = true // placeholder
-        const PATH = fromJobProfile ? '/JobProfile': '/AccountProfile'
+        const fromJobProfile = false // placeholder
+        const PATH = fromJobProfile ? '/JobProfile': '/AccountProfile?user=' + localStorage.getItem('userId')
         var data =  { ...this.state.overview }
-        data.description = this.state.description
+        data.description = this.state.description.text
         data.userId = localStorage.getItem('userId')
         
         // post day
