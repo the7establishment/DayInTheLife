@@ -9,19 +9,20 @@ export default function UserProfile(props) {
         if(region) info += region
         return info
     }
+    const URL = `/AccountProfile?user=${localStorage.getItem('userId')}`
     return (
         <div className="viewbox">
             <div className="user-profile-top">
                 <div className="user-id">
                     ID: { user.userId }
                 </div> 
-                <a href="/AccountProfile">
+                <a href={URL}>
                     <img className="profile-pic" alt="" src={require("../../resource/icons/default_user.png")}/>
                 </a>
             </div>
             
             <div className="flex-start">
-                <a className="largetext ditl-a" href="/AccountProfile">{ user.firstName }</a>
+                <a className="largetext ditl-a" href={URL}>{ user.firstName }</a>
                 <a className="edit-profile">
                     <img className="edit-profile" alt="" src={require("../../resource/icons/edit.png")}/>
                 </a>

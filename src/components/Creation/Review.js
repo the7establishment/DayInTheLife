@@ -4,6 +4,7 @@ import plane from "../../resource/icons/plane.png"
 import balance from "../../resource/icons/balance.png"
 import walk from "../../resource/icons/walk.png"
 import home from "../../resource/icons/home.png"
+import error from "../../resource/icons/error.png"
 
 
 const usd = new Intl.NumberFormat('en-US',
@@ -39,10 +40,17 @@ export default function Review(props) {
                 </div>    
             </div>
             <div className="viewbox review-description">
-                <h2>A Day in the Life of [ Username ] ...</h2>
+                <h2>A Day in the Life of {props.user.firstName}...</h2>
                 <p className="review-desc-text">{ description.text }</p>
             </div>
-            <button className="btn-reg btn-red">
+            { 
+            props.serviceErrMsg && 
+            <div className='viewbox errorbox'>
+                <img className='icon-small error-icon' src={error} alt='ERROR'/>
+                <p className="errMsg-create">{props.serviceErrMsg}</p>
+            </div>
+            }
+            <button className="btn-reg btn-red" onClick={props.submit}>
                 Submit
             </button> 
         </div>

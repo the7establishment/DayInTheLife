@@ -19,25 +19,8 @@
     outline: none;
 }
 
-.ditl-button-back {
-    background-color: #FFFFFF;
-    border-color: #707070;
-    color: #707070;
-    border: 1px solid black;
+.ditl-button-modal {
     border-radius: 5px;
-    padding: 10px;
-    font-size: 15px;
-    outline: none;
-    width: 100%;
-    margin-top: 20px;
-    cursor: pointer;
-}
-
-.ditl-button-guest {
-    background-color: hsl(81, 31%, 66%);
-    color: white;
-    border-radius: 5px;
-    border-color: hsl(82, 10%, 23%);
     border: none;
     padding: 10px;
     font-size: 15px;
@@ -46,6 +29,25 @@
     width: 100%;
     margin-top: 20px;
     cursor: pointer;
+}
+
+.button-blue {
+    background-color: #659AEB;
+    color: white;
+    border-color: hsl(82, 10%, 23%);
+}
+
+.button-green {
+    background-color: hsl(81, 31%, 66%);
+    color: white;
+    border-color: hsl(82, 10%, 23%);
+}
+
+.button-white {
+    background-color: #FFFFFF;
+    border-color: #707070;
+    color: #707070;
+    border: 1px solid black;
 }
 
 .profile{
@@ -140,6 +142,10 @@
 
 .icon{
     height: 40px;
+}
+
+.icon-small{
+    height: 30px;
 }
 
 /* Daily Life Summaries Section */

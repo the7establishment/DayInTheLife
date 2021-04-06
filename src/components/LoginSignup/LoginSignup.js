@@ -221,12 +221,12 @@ export default class LoginSignup extends React.Component {
   }
 
   async executeLogin(email, password, closeModal) {
-
     // post login
     dataSource.PostData("login", { email : email, password : password})
-    .then(function(res) {
+    .then(async function(res) {
+        await localStorage.setItem('userId', res.data.userId)
         closeModal();
-        window.location.href = `/Home?user=${res.data.userId}`
+        window.location.href = `/?user=${res.data.userId}`
     }).catch(error => {
       var errorMessage = error.response ? error.response.data.message : SERVICE_DOWN_MESSAGE
       this.setState({ loginErrMsg: errorMessage })
@@ -249,9 +249,10 @@ export default class LoginSignup extends React.Component {
 
     // post signup
     dataSource.PostData("signup", user)
-    .then(function(res) {
+    .then(async function(res) {
+        await localStorage.setItem('userId', res.data.userId)
         openOrCloseLoginModal();
-        window.location.href = `/Home?user=${res.data.userId}`
+        window.location.href = `/?user=${res.data.userId}`
     }).catch(error => {
       var errorMessage = error.response ? error.response.data.message : SERVICE_DOWN_MESSAGE
       this.setState({ signupErrMsg: errorMessage })
@@ -268,7 +269,7 @@ export default class LoginSignup extends React.Component {
             validateEmail:this.validateEmail,
             validatePwd:this.validatePwd,
             showHidePassword:this.showHidePassword,
-            executeLogin:this.executeLogin,
+            executeLogin:this.executeLogin.bind(this),
             submit:this.submit,
             closeModal:this.props.openOrCloseLoginModal,
             serviceErrMsg:this.state.loginErrMsg,

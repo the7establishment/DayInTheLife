@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 
-export default class NavLeft extends React.Component {
-  render(){
+export default function NavLeft(props) {
+  
+    const { loggedIn, isLanding } =  props
+    const URL = loggedIn ? `/?user=${loggedIn}` : "/"
     return (
-      <Link to="/" className="navleft center" style={{textDecoration: 'none', color: this.props.isLanding ? " white" : "black"}}>
+      <Link to={URL} className="navleft center" style={{textDecoration: 'none', color: isLanding ? 'white' : 'black'}}>
         <div>DayInTheLife</div>
       </Link>
     )
-  }
 }

@@ -12,7 +12,7 @@ export default class Description extends Component {
             isValid: props.data.isValid || false
         }
         this.rules = {
-            text: { required: true }
+            text: { required: true, maxWordLength: 40, charLimit: 2500 }
         }
     }
 
@@ -36,7 +36,7 @@ export default class Description extends Component {
                     <div className="viewbox create-desc-view">
                         <img className="create-view-icon" src={user} alt=""/>
                         <div className="create-description">
-                            <p>A Day in the Life of [ Username ] ...</p>
+                            <p>A Day in the Life of {this.props.user.firstName}...</p>
                             <textarea className="create-textarea" name="text"
                                 onChange={ this.updateFormValue } value={ this.state.text }/>
                             <ValidationMessage field="text" />

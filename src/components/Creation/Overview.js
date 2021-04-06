@@ -54,23 +54,23 @@ export default class Overview extends Component {
 
     getPercentages(numOptions) {
         var result = []
-        result.push(<option>{defaultOpt}</option>)
+        result.push(<option key="--">{defaultOpt}</option>)
         var i;
         for(i=0; i<numOptions+1; i++) {
             var div;
             if(i==0) div=0;
             else div = i/10;
             var val = Math.round(100 * div) + "%";
-            result.push(<option>{val}</option>)
+            result.push(<option key={val}>{val}</option>)
         }
         return result
     }
 
     getOptions(list) {
         var result = []
-        result.push(<option>{defaultOpt}</option>)
+        result.push(<option key="--">{defaultOpt}</option>)
         list.forEach(val => {
-            result.push(<option>{val}</option>)
+            result.push(<option key={val}>{val}</option>)
         })
         return result;
     }

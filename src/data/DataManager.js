@@ -6,6 +6,7 @@ import SearchResults from "../components/SearchResults/SearchResults"
 import { RestDataSource } from "../data/RestDataSource"
 import Splash from "../components/Splash/SplashScreen"
 import { DataMap } from "../data/Constants"
+import CreateADay from "../components/Creation/CreateADay"
 
 var dataSource = new RestDataSource()
 
@@ -65,6 +66,8 @@ export default class DataManager extends Component {
                 return wrap(SearchResults)
             case "HomePage":
                 return wrap(HomePage)
+            case "Create":
+                return wrap(CreateADay)
             default:
                 return wrap(HomePage)
         }
