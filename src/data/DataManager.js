@@ -7,6 +7,7 @@ import { RestDataSource } from "../data/RestDataSource"
 import Splash from "../components/Splash/SplashScreen"
 import { DataMap } from "../data/Constants"
 import CreateADay from "../components/Creation/CreateADay"
+import {HandlerFactory} from "./Handlers"
 
 var dataSource = new RestDataSource()
 
@@ -87,9 +88,19 @@ export default class DataManager extends Component {
         return params
     }
 
+    updateData = (data, loading) => {
+        this.setState({
+            data: data,
+            loading: loading
+        })
+    }
+
     componentDidMount = () => {
         var params = this.getParams()
-        this.loadData(DataMap[this.props.component], params)
+        //this.loadData(DataMap[this.props.component], params)
+        var loadData = HandlerFactory[this.props.component]
+        loadData(DataMap[this.props.component], params, this.updateData)
+
     }
 
     render() {
