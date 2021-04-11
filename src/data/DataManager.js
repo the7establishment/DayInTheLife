@@ -75,16 +75,15 @@ export default class DataManager extends Component {
     }
 
     getParams = () => {
-        var params = [], tmp = [];
-        window.location.search
-        .substr(1)
-        .split("&")
-        .forEach(function (nameAndValue) {
-            tmp = nameAndValue.split("=");
-            var tempObject = {}
-            tempObject= {[tmp[0]]: tmp[1]}
-            params.push(tempObject) //add value object to param
-        });
+        var params = {}, tmp = [], search = window.location.search
+        if(search !== '')
+            window.location.search
+            .substr(1)
+            .split("&")
+            .forEach(function (nameAndValue) {
+                tmp = nameAndValue.split("=");
+                params[tmp[0]] = tmp[1]
+            });
         return params
     }
 
@@ -99,7 +98,7 @@ export default class DataManager extends Component {
         var params = this.getParams()
         //this.loadData(DataMap[this.props.component], params)
         var loadData = HandlerFactory[this.props.component]
-        loadData(DataMap[this.props.component], params, this.updateData)
+        loadData(params, this.updateData, DataMap[this.props.component])
 
     }
 

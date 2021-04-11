@@ -20,6 +20,7 @@ export default class StatsComponent extends React.Component {
 
   formatSalary = (salaryValues) => {
     var low, high, salary;
+    if(typeof salaryValues === 'string') return `$ ${addComma(salaryValues)}`
     if(salaryValues.length !== 0){
       if(!salaryValues[1]){
         low = salaryValues[0].Pct10
