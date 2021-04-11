@@ -17,6 +17,12 @@
     font-size: 15px;
     width: 130px;
     outline: none;
+    cursor: pointer;
+}
+
+.ditl-button:disabled{
+    background-color: #ccc;
+    cursor: default;
 }
 
 .ditl-button-modal {
@@ -55,10 +61,6 @@
     grid-column: 2;
     grid-template-columns: 68% 32% ;
     grid-column-gap: 20px;
-}
-
-.profile div div{
-    background-color: #FFFFFF;
 }
 
 .profile h2 {
@@ -205,6 +207,20 @@
 .summary-summary{
     color:#7D7D7D;
     grid-column: 1 / span 2;
+}
+
+.textarea{
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline-style: none;
+    padding: 10px 10px;
+    resize: none;
+}
+
+#addADay{
+    display: grid;
+    grid-row-gap: 10px;
 }
 
 .likes{

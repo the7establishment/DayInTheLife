@@ -1,7 +1,6 @@
 import validator from "validator"
 
 // These are common rules to be applied to forms
-
 export function ValidateData(data, rules) {
     let errors = {};
     Object.keys(data).forEach(field => {
@@ -33,13 +32,13 @@ export function ValidateData(data, rules) {
         }
     })
     return errors;
+}
 
-    function containsLongWord(val, limit) {
-        let arr = val.split(' ');
-        for(let i=0; i<arr.length; i++) {
-            if(arr[i].length > limit) 
-                return true
-        }
-        return false
+const containsLongWord = (val, limit) => {
+    let arr = val.split(' ');
+    for(let i=0; i<arr.length; i++) {
+        if(arr[i].length > limit) 
+            return true
     }
+    return false
 }

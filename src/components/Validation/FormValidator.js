@@ -1,75 +1,75 @@
-import React, { Component } from "react"
+import React, { useEffect, useState } from "react"
 import { ValidateData } from "./Validation"
 import { ValidationContext } from "./ValidationContext"
 
-export class FormValidator extends Component {
-    
-    constructor(props) {
-        super(props);
-        this.state = {
-            errors: {},
-            dirty: {},
-            formSubmitted: false,
-            getMessagesForField: this.getMessagesForField
-        }
-    }
+export function FormValidator(props) {
+  const { 
+      data, rules, setIsValid,
+      submit, children, buttonTxt,
+  } = props
+  const { isValid } = props.data
 
-    static getDerivedStateFromProps(props, state) {
-        var errors = ValidateData(props.data, props.rules);
-        let result = {
-            errors: errors
-        };
-        let formValid = Object.keys(errors).length === 0;
-        if(formValid !== props.data.isValid) {
-            var data = props.data;
-            data.isValid = formValid;
-            props.setIsValid(data)
-        }
-        return result;
-    }
+  const [errors, setErrors] = useState(ValidateData(data, rules))
+  const [dirty, setDirty] = useState({})
+  const [formSubmitted, setFormSubmitted] = useState(false)
 
-    get formValid() {
-        return Object.keys(this.state.errors).length === 0;
-    }
+  var isFormValid = Object.keys(errors).length === 0;
 
-    handleChange = (ev, errors) => {
-        let name = ev.target.name;
-        this.setState(state => state.dirty[name] = true);
-    }
+  //this will run everytime data props is changed/updated
+  useEffect(
+    () => {
+      setErrors(ValidateData(data, rules))
+      isFormValid = Object.keys(errors).length === 0;
+      if(isFormValid !== isValid) {
+        const formData = data;
+        formData.isValid = isFormValid;
+        setIsValid(formData)
+      }
+    },
+  [data])
 
-    handleClick = (ev) => {
-        this.setState({ formSubmitted: true }, () => {
-            if (this.formValid) {
-                this.props.submit(this.props.data)
-            } 
-        });
-    }
+  const handleChange = (event) => {
+    const name = event.target.name;
+    setDirty({...dirty, [name]:true})
+  }
 
-    getButtonClasses() {
-        return this.state.formSubmitted && !this.formValid
-            ? "btn-dsbld" : "btn-navy";
-    }
+  const handleClick = () => {
+    setFormSubmitted(true)
+    if(isFormValid) submit(data)
+  }
 
-    getMessagesForField = (field) => {
-        return (this.state.formSubmitted || this.state.dirty[field]) ?
-            this.state.errors[field] || [] : []
-    }
+  const getMessagesForField = field => {
+    return (formSubmitted || dirty[field]) 
+      ? errors[field] || [] 
+      : []
+  }
 
-    render() {
-        return <React.Fragment>
-            <ValidationContext.Provider value={ this.state }>
-                <div onChange={ (e) => this.handleChange(e, this.state.errors) }>
-                    { this.props.children }
-                </div>
-            </ValidationContext.Provider>
+  const getButtonClasses = () => {
+    return formSubmitted && !isFormValid
+      ? "btn-dsbld" 
+      : "btn-navy";
+  }
 
-            <div className="text-center">
-                <button className={ `btn-reg ${ this.getButtonClasses() }`}
-                    onClick={ this.handleClick }
-                    disabled={ this.state.formSubmitted && !this.formValid } >
-                        { this.props.buttonTxt }
-                    </button>
-            </div>
-        </React.Fragment>
-    }
+  return (
+    <React.Fragment>
+      <ValidationContext.Provider value={{
+        errors: errors,
+        dirty: dirty,
+        formSubmitted: formSubmitted,
+        getMessagesForField: getMessagesForField
+      }}>
+        <div onChange={ (e) => handleChange(e, errors) }>
+          { children }
+        </div>
+      </ValidationContext.Provider>
+
+      <div className="text-center">
+        <button className={ `btn-reg ${ getButtonClasses() }`}
+          onClick={ handleClick }
+          disabled={ formSubmitted && !isFormValid } >
+            { buttonTxt }
+        </button>
+      </div>
+    </React.Fragment>
+  )
 }
