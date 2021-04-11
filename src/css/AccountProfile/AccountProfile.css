@@ -226,3 +226,16 @@
 .visual {
     min-height: 100px;
 }
+
+.account-overview {
+    padding-left: 30px;
+    padding-top: 15px;
+    row-gap: 20px;
+}
+
+.account-overview span {
+    margin-top: 20px; 
+    padding-left: 10px;
+    padding-right: 80px;
+    word-wrap: break-word;
+}

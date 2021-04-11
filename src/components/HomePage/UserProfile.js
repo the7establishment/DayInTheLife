@@ -9,7 +9,7 @@ export default function UserProfile(props) {
         if(region) info += region
         return info
     }
-    const URL = `/AccountProfile?user=${localStorage.getItem('userId')}`
+    const URL = `/AccountProfile?user=${localStorage.getItem('userId')}`/*&day=${localStorage.getItem('userId')}`*/
     return (
         <div className="viewbox">
             <div className="user-profile-top">

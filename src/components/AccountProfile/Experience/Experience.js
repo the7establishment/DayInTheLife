@@ -21,7 +21,7 @@ export default class Experience extends Component {
         return (
             this.props.days.map(day =>
                 <li key={day._id} className={this.getClassName(day)} onClick={() => this.props.callback(day._id)}>
-                    {day.job}
+                    {day.title}
                 </li>
             )
         )
