@@ -37,8 +37,8 @@ export default class Overview extends Component {
   }
 
   updateFormValue = (event) => {
-    const { name, value } = event.target; 
-    if(value == '--') value = null;
+    var { name, value } = event.target; 
+    if(value == '--') value = '';
     this.setState({ [name]: value },
       () => this.props.update(this.state))
   }
