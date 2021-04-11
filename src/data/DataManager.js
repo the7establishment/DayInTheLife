@@ -96,7 +96,6 @@ export default class DataManager extends Component {
 
     componentDidMount = () => {
         var params = this.getParams()
-        //this.loadData(DataMap[this.props.component], params)
         var loadData = HandlerFactory[this.props.component]
         loadData(params, this.updateData, DataMap[this.props.component])
 

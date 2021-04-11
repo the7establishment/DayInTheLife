@@ -22,11 +22,10 @@ export class RestDataSource {
 
     deriveUrl = (dataType, params) => {
         var url = Urls[dataType]
-        //var parameters = ''
+        
         for (let key in params) {
             url += `/${key}/${params[key]}`
         }
-        //url += params.reduce((parameters,param) => parameters += `/${param}` , '')
         return url
     }
 
