@@ -7,6 +7,7 @@ import { RestDataSource } from "../data/RestDataSource"
 import Splash from "../components/Splash/SplashScreen"
 import { DataMap } from "../data/Constants"
 import CreateADay from "../components/Creation/CreateADay"
+import {HandlerFactory} from "./Handlers"
 
 var dataSource = new RestDataSource()
 
@@ -74,22 +75,30 @@ export default class DataManager extends Component {
     }
 
     getParams = () => {
-        var params = [], tmp = [];
-        window.location.search
-        .substr(1)
-        .split("&")
-        .forEach(function (nameAndValue) {
-            tmp = nameAndValue.split("=");
-            var tempObject = {}
-            tempObject= {[tmp[0]]: tmp[1]}
-            params.push(tempObject) //add value object to param
-        });
+        var params = {}, tmp = [], search = window.location.search
+        if(search !== '')
+            window.location.search
+            .substr(1)
+            .split("&")
+            .forEach(function (nameAndValue) {
+                tmp = nameAndValue.split("=");
+                params[tmp[0]] = tmp[1]
+            });
         return params
+    }
+
+    updateData = (data, loading) => {
+        this.setState({
+            data: data,
+            loading: loading
+        })
     }
 
     componentDidMount = () => {
         var params = this.getParams()
-        this.loadData(DataMap[this.props.component], params)
+        var loadData = HandlerFactory[this.props.component]
+        loadData(params, this.updateData, DataMap[this.props.component])
+
     }
 
     render() {

@@ -19,6 +19,7 @@ export default class DayDisplay extends Component {
                 currentTab={ this.state.currentTab }
                 callback={(newTab) => this.setState({currentTab: newTab})} />
             <hr/>
+            {/*}
             <div className="largetext">
                 <span>{this.props.day.job}</span>
             </div>
@@ -26,7 +27,8 @@ export default class DayDisplay extends Component {
                 <span>{this.props.day.company}</span> 
             </div>
             <hr className="spacer-shrt"/>
-            <p>{this.props.day.items[this.state.currentTab].body}</p>
+        */}
+            <div>{this.props.day.items[this.state.currentTab].body}</div>
             
         </div>
     )}

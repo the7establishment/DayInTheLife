@@ -10,19 +10,22 @@ export class RestDataSource {
         this.error_handler = err_handler || (() => { });
     }
   
-    GetData = (dataType, params = []) =>{
+    GetData = (dataType, params = {}) =>{
         var url = this.deriveUrl(dataType, params)
         return this.SendRequest(GET, url)
     }
 
-    PostData = (dataType, data, params = []) => {
+    PostData = (dataType, data, params = {}) => {
         var url = this.deriveUrl(dataType, params)
         return this.SendRequest(POST, url, data)
     }
 
     deriveUrl = (dataType, params) => {
         var url = Urls[dataType]
-        url += params.reduce((parameters,param) => parameters += `/${param}` , '')
+        
+        for (let key in params) {
+            url += `/${key}/${params[key]}`
+        }
         return url
     }
 
