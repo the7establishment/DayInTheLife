@@ -28,8 +28,8 @@ function Handler(param, updateData, paths) {
             updateData(data, false)
         })
         .catch(error => {
-            console.log(error)
-            updateData(param[0], false)
+            console.log(error.message)
+            updateData(error.response.data, false)
         })
     
 }
