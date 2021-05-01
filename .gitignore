@@ -91,5 +91,3 @@ dist/
 .dynamodb/
 
 .vscode/
-
-package-lock.json
