@@ -9,12 +9,14 @@ export default class HomePage extends Component {
   constructor(props){
     super(props)
     this.state = {
-      goToAccountProfile: false
+      goToAccountProfile: false,
+      searchForADay: false
     }
   }
 
   componentDidMount(){
     this.setState({goToAccountProfile: localStorage.getItem("goToAccountProfile")})
+    this.setState({searchForADay: localStorage.getItem("searchForADay")})
   }
 
   getHistory() {
@@ -35,6 +37,7 @@ export default class HomePage extends Component {
   }
 
   render() {
+    const { goToAccountProfile, searchForADay } = this.state
     return (
       <div className="page-slim">
         <div className="stage-type-slim">
@@ -66,7 +69,7 @@ export default class HomePage extends Component {
               <FormControlLabel 
                 control={
                   <Checkbox 
-                  checked={false}
+                  checked={searchForADay}
                   color='primary'
                   onClick={()=> console.log('word')}
                 />
@@ -76,7 +79,7 @@ export default class HomePage extends Component {
               <FormControlLabel 
                 control={
                   <Checkbox 
-                  checked={this.state.goToAccountProfile}
+                  checked={goToAccountProfile}
                   color='primary'
                   onClick={() => this.goToAccountProfile()}
                 />

@@ -7,6 +7,7 @@ export default class NavSearch extends React.Component {
       var query = event.target.value
       window.location.href = `/Results?job=${query}`
     }
+    localStorage.setItem("searchForADay", true)
   }
 
   render() {
