@@ -150,6 +150,7 @@ export default class CreateADay extends Component {
         // post day
         dataSource.PostData("day", data)
         .then(function(res) {
+            localStorage.setItem("createADay", true)
             window.location.href = PATH
         }).catch(error => {
             var errorMessage = error.response ? error.response.data.message : SERVICE_DOWN_MESSAGE

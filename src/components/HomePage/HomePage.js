@@ -10,13 +10,17 @@ export default class HomePage extends Component {
     super(props)
     this.state = {
       goToAccountProfile: false,
-      searchForADay: false
+      searchForADay: false,
+      createADay: false
     }
   }
 
   componentDidMount(){
-    this.setState({goToAccountProfile: localStorage.getItem("goToAccountProfile")})
-    this.setState({searchForADay: localStorage.getItem("searchForADay")})
+    this.setState({
+      goToAccountProfile: localStorage.getItem("goToAccountProfile"),
+      searchForADay: localStorage.getItem("searchForADay"),
+      createADay: localStorage.getItem("createADay")
+    })
   }
 
   getHistory() {
@@ -35,9 +39,12 @@ export default class HomePage extends Component {
     window.location.href = `AccountProfile?user=${localStorage.getItem('userId')}`
     localStorage.setItem('goToAccountProfile', true)
   }
+  goToCreateADay() {
+    window.location.href = `create?user=${localStorage.getItem('userId')}`
+  }
 
   render() {
-    const { goToAccountProfile, searchForADay } = this.state
+    const { goToAccountProfile, searchForADay, createADay } = this.state
     return (
       <div className="page-slim">
         <div className="stage-type-slim">
@@ -68,7 +75,7 @@ export default class HomePage extends Component {
               <h3 className="home-header">Tutorial Checklist</h3>
               <FormControlLabel 
                 control={
-                  <Checkbox 
+                  <Checkbox
                   checked={searchForADay}
                   color='primary'
                   onClick={()=> console.log('word')}
@@ -89,8 +96,9 @@ export default class HomePage extends Component {
               <FormControlLabel 
                 control={
                   <Checkbox 
-                  checked={false}
+                  checked={createADay}
                   color='primary'
+                  onClick={() => this.goToCreateADay()}
                 />
                 }
                 label="Go Create a Day"
