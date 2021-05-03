@@ -6,6 +6,16 @@ import DisplayItem from "./DisplayItem"
 import { Checkbox, FormControlLabel } from '@material-ui/core'
 
 export default class HomePage extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      goToAccountProfile: false
+    }
+  }
+
+  componentDidMount(){
+    this.setState({goToAccountProfile: localStorage.getItem("goToAccountProfile")})
+  }
 
   getHistory() {
     return <PreviewCard />
@@ -17,6 +27,11 @@ export default class HomePage extends Component {
 
   getTrending() {
     return <DisplayItem />
+  }
+
+  goToAccountProfile() {
+    window.location.href = `AccountProfile?user=${localStorage.getItem('userId')}`
+    localStorage.setItem('goToAccountProfile', true)
   }
 
   render() {
@@ -53,6 +68,7 @@ export default class HomePage extends Component {
                   <Checkbox 
                   checked={false}
                   color='primary'
+                  onClick={()=> console.log('word')}
                 />
                 }
                 label="Go search for a Day"
@@ -60,8 +76,9 @@ export default class HomePage extends Component {
               <FormControlLabel 
                 control={
                   <Checkbox 
-                  checked={false}
+                  checked={this.state.goToAccountProfile}
                   color='primary'
+                  onClick={() => this.goToAccountProfile()}
                 />
                 }
                 label="Go to Account Profile"
