@@ -46,12 +46,12 @@ export default class HomePage extends Component {
               { this.getTrending() }
               { this.getTrending() }
             </div> */}
-            <div className="viewbox-no-pad">
-              <h3 className="home-header">Checklist</h3>
+            <div className="viewbox">
+              <h3 className="home-header">Tutorial Checklist</h3>
               <FormControlLabel 
                 control={
                   <Checkbox 
-                  checked={true}
+                  checked={false}
                   color='primary'
                 />
                 }
@@ -60,7 +60,7 @@ export default class HomePage extends Component {
               <FormControlLabel 
                 control={
                   <Checkbox 
-                  checked={true}
+                  checked={false}
                   color='primary'
                 />
                 }
@@ -69,7 +69,7 @@ export default class HomePage extends Component {
               <FormControlLabel 
                 control={
                   <Checkbox 
-                  checked={true}
+                  checked={false}
                   color='primary'
                 />
                 }
