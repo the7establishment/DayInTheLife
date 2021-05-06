@@ -105,7 +105,7 @@ export default class HomePage extends Component {
                 }
                 label="Go Create a Day"
               />
-              {goToAccountProfile && searchForADay && createADay && <Giphy query="Congratulations"/>}
+              {goToAccountProfile && searchForADay && createADay && <Giphy query="Good Job"/>}
             </div>
           </div>
         </div>
