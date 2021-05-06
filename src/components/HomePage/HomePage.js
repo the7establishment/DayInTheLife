@@ -4,6 +4,7 @@ import UserProfile from "./UserProfile"
 import PreviewCard from "./PreviewCard"
 import DisplayItem from "./DisplayItem"
 import { Checkbox, FormControlLabel } from '@material-ui/core'
+import Giphy from '../Gif/Gif'
 
 export default class HomePage extends Component {
   constructor(props){
@@ -11,7 +12,8 @@ export default class HomePage extends Component {
     this.state = {
       goToAccountProfile: false,
       searchForADay: false,
-      createADay: false
+      createADay: false,
+      completeChecklist: false
     }
   }
 
@@ -19,7 +21,7 @@ export default class HomePage extends Component {
     this.setState({
       goToAccountProfile: localStorage.getItem("goToAccountProfile"),
       searchForADay: localStorage.getItem("searchForADay"),
-      createADay: localStorage.getItem("createADay")
+      createADay: localStorage.getItem("createADay"),
     })
   }
 
@@ -103,6 +105,7 @@ export default class HomePage extends Component {
                 }
                 label="Go Create a Day"
               />
+              {goToAccountProfile && searchForADay && createADay && <Giphy query="Congratulations"/>}
             </div>
           </div>
         </div>
